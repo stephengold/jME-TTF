@@ -7,7 +7,7 @@ plugins {
 }
 
 ext {
-    group = 'com.atr'
+    group = 'com.github.stephengold'
     artifact = 'jme-ttf'
     version = '2.2.2'
     baseName = "${artifact}-${version}"
