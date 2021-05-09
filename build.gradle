@@ -3,6 +3,7 @@
 plugins {
     id 'java-library'
     id 'maven-publish'
+    id 'signing'
 }
 
 ext {
@@ -64,12 +65,18 @@ task sourcesJar(type: Jar) {
     from sourceSets.main.allJava
 }
 
-build.dependsOn('javadocJar', 'pom', 'sourcesJar')
+build.dependsOn('pom', 'pomAsc')
 task('pom', type: Copy) {
     dependsOn 'generatePomFileForMavenPublication'
     from "${buildDir}/publications/maven/pom-default.xml"
     into "${buildDir}/libs"
     rename 'pom-default.xml', baseName + '.pom'
+}
+task('pomAsc', type: Copy) {
+    dependsOn 'signMavenPublication'
+    from "${buildDir}/publications/maven/pom-default.xml.asc"
+    into "${buildDir}/libs"
+    rename 'pom-default.xml.asc', baseName + '.pom.asc'
 }
 
 publishing {
@@ -106,8 +113,25 @@ publishing {
             version project.ext.version
         }
     }
+    repositories {
+        maven {
+            credentials {
+                username = project.hasProperty('ossrhUsername') ? ossrhUsername : 'Unknown user'
+                password = project.hasProperty('ossrhPassword') ? ossrhPassword : 'Unknown password'
+            }
+            name = 'OSSRH'
+            url = 'https://oss.sonatype.org/service/local/staging/deploy/maven2'
+        }
+    }
 }
 generateMetadataFileForMavenPublication.dependsOn('pom')
 publishToMavenLocal.doLast {
     println 'published to ' + baseName
+}
+
+signing {
+    sign publishing.publications.maven
+}
+tasks.withType(Sign) {
+    onlyIf { gradle.rootProject.hasProperty('signing.keyId') }
 }
