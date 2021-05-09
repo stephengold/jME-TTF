@@ -25,7 +25,7 @@ compileJava {
 
 repositories {
 //    mavenLocal()
-    maven { url 'https://jcenter.bintray.com/' }
+    mavenCentral()
 }
 
 dependencies {
