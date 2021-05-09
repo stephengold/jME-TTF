@@ -11,6 +11,7 @@ ext {
     artifact = 'jme-ttf'
     version = '2.2.2'
     baseName = "${artifact}-${version}"
+    jme3Version='3.3.2-stable'
 }
 
 description = 'A TrueType font rendering subsystem for jMonkeyEngine.'
@@ -22,23 +23,21 @@ compileJava {
     options.compilerArgs << "-Xlint:unchecked" << "-Xlint:deprecation"
 }
 
-ext.jme3Version='[3.1,)'
-
 repositories {
-	mavenLocal()
+//    mavenLocal()
     maven { url 'https://jcenter.bintray.com/' }
 }
 
 dependencies {
     api "org.jmonkeyengine:jme3-core:${jme3Version}"
-    api 'com.jaredrummler:sfntly:1.+'
+    api 'com.jaredrummler:sfntly:1.0.1'
 
     // provided when running on Desktop
     compileOnly "org.jmonkeyengine:jme3-desktop:${jme3Version}"
 
     // provided when running on Android
     compileOnly "org.jmonkeyengine:jme3-android:${jme3Version}"
-    compileOnly 'com.google.android:android:[4.1,)'
+    compileOnly 'com.google.android:android:4.1.1.4'
 
     // test runtime
     testRuntimeOnly "org.jmonkeyengine:jme3-lwjgl:${jme3Version}"
