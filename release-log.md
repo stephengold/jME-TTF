@@ -1,5 +1,9 @@
 # Release log for the jME-TTF library
 
+## v2.2.3+for34
+
++ Upgrade JME to v3.4.0-beta3.
+
 ## v2.2.3
 
 + Removed POM dependency on "jme3-desktop:[3.1,)".

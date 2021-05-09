@@ -9,9 +9,9 @@ plugins {
 ext {
     group = 'com.github.stephengold'
     artifact = 'jme-ttf'
-    version = '2.2.3'
+    version = '2.2.3+for34'
     baseName = "${artifact}-${version}"
-    jme3Version='3.3.2-stable'
+    jme3Version='3.4.0-beta3'
 }
 
 description = 'A TrueType font rendering subsystem for jMonkeyEngine.'
