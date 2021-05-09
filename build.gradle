@@ -18,9 +18,18 @@ description = 'A TrueType font rendering subsystem for jMonkeyEngine.'
 
 sourceCompatibility = 1.7
 targetCompatibility = 1.7
-compileJava {
+
+tasks.withType(JavaCompile) { // compile-time options:
+    //options.compilerArgs << '-Xlint:unchecked'
+    options.deprecation = true
     options.encoding = 'UTF-8'
-    options.compilerArgs << "-Xlint:unchecked" << "-Xlint:deprecation"
+}
+
+javadoc {
+    // Disable doclint for JDK8+.
+    if (JavaVersion.current().isJava8Compatible()){
+        options.addStringOption('Xdoclint:none', '-quiet')
+    }
 }
 
 repositories {
