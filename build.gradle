@@ -9,7 +9,7 @@ plugins {
 ext {
     group = 'com.github.stephengold'
     artifact = 'jme-ttf'
-    version = '2.2.2'
+    version = '2.2.3'
     baseName = "${artifact}-${version}"
     jme3Version='3.3.2-stable'
 }
