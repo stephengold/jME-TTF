@@ -1,17 +1,7 @@
-buildscript {
-    repositories {
-        jcenter()
-    }
-    dependencies {
-        if( project.hasProperty('releaseUser') ) {
-            classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.+'
-        }
-    }
-}
+// Gradle build script for jME-TTF Maven artifacts
 
 plugins {
-	id 'java-library'
-	id 'maven'
+    id 'java-library'
 }
 
 version='2.2.2'
@@ -28,13 +18,7 @@ ext.jme3Version='[3.1,)'
 
 repositories {
 	mavenLocal()
-
-    if( JavaVersion.current() == JavaVersion.VERSION_1_7 ) {
-        // Fallback for JDK 7 that can no longer connect to jcenter with https
-        maven { url "http://jcenter.bintray.com" }
-    } else {
-        jcenter()
-    }
+    maven { url 'https://jcenter.bintray.com/' }
 }
 
 dependencies {
