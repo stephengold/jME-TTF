@@ -2,10 +2,17 @@
 
 plugins {
     id 'java-library'
+    id 'maven-publish'
 }
 
-version='2.2.2'
-group='com.atr'
+ext {
+    group = 'com.atr'
+    artifact = 'jme-ttf'
+    version = '2.2.2'
+    baseName = "${artifact}-${version}"
+}
+
+description = 'A TrueType font rendering subsystem for jMonkeyEngine.'
 
 sourceCompatibility = 1.7
 targetCompatibility = 1.7
@@ -34,4 +41,73 @@ dependencies {
 
     // test runtime
     testRuntimeOnly "org.jmonkeyengine:jme3-lwjgl:${jme3Version}"
+}
+
+// custom tasks for creating JARs
+jar {
+    archiveBaseName = project.ext.baseName
+}
+
+task javadocJar(type: Jar) {
+    archiveBaseName = project.ext.baseName
+    classifier = 'javadoc'
+    dependsOn 'javadoc'
+    description 'Create a JAR of javadoc.'
+    from javadoc.destinationDir
+}
+
+task sourcesJar(type: Jar) {
+    archiveBaseName = project.ext.baseName
+    classifier = 'sources'
+    dependsOn 'classes'
+    description 'Create a JAR of sourcecode.'
+    from sourceSets.main.allJava
+}
+
+build.dependsOn('javadocJar', 'pom', 'sourcesJar')
+task('pom', type: Copy) {
+    dependsOn 'generatePomFileForMavenPublication'
+    from "${buildDir}/publications/maven/pom-default.xml"
+    into "${buildDir}/libs"
+    rename 'pom-default.xml', baseName + '.pom'
+}
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            artifact javadocJar
+            artifact sourcesJar
+            artifactId artifact
+            from components.java
+            groupId project.ext.group
+            pom {
+                description = project.description
+                developers {
+                    developer {
+                        email = 'tryder@protonmail.com'
+                        name = 'Adam T. Ryder'
+                    }
+                }
+                licenses {
+                    license {
+                        name = 'Free Public License 1.0.0'
+                        url = 'https://github.com/stephengold/jME-TTF/blob/master/LICENSE'
+                    }
+                }
+                name = project.ext.group + ':' + artifact
+                scm {
+                    connection = 'scm:git:git://github.com/stephengold/jME-TTF.git'
+                    developerConnection = 'scm:git:ssh://github.com:stephengold/jME-TTF.git'
+                    url = 'https://github.com/stephengold/jME-TTF/tree/master'
+                }
+                suppressPomMetadataWarningsFor('apiElements') // Gradle issue #16555
+                url = 'https://github.com/stephengold/jME-TTF'
+            }
+            version project.ext.version
+        }
+    }
+}
+generateMetadataFileForMavenPublication.dependsOn('pom')
+publishToMavenLocal.doLast {
+    println 'published to ' + baseName
 }
