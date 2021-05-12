@@ -2,6 +2,7 @@ MaterialDef Simple {
     MaterialParameters {
         Color Color (Color)
         Boolean useAA : True
+        Boolean VertexColor (UseVertexColor)
     }
     Technique {
         VertexShader GLSL100: Common/MatDefs/TTF/TTF_Vert.vert
@@ -17,6 +18,7 @@ MaterialDef Simple {
         
         Defines {
             USEAA : useAA
+            HAS_VERTEXCOLOR : VertexColor
         }
     }
 }
