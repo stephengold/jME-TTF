@@ -11,7 +11,7 @@ ext {
     artifact = 'jme-ttf'
     version = '2.2.3+for34'
     baseName = "${artifact}-${version}"
-    jme3Version='3.4.0-beta3'
+    jme3Version='3.4.0-beta4'
 }
 
 description = 'A TrueType font rendering subsystem for jMonkeyEngine.'
@@ -27,7 +27,7 @@ tasks.withType(JavaCompile) { // compile-time options:
 
 javadoc {
     // Disable doclint for JDK8+.
-    if (JavaVersion.current().isJava8Compatible()){
+    if (JavaVersion.current().isJava8Compatible()) {
         options.addStringOption('Xdoclint:none', '-quiet')
     }
 }
@@ -38,21 +38,22 @@ repositories {
 }
 
 dependencies {
-    api "org.jmonkeyengine:jme3-core:${jme3Version}"
+    api 'org.jmonkeyengine:jme3-core:' + jme3Version
     api 'com.jaredrummler:sfntly:1.0.1'
 
     // provided when running on Desktop
-    compileOnly "org.jmonkeyengine:jme3-desktop:${jme3Version}"
+    compileOnly 'org.jmonkeyengine:jme3-desktop:' + jme3Version
 
     // provided when running on Android
-    compileOnly "org.jmonkeyengine:jme3-android:${jme3Version}"
+    compileOnly 'org.jmonkeyengine:jme3-android:' + jme3Version
     compileOnly 'com.google.android:android:4.1.1.4'
 
     // test runtime
-    testRuntimeOnly "org.jmonkeyengine:jme3-lwjgl:${jme3Version}"
+    testRuntimeOnly 'org.jmonkeyengine:jme3-lwjgl:' + jme3Version
 }
 
-// custom tasks for creating JARs
+// publishing tasks
+
 jar {
     archiveBaseName = project.ext.baseName
 }
@@ -136,6 +137,8 @@ generateMetadataFileForMavenPublication.dependsOn('pom')
 publishToMavenLocal.doLast {
     println 'published to ' + baseName
 }
+
+// signing tasks
 
 signing {
     sign publishing.publications.maven
