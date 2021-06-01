@@ -1,8 +1,12 @@
 # Release log for the jME-TTF library
 
+## v2.2.4
+
+Upgrade JME to v3.4.0-stable.
+
 ## v2.2.3+for34
 
-+ Upgrade JME to v3.4.0-beta3.
+Upgrade JME to v3.4.0-beta3.
 
 ## v2.2.3
 
