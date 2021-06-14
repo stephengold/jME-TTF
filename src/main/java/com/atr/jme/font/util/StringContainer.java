@@ -671,7 +671,7 @@ public class StringContainer {
 
                     if (glyphs.length == 0) {
                         newLines.add(glyphs);
-                        lineWidthsArray.add(new Float(0));
+                        lineWidthsArray.add(Float.valueOf(0));
                         lineHeightsArray.add(new Vector2f());
                         continue;
                     }
@@ -695,7 +695,7 @@ public class StringContainer {
 
                     if (glyphs.length == 0) {
                         newLines.add(glyphs);
-                        lineWidthsArray.add(new Float(0));
+                        lineWidthsArray.add(Float.valueOf(0));
                         lineHeightsArray.add(new Vector2f());
                         continue;
                     }
@@ -736,7 +736,7 @@ public class StringContainer {
                     if (glyphs.length == 0) {
                         newLines.add(glyphs);
                         height += font.getScaledLineHeight();
-                        lineWidthsArray.add(new Float(0));
+                        lineWidthsArray.add(Float.valueOf(0));
                         lineHeightsArray.add(new Vector2f());
                         if (height + font.getScaledLineHeight() - font.getScaledLineGap() > textBox.height)
                             break;
@@ -775,7 +775,7 @@ public class StringContainer {
                     if (glyphs.length == 0) {
                         newLines.add(glyphs);
                         height += font.getScaledLineHeight();
-                        lineWidthsArray.add(new Float(0));
+                        lineWidthsArray.add(Float.valueOf(0));
                         lineHeightsArray.add(new Vector2f());
                         if (height + font.getScaledLineHeight() - font.getScaledLineGap() > textBox.height)
                             break;
@@ -887,7 +887,7 @@ public class StringContainer {
     private Glyph[] getCharClippedLine(int start, Glyph[] glyphs,
             float ellipsisWidth, List<Float>lineWidths, List<Vector2f> lineHeights) {
         if (ellipsisWidth > textBox.width) {
-            lineWidths.add(new Float(0));
+            lineWidths.add(Float.valueOf(0));
             lineHeights.add(new Vector2f(0, 0));
             return new Glyph[0];
         }
@@ -1088,7 +1088,7 @@ public class StringContainer {
     private Glyph[] getWordClippedLine(int start, Glyph[] glyphs,
             float ellipsisWidth, List<Float> lineWidths, List<Vector2f> lineHeights) {
         if (ellipsisWidth > textBox.width) {
-            lineWidths.add(new Float(0));
+            lineWidths.add(Float.valueOf(0));
             lineHeights.add(new Vector2f(0, 0));
             return new Glyph[0];
         }
