@@ -126,7 +126,7 @@ public class Point extends Point2d implements Cloneable {
      * to specify type.
      *
      * @param type
-     * @return
+     * @return true if it has the specified type, otherwise false
      */
     public boolean isType(int type) {
         if (this.type == type) {

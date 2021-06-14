@@ -197,7 +197,7 @@ public class BlurText {
      * and <code>Quad.getLocalTranslation().y + BlurText.getTextOffset().y
      * + StringContainer.getTextBox().height</code>.
      * 
-     * @return 
+     * @return a new vector
      */
     public Vector3f getTextOffset() {
         return new Vector3f((vBuf.getWidth() / 2f) - (containerW / 2f),
@@ -222,7 +222,7 @@ public class BlurText {
     /**
      * Gets the number of gaussian blur passes.
      * 
-     * @return 
+     * @return the number of passes
      * 
      * @see #setPasses(int) 
      */
@@ -248,7 +248,7 @@ public class BlurText {
     /**
      * Gets the blur radius offset.
      * 
-     * @return 
+     * @return the offset
      * 
      * @see #setOffset(float) 
      */
@@ -272,7 +272,7 @@ public class BlurText {
     /**
      * Gets the intensity of the blurred text.
      * 
-     * @return 
+     * @return the intensity
      * 
      * @see #setIntensity(float) 
      */
@@ -293,7 +293,7 @@ public class BlurText {
     /**
      * Gets the color of the blurred text.
      * 
-     * @return 
+     * @return the pre-existing instance
      * 
      * @see #setColor(com.jme3.math.ColorRGBA) 
      */
@@ -317,7 +317,7 @@ public class BlurText {
      * Returns the underlying {@link com.atr.jme.font.util.StringContainer} used
      * to render the blurred text.
      * 
-     * @return 
+     * @return the pre-existing instance
      */
     public StringContainer getText() {
         return sc;
@@ -327,7 +327,7 @@ public class BlurText {
      * Returns true if this <code>BlurText</code> has been disposed of
      * using {@link #dispose()} otherwise false.
      * 
-     * @return 
+     * @return true if disposed, otherwise false
      * 
      * @see #dispose() 
      */

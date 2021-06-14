@@ -1194,7 +1194,7 @@ public class MeshGlyf extends Mesh {
      * 
      * @param p1
      * @param p2
-     * @return 
+     * @return the angle in radians
      */
     public static float angle(Point p1, Point p2) {
         return FastMath.atan2(p2.y - p1.y, p2.x - p1.x);

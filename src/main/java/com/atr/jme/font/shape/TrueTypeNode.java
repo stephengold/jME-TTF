@@ -119,7 +119,7 @@ public abstract class TrueTypeNode<T extends Glyph> extends Node {
     /**
      * Gets the horizontal alignment.
      * 
-     * @return 
+     * @return an enum value
      */
     public StringContainer.Align getHorizontalAlignment() {
         return hAlign;
@@ -128,7 +128,7 @@ public abstract class TrueTypeNode<T extends Glyph> extends Node {
     /**
      * Sets the vertical alignment.
      * 
-     * @return 
+     * @return an enum value
      */
     public StringContainer.VAlign getVerticalAlignment() {
         return vAlign;
@@ -159,7 +159,7 @@ public abstract class TrueTypeNode<T extends Glyph> extends Node {
     /**
      * Gets the amount of additional spacing between characters.
      * 
-     * @return 
+     * @return the distance
      */
     public int getKerning() {
         return kerning;
@@ -180,7 +180,7 @@ public abstract class TrueTypeNode<T extends Glyph> extends Node {
     /**
      * Gets the glyphs currently displayed by this <code>TrueTypeNode</code>.
      * 
-     * @return 
+     * @return the pre-existing array
      */
     public T[][] getGlyphs() {
         return glyphs;
@@ -198,7 +198,7 @@ public abstract class TrueTypeNode<T extends Glyph> extends Node {
     /**
      * Gets the text displayed by this <code>TrueTypeNode</code>
      * 
-     * @return 
+     * @return the text
      */
     public String getText() {
         StringBuilder sb = new StringBuilder();

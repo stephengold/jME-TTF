@@ -35,7 +35,7 @@ package edu.berkeley.jmescher;
  * direction but shares the same edge of the triangulation.
  *
  * A valid triangulation will contain a 3-cycle of halfedges for each face,
- * every interior edge will correspond to a sibling pair of halfeldges, and
+ * every interior edge will correspond to a sibling pair of halfedges, and
  * every boundary edge will correspond to a single halfedge with a null
  * sibling pointer.
  *
@@ -109,7 +109,7 @@ public class HalfEdge
     /**
      * Gets the next halfedge.
      *
-     * @return
+     * @return the pre-existing instance
      */
     public HalfEdge getNext()
     {
@@ -123,7 +123,7 @@ public class HalfEdge
      * three next pointers. However, this method is robust for non-triangular
      * regions, and instead uses a potentially infinite while loop.
      *
-     * @return
+     * @return the pre-existing instance
      */
     public HalfEdge getPrev()
     {
@@ -139,7 +139,7 @@ public class HalfEdge
      * Gets this halfedge's type (interior, boundary, constrained etc.). Use
      * the static int flags to specify type.
      *
-     * @return
+     * @return the type value
      */
     public int getType() { return type; }
 
@@ -182,7 +182,7 @@ public class HalfEdge
      * to specify type.
      *
      * @param type
-     * @return
+     * @return true if it has the specified type, otherwise false
      */
     public boolean isType(int type)
     {
@@ -197,7 +197,7 @@ public class HalfEdge
      * have been already processed by a procedure or algorithm.
      *
      * @param flag
-     * @return
+     * @return true if the indexed flag is set, otherwise false
      */
     public boolean isFlagged(int flag) {
         return flagged[flag];

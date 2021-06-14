@@ -155,7 +155,7 @@ public class TrueTypeMesh extends TrueTypeFont<GlyphMesh, TrueTypeMeshText> {
      * Gets if this <code>TrueTypeMesh</code> activates shader based
      * anti-aliasing on text.
      * 
-     * @return 
+     * @return true if it activates anti-aliasing, otherwise false
      */
     public boolean isAA() {
         return aa;

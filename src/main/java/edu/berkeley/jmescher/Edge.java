@@ -68,7 +68,7 @@ public final class Edge
      *
      * @param e1
      * @param e2
-     * @return
+     * @return true if a common endpoint exists, otherwise false
      */
     public static boolean adjacent(Edge e1, Edge e2)
     {
@@ -83,7 +83,7 @@ public final class Edge
      * Returns <tt>true</tt> if this edge has the same endpoints as <tt>e</tt>.
      *
      * @param e
-     * @return
+     * @return true if both endpoints are shared, otherwise false
      */
     public boolean equals (Edge e) {
         if (e.p1 == p1 && e.p2 == p2) return true;

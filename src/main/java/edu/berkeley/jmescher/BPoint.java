@@ -90,7 +90,7 @@ public final class BPoint extends Point {
     /**
      * Up-casts this point's pair to a <tt>BPoint</tt>.
      *
-     * @return
+     * @return the pre-existing instance
      */
     public BPoint getPair() {
         return (BPoint) pair;

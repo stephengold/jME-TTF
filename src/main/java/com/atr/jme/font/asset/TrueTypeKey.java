@@ -84,7 +84,7 @@ public abstract class TrueTypeKey extends AssetKey {
     /**
      * Gets the screen density setting for the font loaded by this key.
      * 
-     * @return 
+     * @return the density (in dots per inch)
      */
     public int getScreenDensity() {
         return dpi;

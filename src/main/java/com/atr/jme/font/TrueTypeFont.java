@@ -174,7 +174,7 @@ public abstract class TrueTypeFont<T extends Glyph, S extends TrueTypeNode> {
      * The scale used by this <code>TrueTypeFont</code> to modify
      * Geometry sizes and calculations.
      * 
-     * @return 
+     * @return the scale factor
      */
     public float getScale() {
         return scale;
@@ -395,7 +395,7 @@ public abstract class TrueTypeFont<T extends Glyph, S extends TrueTypeNode> {
      * one line of glyphs.
      * 
      * @param text The text to convert to glyphs.
-     * @return 
+     * @return an array
      */
     public abstract T[][] getGlyphMatrix(String text);
     
@@ -519,7 +519,7 @@ public abstract class TrueTypeFont<T extends Glyph, S extends TrueTypeNode> {
      * Gets the additional spacing between lines rounded to the
      * nearest integer.
      * 
-     * @return 
+     * @return the scaled distance
      */
     public int getScaledLineGapInt() {
         return Math.round(scale * lineGap);
@@ -528,7 +528,7 @@ public abstract class TrueTypeFont<T extends Glyph, S extends TrueTypeNode> {
     /**
      * The actual point size of the font.
      * 
-     * @return 
+     * @return the unscaled size (in points)
      */
     public float getActualPointSize() {
         return pointSize;
@@ -537,7 +537,7 @@ public abstract class TrueTypeFont<T extends Glyph, S extends TrueTypeNode> {
     /**
      * The point size of the font scaled by {@link #setScale(float)}.
      * 
-     * @return 
+     * @return the scaled size (in points)
      */
     public float getScaledPointSize() {
         return pointSize * scale;
@@ -547,7 +547,7 @@ public abstract class TrueTypeFont<T extends Glyph, S extends TrueTypeNode> {
      * The point size of the font scaled by {@link #setScale(float)}
      * and rounded to the nearest integer.
      * 
-     * @return 
+     * @return the scaled size (in points)
      */
     public int getScaledPointSizeInt() {
         return Math.round(scale * pointSize);
@@ -557,7 +557,7 @@ public abstract class TrueTypeFont<T extends Glyph, S extends TrueTypeNode> {
      * The number of pixels above the baseline that a character
      * can extend. Note some characters may extend greater than this amount.
      * 
-     * @return 
+     * @return the unscaled distance (in pixels)
      */
     public int getActualAscender() {
         return ascender;
@@ -568,7 +568,7 @@ public abstract class TrueTypeFont<T extends Glyph, S extends TrueTypeNode> {
      * can extend scaled by the <code>TrueTypeFont</code>s scale value.
      * Note some characters may extend greater than this amount.
      * 
-     * @return 
+     * @return the scaled distance (in pixels)
      */
     public float getScaledAscender() {
         return scale * ascender;
@@ -578,7 +578,7 @@ public abstract class TrueTypeFont<T extends Glyph, S extends TrueTypeNode> {
      * The number of pixels below the baseline that a character
      * can extend. Note some characters may extend greater than this amount.
      * 
-     * @return 
+     * @return the unscaled distance (in pixels)
      */
     public int getActualDescender() {
         return descender;
@@ -589,7 +589,7 @@ public abstract class TrueTypeFont<T extends Glyph, S extends TrueTypeNode> {
      * can extend scaled by the <code>TrueTypeFont</code>s scale value.
      * Note some characters may extend greater than this amount.
      * 
-     * @return 
+     * @return the scaled distance (in pixels)
      */
     public float getScaledDescender() {
         return scale * descender;
