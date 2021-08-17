@@ -257,8 +257,9 @@ public class TrueTypeKeyBMP extends TrueTypeKey {
     @Override
     public boolean equals(Object other) {
         if (!(other instanceof TrueTypeKeyBMP) ||
-                !super.equals(other))
+                !super.equals(other)) {
             return false;
+        }
         
         TrueTypeKeyBMP key = (TrueTypeKeyBMP)other;
         return outline == key.getOutline();

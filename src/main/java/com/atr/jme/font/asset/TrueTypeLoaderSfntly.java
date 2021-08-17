@@ -42,7 +42,8 @@ public class TrueTypeLoaderSfntly implements AssetLoader {
             return new TrueTypeSfntly(assetInfo.getManager(), fonts[0], key.getStyle(),
                     key.getPointSize(), key.getOutline(), key.getScreenDensity(),
                     key.getMaxAtlasRes(), key.getPreloadCharacters(), key.isFixedResolution());
-        } else
+        } else {
             throw new IOException("No fonts found in: " + assetInfo.getKey().getName());
+        }
     }
 }

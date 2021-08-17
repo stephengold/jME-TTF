@@ -72,8 +72,9 @@ public class TrueTypeText extends TrueTypeNode<GlyphBMP> {
             float[] widths = new float[glyphs.length];
             Vector2f[] lineHeights = new Vector2f[glyphs.length];
             height = ttb.getScaledAscender() + ttb.getScaledDescender();
-            if (glyphs.length > 1)
+            if (glyphs.length > 1) {
                 height += (glyphs.length - 1) * ttb.getScaledLineHeight();
+            }
             width = 0;
 
             int count = 0;
@@ -86,10 +87,12 @@ public class TrueTypeText extends TrueTypeNode<GlyphBMP> {
                 Vector2f lineHeight = new Vector2f(Float.MIN_VALUE, Float.MAX_VALUE);
                 for (GlyphBMP glyph : line) {
                     w += (glyph.getXAdvance() + kerning) * ttb.getScale();
-                    if (glyph.getAscender() > lineHeight.x)
+                    if (glyph.getAscender() > lineHeight.x) {
                         lineHeight.x = glyph.getAscender();
-                    if (glyph.getDescender() < lineHeight.y)
+                    }
+                    if (glyph.getDescender() < lineHeight.y) {
                         lineHeight.y = glyph.getDescender();
+                    }
                     if (glyph.codePoint != ' ') {
                         numChars++;
                     }
@@ -98,8 +101,9 @@ public class TrueTypeText extends TrueTypeNode<GlyphBMP> {
                 w += line[line.length - 1].getRight() * ttb.getScale();
                 lineHeights[count] = lineHeight.multLocal(ttb.getScale());
                 widths[count++] = w;
-                if (w > width)
+                if (w > width) {
                     width = w;
+                }
             }
 
             FloatBuffer verts = BufferUtils.createFloatBuffer(numChars * 12);
@@ -159,8 +163,9 @@ public class TrueTypeText extends TrueTypeNode<GlyphBMP> {
                     tex3.put((y - lineY.y) / lineHeight);
                     if (hAlign == Align.Center) {
                         tex4.put((x + ((width / 2) - (widths[count] / 2))) / width);
-                    } else
+                    } else {
                         tex4.put((x + xOffset) / width);
+                    }
                     tex4.put(1f - ((y - currentY) / -height));
 
                     //lower right
@@ -180,8 +185,9 @@ public class TrueTypeText extends TrueTypeNode<GlyphBMP> {
                     tex3.put((y - lineY.y) / lineHeight);
                     if (hAlign == Align.Center) {
                         tex4.put((x + ((width / 2) - (widths[count] / 2))) / width);
-                    } else
+                    } else {
                         tex4.put((x + xOffset) / width);
+                    }
                     tex4.put(1f - ((y - currentY) / -height));
 
                     //Upper left
@@ -201,8 +207,9 @@ public class TrueTypeText extends TrueTypeNode<GlyphBMP> {
                     tex3.put((y - lineY.y) / lineHeight);
                     if (hAlign == Align.Center) {
                         tex4.put((x + ((width / 2) - (widths[count] / 2))) / width);
-                    } else
+                    } else {
                         tex4.put((x + xOffset) / width);
+                    }
                     tex4.put(1f - ((y - currentY) / -height));
 
                     //Upper right
@@ -222,8 +229,9 @@ public class TrueTypeText extends TrueTypeNode<GlyphBMP> {
                     tex3.put((y - lineY.y) / lineHeight);
                     if (hAlign == Align.Center) {
                         tex4.put((x + ((width / 2) - (widths[count] / 2))) / width);
-                    } else
+                    } else {
                         tex4.put((x + xOffset) / width);
+                    }
                     tex4.put(1f - ((y - currentY) / -height));
 
                     indices.put(currentIndex);

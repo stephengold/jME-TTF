@@ -137,8 +137,9 @@ public class TrueTypeSfntly extends TrueTypeBMP<GlyphSfntly> {
         Table t = font.getTable(Tag.intValue(new byte[]{'a', 'n', 'k', 'r'}));
         if (t != null) {
             ankr = new AnchorTable(t);
-        } else
+        } else {
             ankr = new NullAnchorTable();
+        }
         
         getGlyphs(new StringBuilder().appendCodePoint(defaultCodePoint).append(" ").append(preload));
     }
@@ -223,8 +224,9 @@ public class TrueTypeSfntly extends TrueTypeBMP<GlyphSfntly> {
                     
                     int gid = getGlyphID(ctc.codePoint);
                     Glyf glyf = backLog.get(ctc.codePoint);
-                    if (glyf == null)
+                    if (glyf == null) {
                         glyf = getContours(getGlyph(gid));
+                    }
                     int w = (int)Math.ceil(glyf.maxX - glyf.minX) + padding + bold;
                     if (al.canFit(w)) {
                         float xAdvance = (hmtx.advanceWidth(gid) * pointScale) + outline + bold + Math.round(outline / 2f);
@@ -235,8 +237,9 @@ public class TrueTypeSfntly extends TrueTypeBMP<GlyphSfntly> {
                         added = true;
                         al.addChar(w);
                         it.remove();
-                    } else
+                    } else {
                         backLog.put(ctc.codePoint, glyf);
+                    }
                 }
                 line++;
             }
@@ -249,8 +252,9 @@ public class TrueTypeSfntly extends TrueTypeBMP<GlyphSfntly> {
                         it.remove();
                     }
                     break;
-                } else
+                } else {
                     resizeAtlas();
+                }
             }
         } while (!characters.isEmpty());
         
@@ -260,8 +264,9 @@ public class TrueTypeSfntly extends TrueTypeBMP<GlyphSfntly> {
             
             if (outline > 0) {
                 createAtlasOutlined();
-            } else
+            } else {
                 createAtlas();
+            }
             
             for (AtlasListener listener : onAtlas) {
                 listener.mod(assetManager, oldWidth, oldHeight, atlasWidth,
@@ -282,12 +287,14 @@ public class TrueTypeSfntly extends TrueTypeBMP<GlyphSfntly> {
             paint.setStrokeWidth(bold);
             paint.setStrokeCap(Paint.Cap.BUTT);
             paint.setStrokeJoin(Paint.Join.ROUND);
-        } else
+        } else {
             paint.setStyle(Paint.Style.FILL);
+        }
         
         for (GlyphSfntly glyph : cache.values()) {
-            if (glyph.codePoint == ' ')
+            if (glyph.codePoint == ' ') {
                 continue;
+            }
             
             int x = (glyph.x + (padding / 2)) - glyph.getXOffset();
             int y = (glyph.y + (padding /2 )) - glyph.getYOffset();
@@ -295,8 +302,9 @@ public class TrueTypeSfntly extends TrueTypeBMP<GlyphSfntly> {
             if (glyph.contours != null) {
                 canvas.drawPath(glyph.contours, paint);
                 glyph.contours = null;
-            } else
+            } else {
                 canvas.drawPath(getContours(getGlyph(getGlyphID(glyph.codePoint))).contours, paint);
+            }
             canvas.translate(-x, -y);
         }
         
@@ -327,8 +335,9 @@ public class TrueTypeSfntly extends TrueTypeBMP<GlyphSfntly> {
         paint.setStrokeJoin(Paint.Join.ROUND);
         
         for (GlyphSfntly glyph : cache.values()) {
-            if (glyph.codePoint == ' ')
+            if (glyph.codePoint == ' ') {
                 continue;
+            }
             paint.setARGB(255, 255, 0, 0);
             paint.setStyle(Paint.Style.STROKE);
             paint.setStrokeWidth(outline + bold);
@@ -349,8 +358,9 @@ public class TrueTypeSfntly extends TrueTypeBMP<GlyphSfntly> {
             if (bold > 0) {
                 paint.setStyle(Paint.Style.FILL_AND_STROKE);
                 paint.setStrokeWidth(bold);
-            } else
+            } else {
                 paint.setStyle(Paint.Style.FILL);
+            }
             
             paint.setARGB(255, 255, 0, 255);
             canvas.drawPath(contours, paint);
@@ -518,17 +528,22 @@ public class TrueTypeSfntly extends TrueTypeBMP<GlyphSfntly> {
             float firstOnCurveX = last1X;
             float firstOnCurveY = last1Y;
             boolean last1OnCurve = glyf.onCurve(contour, 0);
-            if (last1OnCurve)
+            if (last1OnCurve) {
                 path.moveTo(last1X, last1Y);
+            }
             
-            if (last1X > maxX)
+            if (last1X > maxX) {
                 maxX = last1X;
-            if (last1X < minX)
+            }
+            if (last1X < minX) {
                 minX = last1X;
-            if (last1Y > maxY)
+            }
+            if (last1Y > maxY) {
                 maxY = last1Y;
-            if (last1Y < minY)
+            }
+            if (last1Y < minY) {
                 minY = last1Y;
+            }
 
             float firstX = last1X;
             float firstY = last1Y;
@@ -541,14 +556,18 @@ public class TrueTypeSfntly extends TrueTypeBMP<GlyphSfntly> {
                 
                 x += (y / italicRef) * italic;
                 
-                if (x > maxX)
+                if (x > maxX) {
                     maxX = x;
-                if (x < minX)
+                }
+                if (x < minX) {
                     minX = x;
-                if (y > maxY)
+                }
+                if (y > maxY) {
                     maxY = y;
-                if (y < minY)
+                }
+                if (y < minY) {
                     minY = y;
+                }
                 
                 if (!onCurve && !last1OnCurve) {
                     if (point == 1) {
@@ -668,17 +687,22 @@ public class TrueTypeSfntly extends TrueTypeBMP<GlyphSfntly> {
             float firstOnCurveX = last1X;
             float firstOnCurveY = last1Y;
             boolean last1OnCurve = glyf.onCurve(contour, 0);
-            if (last1OnCurve)
+            if (last1OnCurve) {
                 path.moveTo(last1X, last1Y);
+            }
             
-            if (last1X > maxX)
+            if (last1X > maxX) {
                 maxX = last1X;
-            if (last1X < minX)
+            }
+            if (last1X < minX) {
                 minX = last1X;
-            if (last1Y > maxY)
+            }
+            if (last1Y > maxY) {
                 maxY = last1Y;
-            if (last1Y < minY)
+            }
+            if (last1Y < minY) {
                 minY = last1Y;
+            }
 
             float firstX = last1X;
             float firstY = last1Y;
@@ -694,14 +718,18 @@ public class TrueTypeSfntly extends TrueTypeBMP<GlyphSfntly> {
                 
                 x += (y / italicRef) * italic;
                 
-                if (x > maxX)
+                if (x > maxX) {
                     maxX = x;
-                if (x < minX)
+                }
+                if (x < minX) {
                     minX = x;
-                if (y > maxY)
+                }
+                if (y > maxY) {
                     maxY = y;
-                if (y < minY)
+                }
+                if (y < minY) {
                     minY = y;
+                }
                 
                 if (!onCurve && !last1OnCurve) {
                     if (point == 1) {

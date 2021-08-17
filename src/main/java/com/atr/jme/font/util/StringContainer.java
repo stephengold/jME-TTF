@@ -539,15 +539,17 @@ public class StringContainer {
         //no apparent reason. Probably because the methods Java
         //supplies to measure glyphs are not exact.
         
-        if (lines != null)
+        if (lines != null) {
             return lines;
+        }
         
         String text = this.text;
         if (offset > 0) {
             if (offset < this.text.length()) {
                 text = this.text.substring(offset);
-            } else
+            } else {
                 text = "";
+            }
         }
         if (text.isEmpty()) {
             width = 0;
@@ -565,8 +567,9 @@ public class StringContainer {
         for (int i = text.length() - 1; i >= 0; i--) {
             if (text.charAt(i) == '\n') {
                 numTrailingBreaks++;
-            } else
+            } else {
                 break;
+            }
         }
         if (numTrailingBreaks > 0) {
             if (stringLines.length > 0) {
@@ -588,8 +591,9 @@ public class StringContainer {
         //causes the atlas to be updated and a TTF_AtlasListener was attached that calls
         //StringContainer.getLines() on this StringContainer. This prevents calculating
         //again.
-        if (lines != null)
+        if (lines != null) {
             return lines;
+        }
         
         width = 0;
         height = 0;
@@ -605,12 +609,15 @@ public class StringContainer {
                 float lWidth = 0;
                 int pos = 0;
                 for (Glyph glyph : glyphs) {
-                    if (glyph.getAscender() > lineHeight.x)
+                    if (glyph.getAscender() > lineHeight.x) {
                         lineHeight.x = glyph.getAscender();
-                    if (glyph.getDescender() < lineHeight.y)
+                    }
+                    if (glyph.getDescender() < lineHeight.y) {
                         lineHeight.y = glyph.getDescender();
-                    if (glyph.codePoint != ' ')
+                    }
+                    if (glyph.codePoint != ' ') {
                         numNonSpaceChars++;
+                    }
                     
                     lWidth += glyph.getXAdvance()
                             + (pos < glyphs.length - 1 ? kerning : 0);
@@ -620,8 +627,9 @@ public class StringContainer {
                 lWidth *= font.getScale();
                 lineWidthsArray.add(lWidth + 2);
                 lineHeightsArray.add(lineHeight.multLocal(font.getScale()));
-                if (lWidth > width)
+                if (lWidth > width) {
                     width = lWidth + 2;
+                }
                 line ++;
             }
             
@@ -681,8 +689,9 @@ public class StringContainer {
                                 lineHeightsArray);
                         newLines.add(newLine);
 
-                        if (newLine.length == 0)
+                        if (newLine.length == 0) {
                             break;
+                        }
 
                         pos += newLine.length;
                     }
@@ -710,25 +719,29 @@ public class StringContainer {
                             pos += newLine.length;
                         } else if (pos + newLine.length < glyphs.length) {
                             pos += newLine.length + 1;
-                            if (pos == glyphs.length)
+                            if (pos == glyphs.length) {
                                 pos--;
+                            }
                         } else if (newLine.length == 1 && newLine[0].codePoint == ' '
                                 && pos > 0 && glyphs[pos - 1].codePoint != ' ') {
                             newLine = new Glyph[0];
                             pos++;
-                        } else
+                        } else {
                             pos += newLine.length;
+                        }
                         
                         newLines.add(newLine);
-                        if (newLine.length == 0 || pos == glyphs.length)
+                        if (newLine.length == 0 || pos == glyphs.length) {
                             break;
+                        }
                     }
                 }
                 break;
             case CharClip:
                 lineLoop: for (int i = 0; i < tmpLines.length; i++) {
-                    if (((newLines.size() + 1) * font.getScaledLineHeight()) - font.getScaledLineGap() > textBox.height)
+                    if (((newLines.size() + 1) * font.getScaledLineHeight()) - font.getScaledLineGap() > textBox.height) {
                         break;
+                    }
 
                     int pos = 0;
                     Glyph[] glyphs = tmpLines[i];
@@ -738,8 +751,9 @@ public class StringContainer {
                         height += font.getScaledLineHeight();
                         lineWidthsArray.add(Float.valueOf(0));
                         lineHeightsArray.add(new Vector2f());
-                        if (height + font.getScaledLineHeight() - font.getScaledLineGap() > textBox.height)
+                        if (height + font.getScaledLineHeight() - font.getScaledLineGap() > textBox.height) {
                             break;
+                        }
                         continue;
                     }
 
@@ -751,8 +765,9 @@ public class StringContainer {
                             newLines.add(newLine);
                             height += font.getScaledLineHeight();
 
-                            if (newLine.length == 0)
+                            if (newLine.length == 0) {
                                 break;
+                            }
 
                             pos += newLine.length;
                         } else {
@@ -766,8 +781,9 @@ public class StringContainer {
                 break;
             default:
                 lineLoop: for (int i = 0; i < tmpLines.length; i++) {
-                    if (((newLines.size() + 1) * font.getScaledLineHeight()) - font.getScaledLineGap() > textBox.height)
+                    if (((newLines.size() + 1) * font.getScaledLineHeight()) - font.getScaledLineGap() > textBox.height) {
                         break;
+                    }
 
                     int pos = 0;
                     Glyph[] glyphs = tmpLines[i];
@@ -777,8 +793,9 @@ public class StringContainer {
                         height += font.getScaledLineHeight();
                         lineWidthsArray.add(Float.valueOf(0));
                         lineHeightsArray.add(new Vector2f());
-                        if (height + font.getScaledLineHeight() - font.getScaledLineGap() > textBox.height)
+                        if (height + font.getScaledLineHeight() - font.getScaledLineGap() > textBox.height) {
                             break;
+                        }
                         continue;
                     }
                     
@@ -795,20 +812,23 @@ public class StringContainer {
                                 pos += newLine.length;
                             } else if (pos + newLine.length < glyphs.length) {
                                 pos += newLine.length + 1;
-                                if (pos == glyphs.length)
+                                if (pos == glyphs.length) {
                                     pos--;
+                                }
                             } else if (newLine.length == 1 && newLine[0].codePoint == ' '
                                     && pos > 0 && glyphs[pos - 1].codePoint != ' ') {
                                 newLine = new Glyph[0];
                                 pos++;
-                            } else
+                            } else {
                                 pos += newLine.length;
+                            }
                             
                             newLines.add(newLine);
                             height += font.getScaledLineHeight();
 
-                            if (newLine.length == 0 || pos == glyphs.length)
+                            if (newLine.length == 0 || pos == glyphs.length) {
                                 break;
+                            }
                         } else {
                             Glyph[] newLine = getWordClippedLine(pos, glyphs, eWidth,
                                     lineWidthsArray, lineHeightsArray);
@@ -840,8 +860,9 @@ public class StringContainer {
         
         height = (lines.length * font.getScaledLineHeight())
                 - font.getScaledLineGap();
-        if (height < 0)
+        if (height < 0) {
             height = 0;
+        }
         
         return lines;
     }
@@ -856,23 +877,28 @@ public class StringContainer {
             int newPos = pos + 1;
             float gWidth = glyphs[newPos].getXAdvance() + (newPos < glyphs.length - 1 ? kerning : 0);
             gWidth *= font.getScale();
-            if (newWidth + gWidth > textBox.width)
+            if (newWidth + gWidth > textBox.width) {
                 break;
+            }
             
-            if (glyphs[newPos].codePoint != ' ')
+            if (glyphs[newPos].codePoint != ' ') {
                 numNonSpaceChars++;
+            }
             
-            if (glyphs[newPos].getAscender() > lineHeight.x)
+            if (glyphs[newPos].getAscender() > lineHeight.x) {
                 lineHeight.x = glyphs[newPos].getAscender();
-            if (glyphs[newPos].getDescender() < lineHeight.y)
+            }
+            if (glyphs[newPos].getDescender() < lineHeight.y) {
                 lineHeight.y = glyphs[newPos].getDescender();
+            }
             pos = newPos;
             newWidth += gWidth;
         } while (pos < glyphs.length - 1);
         
         if (pos >= start) {
-            if (newWidth > width)
+            if (newWidth > width) {
                 width = newWidth + 2;
+            }
             
             lineWidths.add(newWidth + 2);
             lineHeights.add(lineHeight.multLocal(font.getScale()));
@@ -901,23 +927,28 @@ public class StringContainer {
             int newPos = pos + 1;
             float gWidth = glyphs[newPos].getXAdvance() + (newPos < glyphs.length - 1 ? kerning : 0);
             gWidth *= font.getScale();
-            if (w + gWidth > textBox.width)
+            if (w + gWidth > textBox.width) {
                 break;
+            }
             
-            if (glyphs[newPos].codePoint != ' ')
+            if (glyphs[newPos].codePoint != ' ') {
                 numNonSpaceChars++;
+            }
 
             w += gWidth;
-            if (glyphs[newPos].getAscender() > lineHeight.x)
+            if (glyphs[newPos].getAscender() > lineHeight.x) {
                 lineHeight.x = glyphs[newPos].getAscender();
-            if (glyphs[newPos].getDescender() < lineHeight.y)
+            }
+            if (glyphs[newPos].getDescender() < lineHeight.y) {
                 lineHeight.y = glyphs[newPos].getDescender();
+            }
             pos = newPos;
         } while (pos < glyphs.length - 1);
         
         if (pos == glyphs.length - 1) {
-            if (w > width)
+            if (w > width) {
                 width = w + 2;
+            }
             
             lineWidths.add(w + 2);
             lineHeights.add(lineHeight.multLocal(font.getScale()));
@@ -931,12 +962,14 @@ public class StringContainer {
         }
         
         do {
-            if (w + ellipsisWidth <= textBox.width && glyphs[pos].codePoint != ' ')
+            if (w + ellipsisWidth <= textBox.width && glyphs[pos].codePoint != ' ') {
                 break;
+            }
             
             w -= (glyphs[pos].getXAdvance() + kerning) * font.getScale();
-            if (glyphs[pos].codePoint != ' ')
+            if (glyphs[pos].codePoint != ' ') {
                 numNonSpaceChars--;
+            }
             pos--;
         } while (pos >= start);
         
@@ -946,10 +979,12 @@ public class StringContainer {
             int newPos = start;
             do {
                 lineGlyphs[newPos - start] = glyphs[newPos];
-                if (glyphs[newPos].getAscender() > lineHeight.x)
+                if (glyphs[newPos].getAscender() > lineHeight.x) {
                     lineHeight.x = glyphs[newPos].getAscender();
-                if (glyphs[newPos].getDescender() < lineHeight.y)
+                }
+                if (glyphs[newPos].getDescender() < lineHeight.y) {
                     lineHeight.y = glyphs[newPos].getDescender();
+                }
                 newPos++;
             } while (newPos <= pos);
             
@@ -957,32 +992,40 @@ public class StringContainer {
             newPos -= start;
             while (newPos < lineGlyphs.length) {
                 lineGlyphs[newPos] = ellipsis[pos];
-                if (ellipsis[pos].codePoint != ' ')
+                if (ellipsis[pos].codePoint != ' ') {
                     numNonSpaceChars++;
-                if (ellipsis[pos].getAscender() > lineHeight.x)
+                }
+                if (ellipsis[pos].getAscender() > lineHeight.x) {
                     lineHeight.x = ellipsis[pos].getAscender();
-                if (ellipsis[pos].getDescender() < lineHeight.y)
+                }
+                if (ellipsis[pos].getDescender() < lineHeight.y) {
                     lineHeight.y = ellipsis[pos].getDescender();
+                }
                 newPos++;
                 pos++;
             }
             
-            if (w + ellipsisWidth > width)
+            if (w + ellipsisWidth > width) {
                 width = w + ellipsisWidth + 2;
+            }
             lineWidths.add(w + ellipsisWidth + 2);
             lineHeights.add(lineHeight.multLocal(font.getScale()));
         } else {
             lineGlyphs = Arrays.copyOf(ellipsis, ellipsis.length);
             for (Glyph glyph : lineGlyphs) {
-                if (glyph.codePoint != ' ')
+                if (glyph.codePoint != ' ') {
                     numNonSpaceChars++;
-                if (glyph.getAscender() > lineHeight.x)
+                }
+                if (glyph.getAscender() > lineHeight.x) {
                     lineHeight.x = glyph.getAscender();
-                if (glyph.getDescender() < lineHeight.y)
+                }
+                if (glyph.getDescender() < lineHeight.y) {
                     lineHeight.y = glyph.getDescender();
+                }
             }
-            if (ellipsisWidth > width)
+            if (ellipsisWidth > width) {
                 width = ellipsisWidth + 2;
+            }
             lineWidths.add(ellipsisWidth + 2);
             lineHeights.add(ellipsis.length >= 1 ? lineHeight.multLocal(font.getScale())
                     : lineHeight.set(0, 0));
@@ -1061,8 +1104,9 @@ public class StringContainer {
         } while (pos < glyphs.length);
         
         if (pos == glyphs.length) {
-            if (w > width)
+            if (w > width) {
                 width = w + 2;
+            }
             lineWidths.add(w + 2);
             lineHeights.add(lineHeight.multLocal(font.getScale()));
             
@@ -1077,8 +1121,9 @@ public class StringContainer {
         w -= (glyphs[pos - 1].getXAdvance() + kerning) * font.getScale();
         w += glyphs[pos - 1].getXAdvance() * font.getScale();
         
-        if (w > width)
+        if (w > width) {
             width = w + 2;
+        }
         lineWidths.add(w + 2);
         lineHeights.add(lineHeight.multLocal(font.getScale()));
         
@@ -1160,8 +1205,9 @@ public class StringContainer {
         } while (pos < glyphs.length);
         
         if (pos == glyphs.length) {
-            if (w + 2 > width)
+            if (w + 2 > width) {
                 width = w + 2;
+            }
             lineWidths.add(w + 2);
             lineHeights.add(lineHeight.multLocal(font.getScale()));
             
@@ -1171,20 +1217,23 @@ public class StringContainer {
         if (pos == start) {
             if (ellipsis.length > 0) {
                 lineHeight.set(Float.MIN_VALUE, Float.MAX_VALUE);
-            } else
+            } else {
                 lineHeight.set(0, 0);
+            }
             for (int i = 0; i < ellipsis.length; i++) {
                 lineHeight.x = ellipsis[i].getAscender() > lineHeight.x ? ellipsis[i].getAscender()
                         : lineHeight.x;
                 lineHeight.y = ellipsis[i].getDescender() < lineHeight.y ? ellipsis[i].getDescender()
                         : lineHeight.y;
-                if (ellipsis[i].codePoint != ' ')
+                if (ellipsis[i].codePoint != ' ') {
                     numNonSpaceChars++;
+                }
             }
             lineWidths.add(ellipsisWidth + 2);
             lineHeights.add(lineHeight.multLocal(font.getScale()));
-            if(ellipsisWidth + 2 > width)
+            if(ellipsisWidth + 2 > width) {
                 width = ellipsisWidth + 2;
+            }
             
             return Arrays.copyOf(ellipsis, ellipsis.length);
         }
@@ -1195,8 +1244,9 @@ public class StringContainer {
                 int backPos = pos - 1;
                 boolean spaceFound = false;
                 do {
-                    if (glyphs[backPos].codePoint == ' ')
+                    if (glyphs[backPos].codePoint == ' ') {
                         spaceFound = true;
+                    }
                     w -= (glyphs[backPos].getXAdvance() + (backPos < glyphs.length - 1 ? kerning : 0)) * font.getScale();
                     backPos--;
                 } while (backPos >= start
@@ -1213,19 +1263,22 @@ public class StringContainer {
                             : lineHeight.x;
                     lineHeight.y = ellipsis[i].getDescender() < lineHeight.y ? ellipsis[i].getDescender()
                             : lineHeight.y;
-                    if (ellipsis[i].codePoint != ' ')
+                    if (ellipsis[i].codePoint != ' ') {
                         numNonSpaceChars++;
+                    }
                 }
                 lineWidths.add(ellipsisWidth + 2);
                 lineHeights.add(lineHeight.multLocal(font.getScale()));
-                if(ellipsisWidth + 2 > width)
+                if(ellipsisWidth + 2 > width) {
                     width = ellipsisWidth + 2;
+                }
 
                 return Arrays.copyOf(ellipsis, ellipsis.length);
             }
 
-            if (w + ellipsisWidth + 2 > width)
+            if (w + ellipsisWidth + 2 > width) {
                 width = w + ellipsisWidth + 2;
+            }
             lineWidths.add(w + ellipsisWidth + 2);
         
         
@@ -1249,8 +1302,9 @@ public class StringContainer {
                 lineHeight.y = ellipsis[pos].getDescender() < lineHeight.y ? ellipsis[pos].getDescender()
                         : lineHeight.y;
                 lineGlyphs[newPos] = ellipsis[pos];
-                if (ellipsis[pos].codePoint != ' ')
+                if (ellipsis[pos].codePoint != ' ') {
                     numNonSpaceChars++;
+                }
                 newPos++;
                 pos++;
             }
@@ -1259,8 +1313,9 @@ public class StringContainer {
             return lineGlyphs;
         } else {
             lineWidths.add(w + 2);
-            if (w + 2 > width)
+            if (w + 2 > width) {
                 width = w + 2;
+            }
             lineHeights.add(lineHeight.multLocal(font.getScale()));
             return Arrays.copyOfRange(glyphs, start, pos);
         }
@@ -1272,8 +1327,9 @@ public class StringContainer {
             start++;
         }
         
-        if (start == glyphs.length)
+        if (start == glyphs.length) {
             return null;
+        }
         
         int end = start + 1;
         while (end != glyphs.length && glyphs[end].codePoint != ' ') {

@@ -210,8 +210,9 @@ public abstract class TrueTypeNode<T extends Glyph> extends Node {
             
             for (Glyph glyph : glyphs[i])
                 sb.appendCodePoint(glyph.codePoint);
-            if (i < glyphs.length - 1)
+            if (i < glyphs.length - 1) {
                 sb.append("\n");
+            }
         }
         
         return sb.toString();

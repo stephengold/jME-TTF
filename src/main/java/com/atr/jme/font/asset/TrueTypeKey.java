@@ -108,8 +108,9 @@ public abstract class TrueTypeKey extends AssetKey {
     
     @Override
     public boolean equals(Object other) {
-        if (!(other instanceof TrueTypeKey))
+        if (!(other instanceof TrueTypeKey)) {
             return false;
+        }
         
         TrueTypeKey key = (TrueTypeKey)other;
         return name.equals(key.getName())

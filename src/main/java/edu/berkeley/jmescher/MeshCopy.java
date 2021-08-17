@@ -120,8 +120,11 @@ public class MeshCopy extends Mesh
     public Point lookup(Point p)
     {
         Point p0 = pointLookup.get(p);
-        if (p0 != null) return p0;
-        else if (contains(p)) return p;
+        if (p0 != null) {
+            return p0;
+        } else if (contains(p)) {
+            return p;
+        }
         return null;
     }
 

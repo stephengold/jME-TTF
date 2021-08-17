@@ -118,8 +118,9 @@ public class TrueTypeAWT extends TrueTypeBMP<GlyphAWT> {
                     sb.delete(0, sb.length());
                     sb.appendCodePoint(ctc.codePoint);
                     GlyphVector gv = backLog.get(ctc.codePoint);
-                    if (gv == null)
+                    if (gv == null) {
                         gv = font.createGlyphVector(frc, sb.toString());
+                    }
                     gv.setGlyphTransform(0, transform);
                     Rectangle2D bounds = gv.getVisualBounds();
                     int w = (int)bounds.getWidth() + padding;
@@ -131,8 +132,9 @@ public class TrueTypeAWT extends TrueTypeBMP<GlyphAWT> {
                         added = true;
                         al.addChar(w);
                         it.remove();
-                    } else
+                    } else {
                         backLog.put(ctc.codePoint, gv);
+                    }
                 }
                 line++;
             }
@@ -145,8 +147,9 @@ public class TrueTypeAWT extends TrueTypeBMP<GlyphAWT> {
                         it.remove();
                     }
                     break;
-                } else
+                } else {
                     resizeAtlas();
+                }
             }
         } while (!characters.isEmpty());
         
@@ -156,8 +159,9 @@ public class TrueTypeAWT extends TrueTypeBMP<GlyphAWT> {
             
             if (outline > 0) {
                 createAtlasOutlined();
-            } else
+            } else {
                 createAtlas();
+            }
             
             for (AtlasListener listener : onAtlas) {
                 listener.mod(assetManager, oldWidth, oldHeight, atlasWidth,
@@ -186,8 +190,9 @@ public class TrueTypeAWT extends TrueTypeBMP<GlyphAWT> {
         //AffineTransform af = new AffineTransform();
         //af.setToScale(transform.getScaleX(), -transform.getScaleY());
         for (GlyphAWT glyph : cache.values()) {
-            if (glyph.getOutline() == null)
+            if (glyph.getOutline() == null) {
                 continue;
+            }
             int x = (glyph.x + (padding / 2)) - glyph.getXOffset();
             int y = (glyph.y + (padding /2 )) - glyph.getYOffset();
             g.translate(x, y);
@@ -236,8 +241,9 @@ public class TrueTypeAWT extends TrueTypeBMP<GlyphAWT> {
         BasicStroke stroke = new BasicStroke(outline, BasicStroke.CAP_BUTT, BasicStroke.JOIN_ROUND);
         BasicStroke noStroke = new BasicStroke(0);
         for (GlyphAWT glyph : cache.values()) {
-            if (glyph.getOutline() == null)
+            if (glyph.getOutline() == null) {
                 continue;
+            }
             g.setStroke(stroke);
             int x = (glyph.x + (padding / 2)) - glyph.getXOffset();
             int y = (glyph.y + (padding / 2)) - glyph.getYOffset();

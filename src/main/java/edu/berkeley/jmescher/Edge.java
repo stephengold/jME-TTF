@@ -72,10 +72,18 @@ public final class Edge
      */
     public static boolean adjacent(Edge e1, Edge e2)
     {
-        if (e1.p1 == e2.p1) return true;
-        if (e1.p1 == e2.p2) return true;
-        if (e1.p2 == e2.p1) return true;
-        if (e1.p2 == e2.p2) return true;
+        if (e1.p1 == e2.p1) {
+            return true;
+        }
+        if (e1.p1 == e2.p2) {
+            return true;
+        }
+        if (e1.p2 == e2.p1) {
+            return true;
+        }
+        if (e1.p2 == e2.p2) {
+            return true;
+        }
         return false;
     }
 
@@ -86,8 +94,12 @@ public final class Edge
      * @return true if both endpoints are shared, otherwise false
      */
     public boolean equals (Edge e) {
-        if (e.p1 == p1 && e.p2 == p2) return true;
-        if (e.p1 == p2 && e.p2 == p1) return true;
+        if (e.p1 == p1 && e.p2 == p2) {
+            return true;
+        }
+        if (e.p1 == p2 && e.p2 == p1) {
+            return true;
+        }
         return false;
     }
 }

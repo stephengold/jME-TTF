@@ -37,12 +37,14 @@ public class TrueTypeLoader implements AssetLoader {
     @SuppressWarnings("rawtypes")
     @Override
     public TrueTypeFont load(AssetInfo assetInfo) throws IOException {
-        if (assetInfo.getKey() instanceof TrueTypeKeyMesh)
+        if (assetInfo.getKey() instanceof TrueTypeKeyMesh) {
             return new TrueTypeLoaderMesh().load(assetInfo);
+        }
         
         String vendor = System.getProperty("java.vendor.url");
-        if (vendor == null || !vendor.toLowerCase().contains("android"))
+        if (vendor == null || !vendor.toLowerCase().contains("android")) {
             return new TrueTypeLoaderAWT().load(assetInfo);
+        }
         
         return new TrueTypeLoaderSfntly().load(assetInfo);
     }

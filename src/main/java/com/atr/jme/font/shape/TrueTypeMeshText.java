@@ -56,8 +56,9 @@ public class TrueTypeMeshText extends TrueTypeNode<GlyphMesh> {
      * @param aa True to use anti-aliasing otherwise false.
      */
     public void setAA(boolean aa) {
-        if (mat.getParam("useAA") == null)
+        if (mat.getParam("useAA") == null) {
             return;
+        }
         mat.setBoolean("useAA", aa);
     }
     
@@ -73,8 +74,9 @@ public class TrueTypeMeshText extends TrueTypeNode<GlyphMesh> {
         float[] widths = new float[glyphs.length];
         Vector2f[] lineHeights = new Vector2f[glyphs.length];
         height = ttm.getScaledAscender() + ttm.getScaledDescender();
-        if (glyphs.length > 1)
+        if (glyphs.length > 1) {
             height += (glyphs.length - 1) * ttm.getScaledLineHeight();
+        }
         width = 0;
         
         int startIndex = 0;
@@ -97,10 +99,12 @@ public class TrueTypeMeshText extends TrueTypeNode<GlyphMesh> {
             Vector2f lineHeight = new Vector2f(Float.MIN_VALUE, Float.MAX_VALUE);
             for (GlyphMesh glyph : line) {
                 w += (glyph.getXAdvance() + kerning) * ttm.getScale();
-                if (glyph.getAscender() > lineHeight.x)
+                if (glyph.getAscender() > lineHeight.x) {
                     lineHeight.x = glyph.getAscender();
-                if (glyph.getDescender() < lineHeight.y)
+                }
+                if (glyph.getDescender() < lineHeight.y) {
                     lineHeight.y = glyph.getDescender();
+                }
                 if (glyph.codePoint != ' ') {
                     if (numVerts + glyph.getMesh().getVertexCount() < Short.MAX_VALUE) {
                         numVerts += glyph.getMesh().getVertexCount();
@@ -121,8 +125,9 @@ public class TrueTypeMeshText extends TrueTypeNode<GlyphMesh> {
             w += line[line.length - 1].getRight() * ttm.getScale();
             lineHeights[count] = lineHeight.multLocal(ttm.getScale());
             widths[count++] = w;
-            if (w > width)
+            if (w > width) {
                 width = w;
+            }
         }
         snippets.add(new TextSnippet(startLine, glyphs.length - 1, startIndex, index, numVerts,
                                 totalVerts));
@@ -211,8 +216,9 @@ public class TrueTypeMeshText extends TrueTypeNode<GlyphMesh> {
                     if (i == snippet.endLine && n == snippet.endIndex) {
                         if (snippet.endIndex == lines[i].length) {
                             currentXY.set(0, currentY + ttm.getScaledLineHeight());
-                        } else 
+                        } else {
                             currentXY.set(currentX, currentY);
+                        }
                         break lineLoop;
                     }
                     
@@ -252,8 +258,9 @@ public class TrueTypeMeshText extends TrueTypeNode<GlyphMesh> {
                         tex4.put((y - lineY.y) / lineHeight);
                         if (hAlign == Align.Center) {
                             tex5.put((x2 + ((width / 2) - (lineWidths[i] / 2))) / width);
-                        } else
+                        } else {
                             tex5.put((x2 + xOffset) / width);
+                        }
                         tex5.put(1f - (y2 / -height));
                         
                         indices.put((short)(gindices.get() + currentIndex));

@@ -221,8 +221,9 @@ public abstract class TrueTypeBMP<T extends GlyphBMP> extends TrueTypeFont<T, Tr
             if (glyphs[i] == null) {
                 if (cacheLock) {
                     glyphs[i] = cache.get(defaultCodePoint);
-                } else
+                } else {
                     unCached.add(new CharToCreate(i, codePoint));
+                }
             }
         }
         
@@ -322,8 +323,9 @@ public abstract class TrueTypeBMP<T extends GlyphBMP> extends TrueTypeFont<T, Tr
 
         if (outline > 0) {
             createAtlasOutlined();
-        } else
+        } else {
             createAtlas();
+        }
 
         for (AtlasListener listener : onAtlas) {
             listener.mod(assetManager, oldWidth, oldHeight, atlasWidth,

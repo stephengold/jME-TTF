@@ -411,8 +411,9 @@ public class BlurText {
         renderer.setFrameBuffer(hBuf);
         renderer.clearBuffers(true, false, false);
         for (Spatial s : geom.getChildren()) {
-            if (s instanceof Geometry)
+            if (s instanceof Geometry) {
                 rm.renderGeometry((Geometry)s);
+            }
         }
         
         for (int i = 0; i < passes; i++) {
@@ -446,8 +447,9 @@ public class BlurText {
      * call {@link #render()} repeatedly.
      */
     public void disposeLight() {
-        if (hBuf == null)
+        if (hBuf == null) {
             return;
+        }
         
         String vendor = System.getProperty("java.vendor.url");
         if (vendor != null && vendor.toLowerCase().contains("android")) {
@@ -474,8 +476,9 @@ public class BlurText {
      * text texture.
      */
     public void dispose() {
-        if (isDisposed())
+        if (isDisposed()) {
             return;
+        }
         
         String vendor = System.getProperty("java.vendor.url");
         if (vendor != null && vendor.toLowerCase().contains("android")) {

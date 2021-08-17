@@ -45,8 +45,9 @@ public class TrueTypeMeshContainer extends TrueTypeContainer {
     }
     
     public void setAA(boolean aa) {
-        if (material.getParam("useAA") == null)
+        if (material.getParam("useAA") == null) {
             return;
+        }
         material.setBoolean("useAA", aa);
     }
     
@@ -190,8 +191,9 @@ public class TrueTypeMeshContainer extends TrueTypeContainer {
                     if (i == snippet.endLine && n == snippet.endIndex) {
                         if (snippet.endIndex == lines[i].length) {
                             currentXY.set(0, currentY + ttm.getScaledLineHeight());
-                        } else 
+                        } else {
                             currentXY.set(currentX, currentY);
+                        }
                         break lineLoop;
                     }
                     
@@ -231,8 +233,9 @@ public class TrueTypeMeshContainer extends TrueTypeContainer {
                         tex4.put((y - lineY.y) / lineHeight);
                         if (stringContainer.getAlignment() == Align.Center) {
                             tex5.put((x2 + ((width / 2) - (lineWidths[i] / 2))) / width);
-                        } else
+                        } else {
                             tex5.put((x2 + xOffset) / width);
+                        }
                         tex5.put(1f - (y2 / -height));
                         
                         indices.put((short)(gindices.get() + currentIndex));

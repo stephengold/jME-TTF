@@ -41,7 +41,8 @@ public class TrueTypeLoaderMesh implements AssetLoader {
         if (fonts.length > 0) {
             return new TrueTypeMesh(assetInfo.getManager(), fonts[0], key.getStyle(),
                     key.getPointSize(), key.getScreenDensity(), key.getPreloadCharacters());
-        } else
+        } else {
             throw new IOException("No fonts found in: " + assetInfo.getKey().getName());
+        }
     }
 }

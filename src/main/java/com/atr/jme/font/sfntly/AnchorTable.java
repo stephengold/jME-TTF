@@ -50,12 +50,14 @@ public class AnchorTable extends Table {
      * @return The number of anchor points for this glyph.
      */
     public int getNumAnchors(int glyphId) {
-        if (glyphId < 0)
+        if (glyphId < 0) {
             return 0;
+        }
         
         int index = (2 * glyphId) + lookupOffset;
-        if (index > glyphDataOffset)
+        if (index > glyphDataOffset) {
             return 0;
+        }
         
         index = this.data.readUShort(index);
         
@@ -73,19 +75,22 @@ public class AnchorTable extends Table {
      * {0, 0} if the glyph does not contain the requested point.
      */
     public int[] getAnchor(int glyphId, int pointNumber) {
-        if (pointNumber < 0 || glyphId < 0)
+        if (pointNumber < 0 || glyphId < 0) {
             return new int[]{0, 0};
+        }
         
         int index = (2 * glyphId) + lookupOffset;
-        if (index > glyphDataOffset)
+        if (index > glyphDataOffset) {
             return new int[]{0, 0};
+        }
         
         index = this.data.readUShort(index) + glyphDataOffset;
         
         int numPoints = this.data.readULongAsInt(index);
         index += FontData.DataSize.ULONG.size() + (FontData.DataSize.LONG.size() * pointNumber);
-        if (pointNumber >= numPoints)
+        if (pointNumber >= numPoints) {
             return new int[]{0, 0};
+        }
         
         int x = this.data.readShort(index);
         int y = this.data.readShort(index + FontData.DataSize.SHORT.size());
@@ -104,18 +109,21 @@ public class AnchorTable extends Table {
      * point will be located at point * 2 in the array.
      */
     public int[] getAnchors(int glyphId) {
-        if (glyphId < 0) 
+        if (glyphId < 0) {
             return new int[]{0, 0};
+        }
         
         int index = (2 * glyphId) + lookupOffset;
-        if (index > glyphDataOffset)
+        if (index > glyphDataOffset) {
             return new int[]{0, 0};
+        }
         
         index = this.data.readUShort(index) + glyphDataOffset;
         int[] points = new int[this.data.readULongAsInt(index) * 2];
         
-        if (points.length == 0)
+        if (points.length == 0) {
             return new int[]{0, 0};
+        }
         
         index += FontData.DataSize.ULONG.size();
         

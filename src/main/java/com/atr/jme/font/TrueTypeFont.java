@@ -118,14 +118,16 @@ public abstract class TrueTypeFont<T extends Glyph, S extends TrueTypeNode> {
      * @see #setInvalidCharacters(java.lang.String) 
      */
     public boolean setDefaultCharacter(String text) {
-        if (text.isEmpty())
+        if (text.isEmpty()) {
             return false;
+        }
         
         sb.delete(0, sb.length());
         sb.append(text);
         int codePoint = sb.codePointAt(0);
-        if (cacheLock && cache.get(codePoint) == null)
+        if (cacheLock && cache.get(codePoint) == null) {
             return false;
+        }
         if (canDisplay(codePoint)) {
             defaultCodePoint = codePoint;
             return true;
@@ -149,8 +151,9 @@ public abstract class TrueTypeFont<T extends Glyph, S extends TrueTypeNode> {
         sb.append(text);
         for (int i = 0; i < sb.length(); i++) {
             int codePoint = sb.codePointAt(i);
-            if (!invalidCharacters.contains(codePoint))
+            if (!invalidCharacters.contains(codePoint)) {
                 invalidCharacters.add(codePoint);
+            }
         }
     }
     
@@ -455,8 +458,9 @@ public abstract class TrueTypeFont<T extends Glyph, S extends TrueTypeNode> {
      * @see #getLineWidth(java.lang.StringBuilder, int) 
      */
     public float getLineWidth(T[] glyphs, int kerning) {
-        if (glyphs.length == 0)
+        if (glyphs.length == 0) {
             return 0;
+        }
         int lineWidth = 0;
         for (int i = 0; i < glyphs.length - 1; i++) {
             lineWidth += glyphs[i].getXAdvance() + kerning;
@@ -628,8 +632,9 @@ public abstract class TrueTypeFont<T extends Glyph, S extends TrueTypeNode> {
      * @return The height.
      */
     public float getVisualLineHeight(T[] glyphs) {
-        if (glyphs.length == 0)
+        if (glyphs.length == 0) {
             return 0;
+        }
         int maxY = Integer.MIN_VALUE;
         for (T glyph : glyphs) {
             maxY = (glyph.getHeight() > maxY) ? glyph.getHeight() : maxY;
@@ -668,8 +673,9 @@ public abstract class TrueTypeFont<T extends Glyph, S extends TrueTypeNode> {
      * @return The hight above the baseline of the tallest character.
      */
     public float getVisualAscent(T[] glyphs) {
-        if (glyphs.length == 0)
+        if (glyphs.length == 0) {
             return 0;
+        }
         int maxY = Integer.MIN_VALUE;
         for (T glyph : glyphs) {
             maxY = (glyph.getAscender() > maxY) ? glyph.getAscender() : maxY;
@@ -708,8 +714,9 @@ public abstract class TrueTypeFont<T extends Glyph, S extends TrueTypeNode> {
      * @return The depth below the baseline.
      */
     public float getVisualDescent(T[] glyphs) {
-        if (glyphs.length == 0)
+        if (glyphs.length == 0) {
             return 0;
+        }
         int minY = Integer.MAX_VALUE;
         for (T glyph : glyphs) {
             minY = (glyph.getDescender() < minY) ? glyph.getDescender() : minY;

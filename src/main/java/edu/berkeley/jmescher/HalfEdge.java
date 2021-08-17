@@ -129,7 +129,9 @@ public class HalfEdge
     {
         HalfEdge hePrev = next;
         while (true) {
-            if (hePrev.next == this) break;
+            if (hePrev.next == this) {
+                break;
+            }
             hePrev = hePrev.next;
         }
         return hePrev;
@@ -186,8 +188,11 @@ public class HalfEdge
      */
     public boolean isType(int type)
     {
-        if (this.type == type) return true;
-        else return false;
+        if (this.type == type) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     /**
@@ -227,7 +232,9 @@ public class HalfEdge
      */
     public void flagEdge(int flag) {
         flagged[flag] = true;
-        if (sibling != null) sibling.flagged[flag] = true;
+        if (sibling != null) {
+            sibling.flagged[flag] = true;
+        }
     }
 
     /**

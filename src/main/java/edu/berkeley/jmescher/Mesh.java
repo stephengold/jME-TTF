@@ -488,8 +488,9 @@ public class Mesh {
             //return constrainEdge(walk.he);
             if (constrainEdge(walk.he)) {
                 return walk.he;
-            } else
+            } else {
                 return null;
+            }
         }
         /* clear edges that intersect the constraint */
         heStart = walk.he;

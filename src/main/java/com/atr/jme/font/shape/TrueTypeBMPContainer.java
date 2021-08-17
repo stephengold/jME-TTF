@@ -134,8 +134,9 @@ public class TrueTypeBMPContainer extends TrueTypeContainer {
                     tex3.put((y - lineY.y) / lineHeight);
                     if (stringContainer.getAlignment() == Align.Center) {
                         tex4.put((x + ((getWidth() / 2) - (widths[lineNum] / 2))) / getWidth());
-                    } else
+                    } else {
                         tex4.put((x + (getWidth() - widths[lineNum])) / getWidth());
+                    }
                     tex4.put(1f - ((y - currentLineHeight) / -getHeight()));
 
                     //Lower right
@@ -155,8 +156,9 @@ public class TrueTypeBMPContainer extends TrueTypeContainer {
                     tex3.put((y - lineY.y) / lineHeight);
                     if (stringContainer.getAlignment() == Align.Center) {
                         tex4.put((x + ((getWidth() / 2) - (widths[lineNum] / 2))) / getWidth());
-                    } else
+                    } else {
                         tex4.put((x + (getWidth() - widths[lineNum])) / getWidth());
+                    }
                     tex4.put(1f - ((y - currentLineHeight) / -getHeight()));
 
                     //Upper left
@@ -176,8 +178,9 @@ public class TrueTypeBMPContainer extends TrueTypeContainer {
                     tex3.put((y - lineY.y) / lineHeight);
                     if (stringContainer.getAlignment() == Align.Center) {
                         tex4.put((x + ((getWidth() / 2) - (widths[lineNum] / 2))) / getWidth());
-                    } else
+                    } else {
                         tex4.put((x + (getWidth() - widths[lineNum])) / getWidth());
+                    }
                     tex4.put(1f - ((y - currentLineHeight) / -getHeight()));
 
                     //Upper right
@@ -197,8 +200,9 @@ public class TrueTypeBMPContainer extends TrueTypeContainer {
                     tex3.put((y - lineY.y) / lineHeight);
                     if (stringContainer.getAlignment() == Align.Center) {
                         tex4.put((x + ((getWidth() / 2) - (widths[lineNum] / 2))) / getWidth());
-                    } else
+                    } else {
                         tex4.put((x + (getWidth() - widths[lineNum])) / getWidth());
+                    }
                     tex4.put(1f - ((y - currentLineHeight) / -getHeight()));
 
                     indices.put(currentIndex);

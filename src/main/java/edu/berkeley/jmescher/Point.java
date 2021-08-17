@@ -94,8 +94,9 @@ public class Point extends Point2d implements Cloneable {
         type = p.type;
         coords3d.set(p.coords3d);
         pair = p.pair;
-        if (p.getUV() != null)
-            uv = p.getUV().clone();
+        if (p.getUV() != null) {
+            uv = p.getUV().clone();            
+        }
     }
     
     @Override

@@ -265,8 +265,9 @@ public class MeshGlyf extends Mesh {
                         float my = t.ab.p1.y + ((t.ab.p2.y - t.ab.p1.y) / 2);
                         if (t.ab.p2.users == 1) {
                             mesh.removeInteriorPoint(t.ab.p2);
-                        } else
+                        } else {
                             t.ab.p2.users --;
+                        }
                         Point b = mesh.addInteriorPoint(new Point(mx, my));
                         Seg newAB = new Seg(t.ab.p1, b);
 
@@ -293,11 +294,13 @@ public class MeshGlyf extends Mesh {
             }
             
             for (Tri tri : bTris) {
-                if (tmpTris.contains(tri))
+                if (tmpTris.contains(tri)) {
                     continue;
+                }
                 if (tri.ac.p1 == t.ac.p1 || tri.ac.p1 == t.ac.p2
-                        || tri.ac.p2 == t.ac.p1 || tri.ac.p2 == t.ac.p2)
+                        || tri.ac.p2 == t.ac.p1 || tri.ac.p2 == t.ac.p2) {
                     continue;
+                }
                 
                 if (mesh.intersect(t.ac.p1, t.ac.p2, tri.ab.p1, tri.ab.p2)) {
                     //split the triangle that was intersected.
@@ -311,8 +314,9 @@ public class MeshGlyf extends Mesh {
                     float my = t.ab.p1.y + ((t.ab.p2.y - t.ab.p1.y) / 2);
                     if (tri.ab.p2.users == 1) {
                         mesh.removeInteriorPoint(t.ab.p2);
-                    } else
+                    } else {
                         t.ab.p2.users --;
+                    }
                     Point b = mesh.addInteriorPoint(new Point(mx, my));
                     Seg newAB = new Seg(t.ab.p1, b);
 
@@ -339,8 +343,9 @@ public class MeshGlyf extends Mesh {
                     my = tri.ab.p1.y + ((tri.ab.p2.y - tri.ab.p1.y) / 2);
                     if (tri.ab.p2.users == 1) {
                         mesh.removeInteriorPoint(tri.ab.p2);
-                    } else
+                    } else {
                         tri.ab.p2.users --;
+                    }
                     b = mesh.addInteriorPoint(new Point(mx, my));
                     newAB = new Seg(tri.ab.p1, b);
 
@@ -377,8 +382,9 @@ public class MeshGlyf extends Mesh {
                 } catch (Exception e) {
                     it.remove();
                 }
-            } else
+            } else {
                 it.remove();
+            }
         }
         
         for (Iterator<Tri> it = bTris.iterator(); it.hasNext();) {
@@ -424,8 +430,9 @@ public class MeshGlyf extends Mesh {
             s.he.sibling.flag(HalfEdge.FLAG_CONTOUR);
             if (s.onRight(s.he.next.next.origin)) {
                 if (s.he.next.isFlagged(HalfEdge.FLAG_CONTOUR)
-                        || s.he.next.next.isFlagged(HalfEdge.FLAG_CONTOUR))
+                        || s.he.next.next.isFlagged(HalfEdge.FLAG_CONTOUR)) {
                     continue;
+                }
                 Tri t = new Tri(new Seg(s.he.origin.clone(), s.he.next.origin.clone()),
                                 new Seg(s.he.next.origin.clone(), s.he.next.next.origin.clone()),
                                 new Seg(s.he.origin.clone(), s.he.next.next.origin.clone()));
@@ -442,8 +449,9 @@ public class MeshGlyf extends Mesh {
                 innerTris.add(t);
             } else {
                 if (s.he.sibling.next.isFlagged(HalfEdge.FLAG_CONTOUR)
-                        || s.he.sibling.next.next.isFlagged(HalfEdge.FLAG_CONTOUR))
+                        || s.he.sibling.next.next.isFlagged(HalfEdge.FLAG_CONTOUR)) {
                     continue;
+                }
                 Tri t = new Tri(new Seg(s.he.sibling.origin.clone(), s.he.sibling.next.origin.clone()),
                                 new Seg(s.he.sibling.next.origin.clone(), s.he.sibling.next.next.origin.clone()),
                                 new Seg(s.he.sibling.origin.clone(), s.he.sibling.next.next.origin.clone()));
@@ -476,15 +484,17 @@ public class MeshGlyf extends Mesh {
             Tri t = it.next();
             if (t.ab.he.next.isFlagged(HalfEdge.FLAG_CONTOUR)) {
                 if (t.ab.he.next.isFlagged(HalfEdge.FLAG_BEZIER)) {
-                    if (t.ab.he.isFlagged(HalfEdge.FLAG_BEZIER))
+                    if (t.ab.he.isFlagged(HalfEdge.FLAG_BEZIER)) {
                         continue;
+                    }
                     t.ab.p1.setUV(0, 0);
                     t.ab.p2.setUV(0, 0);
                     t.ac.p2.setUV(1, 1);
                     continue;
                 } else if (t.ab.he.isFlagged(HalfEdge.FLAG_BEZIER)) {
-                    if (t.ab.he.next.isFlagged(HalfEdge.FLAG_BEZIER))
+                    if (t.ab.he.next.isFlagged(HalfEdge.FLAG_BEZIER)) {
                         continue;
+                    }
                     t.ab.p2.setUV(0, 0);
                     t.ac.p2.setUV(0, 0);
                     t.ac.p1.setUV(1, 1);
@@ -515,15 +525,17 @@ public class MeshGlyf extends Mesh {
                 it.add(newTri);
             } else if (t.ab.he.next.next.isFlagged(HalfEdge.FLAG_CONTOUR)) {
                 if (t.ab.he.next.next.isFlagged(HalfEdge.FLAG_BEZIER)) {
-                    if (t.ab.he.isFlagged(HalfEdge.FLAG_BEZIER))
+                    if (t.ab.he.isFlagged(HalfEdge.FLAG_BEZIER)) {                        
                         continue;
+                    }
                     t.ab.p1.setUV(0, 0);
                     t.ab.p2.setUV(0, 0);
                     t.ac.p2.setUV(1, 1);
                     continue;
                 } else if (t.ab.he.isFlagged(HalfEdge.FLAG_BEZIER)) {
-                    if (t.ab.he.next.next.isFlagged(HalfEdge.FLAG_BEZIER))
+                    if (t.ab.he.next.next.isFlagged(HalfEdge.FLAG_BEZIER)) {
                         continue;
+                    }
                     t.ac.p1.setUV(0, 0);
                     t.ac.p2.setUV(0, 0);
                     t.ab.p2.setUV(1, 1);
@@ -577,8 +589,9 @@ public class MeshGlyf extends Mesh {
      * @param he 
      */
     private void innerTriSearch(final List<Tri> newTris, HalfEdge he) {
-        if (he.sibling == null)
+        if (he.sibling == null) {
             return;
+        }
         if (!he.sibling.isFlagged(HalfEdge.FLAG_READ)
                 && !he.sibling.next.isFlagged(HalfEdge.FLAG_READ)
                 && !he.sibling.next.next.isFlagged(HalfEdge.FLAG_READ)
@@ -629,17 +642,22 @@ public class MeshGlyf extends Mesh {
         float firstOnCurveX = last1X;
         float firstOnCurveY = last1Y;
         boolean last1OnCurve = glyf.onCurve(contour, 0);
-        if (last1OnCurve)
+        if (last1OnCurve) {
             a = mesh.addInteriorPoint(new Point(last1X, last1Y));
+        }
 
-        if (last1X > maxX)
+        if (last1X > maxX) {
             maxX = last1X;
-        if (last1X < minX)
+        }
+        if (last1X < minX) {
             minX = last1X;
-        if (last1Y > maxY)
+        }
+        if (last1Y > maxY) {
             maxY = last1Y;
-        if (last1Y < minY)
+        }
+        if (last1Y < minY) {
             minY = last1Y;
+        }
 
         float firstX = last1X;
         float firstY = last1Y;
@@ -652,14 +670,18 @@ public class MeshGlyf extends Mesh {
 
             x += (y / ttm.getItalicRef()) * ttm.getItalicAngle();
 
-            if (x > maxX)
+            if (x > maxX) {
                 maxX = x;
-            if (x < minX)
+            }
+            if (x < minX) {
                 minX = x;
-            if (y > maxY)
+            }
+            if (y > maxY) {
                 maxY = y;
-            if (y < minY)
+            }
+            if (y < minY) {
                 minY = y;
+            }
 
             if (!onCurve && !last1OnCurve) {
                 if (point == 1) {
@@ -842,17 +864,22 @@ public class MeshGlyf extends Mesh {
         float firstOnCurveX = last1X;
         float firstOnCurveY = last1Y;
         boolean last1OnCurve = glyf.onCurve(contour, 0);
-        if (last1OnCurve)
+        if (last1OnCurve) {
             a = mesh.addInteriorPoint(new Point(last1X, last1Y));
+        }
 
-        if (last1X > maxX)
+        if (last1X > maxX) {
             maxX = last1X;
-        if (last1X < minX)
+        }
+        if (last1X < minX) {
             minX = last1X;
-        if (last1Y > maxY)
+        }
+        if (last1Y > maxY) {
             maxY = last1Y;
-        if (last1Y < minY)
+        }
+        if (last1Y < minY) {
             minY = last1Y;
+        }
 
         float firstX = last1X;
         float firstY = last1Y;
@@ -868,14 +895,18 @@ public class MeshGlyf extends Mesh {
 
             x += (y / ttm.getItalicRef()) * ttm.getItalicAngle();
 
-            if (x > maxX)
+            if (x > maxX) {
                 maxX = x;
-            if (x < minX)
+            }
+            if (x < minX) {
                 minX = x;
-            if (y > maxY)
+            }
+            if (y > maxY) {
                 maxY = y;
-            if (y < minY)
+            }
+            if (y < minY) {
                 minY = y;
+            }
 
             if (!onCurve && !last1OnCurve) {
                 if (point == 1) {

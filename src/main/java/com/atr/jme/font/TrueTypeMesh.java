@@ -133,8 +133,9 @@ public class TrueTypeMesh extends TrueTypeFont<GlyphMesh, TrueTypeMeshText> {
         Table t = font.getTable(Tag.intValue(new byte[]{'a', 'n', 'k', 'r'}));
         if (t != null) {
             ankr = new AnchorTable(t);
-        } else
+        } else {
             ankr = new NullAnchorTable();
+        }
         
         getGlyphs(new StringBuilder().appendCodePoint(defaultCodePoint).append(" ").append(preload));
     }
@@ -275,8 +276,9 @@ public class TrueTypeMesh extends TrueTypeFont<GlyphMesh, TrueTypeMeshText> {
             if (glyphs[i] == null) {
                 if (cacheLock) {
                     glyphs[i] = cache.get(defaultCodePoint);
-                } else
+                } else {
                     unCached.add(new CharToCreate(i, codePoint));
+                }
             }
         }
         
@@ -318,8 +320,9 @@ public class TrueTypeMesh extends TrueTypeFont<GlyphMesh, TrueTypeMeshText> {
     @Override
     protected void createGlyphs(List<CharToCreate> characters) {
         for (CharToCreate ctc : characters) {
-            if (cache.containsKey(ctc.codePoint))
+            if (cache.containsKey(ctc.codePoint)) {
                 continue;
+            }
             int gid = getGlyphID(ctc.codePoint);
             MeshGlyf mg = new MeshGlyf(this, ankr, getGlyph(gid));
             GlyphMesh gm = new GlyphMesh(ctc.codePoint, mg, hmtx.advanceWidth(gid) * pointScale,

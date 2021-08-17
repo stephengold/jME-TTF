@@ -62,8 +62,9 @@ public class BlurTextBMP extends BlurText {
             geom.updateGeometry();
         }
         geom.getMaterial().setTexture("Texture", ttb.getAtlas());
-        if (ttb.getOutline() > 0)
+        if (ttb.getOutline() > 0) {
             geom.getMaterial().setColor("Outline", color);
+        }
         
         return super.render();
     }
