@@ -78,8 +78,8 @@ public class MeshGlyf extends Mesh {
      * @param glyf 
      */
     private void processContours(final TrueTypeMesh ttm, final AnchorTable ankr, final Glyph glyf) {
-        List<Tri> innerTriangles = new LinkedList<Tri>();
-        List<Tri> bTriangles = new LinkedList<Tri>();
+        List<Tri> innerTriangles = new LinkedList<>();
+        List<Tri> bTriangles = new LinkedList<>();
         
         if (glyf.glyphType() == Glyph.GlyphType.Composite) {
             /*
@@ -230,8 +230,8 @@ public class MeshGlyf extends Mesh {
         edu.berkeley.jmescher.Mesh.linkBoundary(boundary);
         mesh.init(boundary);
         
-        List<Seg> segs = new LinkedList<Seg>();
-        List<Tri> bTris = new LinkedList<Tri>();
+        List<Seg> segs = new LinkedList<>();
+        List<Tri> bTris = new LinkedList<>();
         
         int numContours = glyf.numberOfContours();
         if (matrix == null) {
@@ -247,7 +247,7 @@ public class MeshGlyf extends Mesh {
         //Search the list of bezier triangles looking for instances where a segment
         //or control segment from another bezier triangle crosses the base of the curve
         //and split the bezier triangle into two new bezier triangles.
-        List<Tri> tmpTris = new LinkedList<Tri>();
+        List<Tri> tmpTris = new LinkedList<>();
         triOverlap: for (ListIterator<Tri> it = bTris.listIterator(); it.hasNext();) {
             Tri t = it.next();
             if (tmpTris.contains(t)) {
@@ -418,7 +418,7 @@ public class MeshGlyf extends Mesh {
         //Create a list of triangles on the shape's interior.
         //In a true type font file the interior of the shape is
         //to the right of travel.
-        List<Tri> innerTris = new LinkedList<Tri>();
+        List<Tri> innerTris = new LinkedList<>();
         for (Seg s : segs) {
             s.he.flag(HalfEdge.FLAG_CONTOUR);
             s.he.sibling.flag(HalfEdge.FLAG_CONTOUR);
@@ -464,7 +464,7 @@ public class MeshGlyf extends Mesh {
         
         //Pick up any additional interior triangles that don't
         //share an edge with the shape.
-        List<Tri> newTris = new LinkedList<Tri>();
+        List<Tri> newTris = new LinkedList<>();
         for (Tri t : innerTris) {
             innerTriSearch(newTris, t.ab.he.next);
             innerTriSearch(newTris, t.ab.he.next.next);

@@ -104,7 +104,7 @@ public class TrueTypeAWT extends TrueTypeBMP<GlyphAWT> {
         }
         
         boolean added = false;
-        Map<Integer, GlyphVector> backLog = new HashMap<Integer, GlyphVector>();
+        Map<Integer, GlyphVector> backLog = new HashMap<>();
         do {
             int line = 0;
             for (AtlasLine al : atlasLines) {

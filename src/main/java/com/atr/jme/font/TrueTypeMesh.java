@@ -264,7 +264,7 @@ public class TrueTypeMesh extends TrueTypeFont<GlyphMesh, TrueTypeMeshText> {
     @Override
     public GlyphMesh[] getGlyphs(StringBuilder text) {
         GlyphMesh[] glyphs = new GlyphMesh[text.length()];
-        LinkedList<CharToCreate> unCached = new LinkedList<CharToCreate>();
+        LinkedList<CharToCreate> unCached = new LinkedList<>();
         
         for (int i = 0; i < text.length(); i++) {
             int codePoint = text.codePointAt(i);

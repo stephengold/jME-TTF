@@ -210,7 +210,7 @@ public class TrueTypeSfntly extends TrueTypeBMP<GlyphSfntly> {
         }
         
         boolean added = false;
-        Map<Integer, Glyf> backLog = new HashMap<Integer, Glyf>();
+        Map<Integer, Glyf> backLog = new HashMap<>();
         do {
             int line = 0;
             for (AtlasLine al : atlasLines) {

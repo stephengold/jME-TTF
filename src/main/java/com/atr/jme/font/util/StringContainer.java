@@ -594,8 +594,8 @@ public class StringContainer {
         width = 0;
         height = 0;
         numNonSpaceChars = 0;
-        List<Float> lineWidthsArray = new ArrayList<Float>();
-        LinkedList<Vector2f> lineHeightsArray = new LinkedList<Vector2f>();
+        List<Float> lineWidthsArray = new ArrayList<>();
+        LinkedList<Vector2f> lineHeightsArray = new LinkedList<>();
         
         if (wrap == WrapMode.NoWrap) {
             lines = tmpLines;

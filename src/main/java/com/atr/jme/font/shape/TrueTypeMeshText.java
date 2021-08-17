@@ -84,7 +84,7 @@ public class TrueTypeMeshText extends TrueTypeNode<GlyphMesh> {
         int count = 0;
         int lineNum = 0;
         int index = 0;
-        LinkedList<TextSnippet> snippets = new LinkedList<TextSnippet>();
+        LinkedList<TextSnippet> snippets = new LinkedList<>();
         for (GlyphMesh[] line : glyphs) {
             if (line.length == 0) {
                 widths[count++] = 0;

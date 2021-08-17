@@ -61,13 +61,13 @@ public abstract class TrueTypeBMP<T extends GlyphBMP> extends TrueTypeFont<T, Tr
     protected int charHeight;
     protected int resizeWidth;
     
-    protected final List<AtlasLine> atlasLines = new ArrayList<AtlasLine>();
+    protected final List<AtlasLine> atlasLines = new ArrayList<>();
     protected Texture2D atlas;
     protected boolean atlasResized = false;
     protected int atlasWidth = 0;
     protected int atlasHeight = 0;
     protected int maxTexRes = 2048;
-    protected final List<AtlasListener> onAtlas = new LinkedList<AtlasListener>();
+    protected final List<AtlasListener> onAtlas = new LinkedList<>();
     
     protected boolean fixedResolution = false;
 
@@ -210,7 +210,7 @@ public abstract class TrueTypeBMP<T extends GlyphBMP> extends TrueTypeFont<T, Tr
     @Override
     public T[] getGlyphs(StringBuilder text) {
         T[] glyphs = (T[])new GlyphBMP[text.length()];
-        LinkedList<CharToCreate> unCached = new LinkedList<CharToCreate>();
+        LinkedList<CharToCreate> unCached = new LinkedList<>();
         
         for (int i = 0; i < text.length(); i++) {
             int codePoint = text.codePointAt(i);

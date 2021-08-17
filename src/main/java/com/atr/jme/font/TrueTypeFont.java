@@ -57,8 +57,8 @@ public abstract class TrueTypeFont<T extends Glyph, S extends TrueTypeNode> {
     protected int descender;
     protected int lineGap;
     
-    protected final Map<Integer, T> cache = new HashMap<Integer, T>();
-    protected final List<Integer> invalidCharacters = new ArrayList<Integer>();
+    protected final Map<Integer, T> cache = new HashMap<>();
+    protected final List<Integer> invalidCharacters = new ArrayList<>();
     
     protected final StringBuilder sb = new StringBuilder();
     
