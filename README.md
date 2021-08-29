@@ -7,7 +7,7 @@ jME-TTF is a True Type Font(.ttf) rendering system for jMonkeyEngine3.1 and newe
 src="https://dl.dropboxusercontent.com/s/ldrg036040dx3g4/c5855071bc96733bcb4db72b98356deed0003d2f.png?dl=0"
  alt="jME-TTF Screen" width="567" height="294">](https://dl.dropboxusercontent.com/s/ldrg036040dx3g4/c5855071bc96733bcb4db72b98356deed0003d2f.png?dl=0)
 
-In addition to that you can opt to render scaleable text styled from a true type font file in your 3D or 2D scenes. jME-TTF can triangulate a mesh from the glyph outline of each requested character, caching new glyph meshes, and apply a material that interpolates curved sections of the glyph's contours using quadratic bezier formulas. The result is a text that can scale without pixelization and is fully compatible with modern GPU anti-aliasing methods.
+In addition to that you can opt to render scalable text styled from a true type font file in your 3D or 2D scenes. jME-TTF can triangulate a mesh from the glyph outline of each requested character, caching new glyph meshes, and apply a material that interpolates curved sections of the glyph's contours using quadratic bezier formulas. The result is a text that can scale without pixelization and is fully compatible with modern GPU anti-aliasing methods.
 
 [<img 
 src="https://dl.dropboxusercontent.com/s/wmgamqzxx5ky4s6/Screenshot_2017_11_17_17.png?dl=0"
