@@ -276,7 +276,7 @@ public class BlurText {
      * 
      * @see #setIntensity(float) 
      */
-    public float getIntenisty() {
+    public float getIntensity() {
         return intensity;
     }
     
