@@ -103,7 +103,7 @@ public abstract class TrueTypeKey extends AssetKey {
     }
     
     public String getPreloadCharacters() {
-        return new StringBuilder(preload).toString();
+        return preload;
     }
     
     @Override
@@ -146,7 +146,6 @@ public abstract class TrueTypeKey extends AssetKey {
         oc.write(preload, "preload", "");
     }
     
-    @SuppressWarnings("unchecked")
     @Override
     public void read(JmeImporter im) throws IOException {
         InputCapsule ic = im.getCapsule(this);

@@ -117,7 +117,7 @@ public class Mesh {
     private Point removeConstraintPeg = null;
 
     /* name and colors */
-    protected String name = new String("(unnamed mesh)");
+    protected String name = "(unnamed mesh)";
     /*protected Color highlightColor = Color.RED;
     protected Color warnColor = new Color(255, 240, 240);
     protected Color grayColor = new Color(127, 127, 127, 127);*/

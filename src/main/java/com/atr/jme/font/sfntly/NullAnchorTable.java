@@ -6,8 +6,6 @@
  */
 package com.atr.jme.font.sfntly;
 
-import com.atr.jme.font.sfntly.AnchorTable;
-
 /**
  *
  * @author Adam T. Ryder
