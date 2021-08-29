@@ -94,7 +94,7 @@ public abstract class Glyph {
      * The distance from the origin to the beginning of the next character on
      * the x-axis.
      * 
-     * @return The distance, in pixels, from this characters origin to the
+     * @return The distance, in pixels, from this character's origin to the
      * beginning of the next character.
      */
     public int getXAdvance() {

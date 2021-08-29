@@ -44,7 +44,7 @@ import java.nio.ByteBuffer;
  * One will want to be sure to {@link #dispose()} this
  * <code>BlurText</code> when they are done with the rendered
  * <code>Texture2D</code> to ensure it is cleaned from memory
- * in a timely manner. Moreover one should use the
+ * in a timely manner. Moreover, one should use the
  * {@link #disposeLight()} method after calling {@link #render()}
  * to ensure that the secondary buffer/texture is removed from
  * memory when it is no longer needed, unless one plans to

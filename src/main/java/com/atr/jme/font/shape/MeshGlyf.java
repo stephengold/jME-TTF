@@ -98,7 +98,7 @@ public class MeshGlyf extends Mesh {
                 matrix[3] = matrix[0];
             } else if ((flags & CompositeGlyph.FLAG_WE_HAVE_AN_X_AND_Y_SCALE)
                     == CompositeGlyph.FLAG_WE_HAVE_AN_X_AND_Y_SCALE) {
-                //The glyph has seperate scales for the x and y-axis.
+                //The glyph has separate scales for the x and y-axis.
                 byte[] transform = g.transformation(0);
                 matrix[0] = f2dot14(new byte[]{transform[0], transform[1]});
                 matrix[3] = f2dot14(new byte[]{transform[2], transform[3]});
@@ -150,7 +150,7 @@ public class MeshGlyf extends Mesh {
                     matrix[3] = matrix[0];
                 } else if ((flags & CompositeGlyph.FLAG_WE_HAVE_AN_X_AND_Y_SCALE)
                         == CompositeGlyph.FLAG_WE_HAVE_AN_X_AND_Y_SCALE) {
-                    //The glyph has seperate scales for the x and y-axis.
+                    //The glyph has separate scales for the x and y-axis.
                     byte[] transform = g.transformation(i);
                     matrix[0] = f2dot14(new byte[]{transform[0], transform[1]});
                     matrix[3] = f2dot14(new byte[]{transform[2], transform[3]});
@@ -307,7 +307,7 @@ public class MeshGlyf extends Mesh {
                     //using it.previous() would cause the newly created triangles
                     //to be checked again and split again if necessary, but
                     //this leads to an infinite loop on characters where splitting
-                    //the triangles doesn't resolve the issue. Namely this happens
+                    //the triangles doesn't resolve the issue. This happens
                     //when the triangle is intersected near one of the corners.
                     it.remove();
                     float mx = t.ab.p1.x + ((t.ab.p2.x - t.ab.p1.x) / 2);
@@ -752,7 +752,7 @@ public class MeshGlyf extends Mesh {
                 segments.add(new Seg(a, b));
             } else {
                 //The last point is on-curve, but the first point is not.
-                //We create a bezier curve between the last and second
+                //We create a Bézier curve between the last and second
                 //points with the first point as the middle control.
                 Point b = new Point(firstX, firstY);
                 Point c = mesh.addInteriorPoint(new Point(firstOnCurveX, firstOnCurveY));
@@ -772,7 +772,7 @@ public class MeshGlyf extends Mesh {
         } else {
             if (firstOnCurve) {
                 //The first point is on-curve, but the last point
-                //was not. We create a bezier curve between the
+                //was not. We create a Bézier curve between the
                 //second to last point and the first point with
                 //the last point as the middle control.
                 Point b = new Point(last1X, last1Y);
@@ -792,7 +792,7 @@ public class MeshGlyf extends Mesh {
             } else {
                 //The first and last contour points are both off-curve.
                 //We add an on-curve point between them and create two
-                //new quadratic bezier curves, one between the second to
+                //new quadratic Bézier curves, one between the second to
                 //last point and the new mid-point with the last point as
                 //the middle control point and another between the new
                 //mid-point and the second point with the first point as
@@ -976,7 +976,7 @@ public class MeshGlyf extends Mesh {
                 segments.add(new Seg(a, b));
             } else {
                 //The last point is on-curve, but the first point is not.
-                //We create a bezier curve between the last and second
+                //We create a Bézier curve between the last and second
                 //points with the first point as the middle control.
                 Point b = new Point(firstX, firstY);
                 Point c = mesh.addInteriorPoint(new Point(firstOnCurveX, firstOnCurveY));
@@ -996,7 +996,7 @@ public class MeshGlyf extends Mesh {
         } else {
             if (firstOnCurve) {
                 //The first point is on-curve, but the last point
-                //was not. We create a bezier curve between the
+                //was not. We create a Bézier curve between the
                 //second to last point and the first point with
                 //the last point as the middle control.
                 Point b = new Point(last1X, last1Y);
@@ -1016,7 +1016,7 @@ public class MeshGlyf extends Mesh {
             } else {
                 //The first and last contour points are both off-curve.
                 //We add an on-curve point between them and create two
-                //new quadratic bezier curves, one between the second to
+                //new quadratic Bézier curves, one between the second to
                 //last point and the new mid-point with the last point as
                 //the middle control point and another between the new
                 //mid-point and the second point with the first point as
@@ -1174,7 +1174,9 @@ public class MeshGlyf extends Mesh {
      * For internal use only. This method takes in a list of 3 points from a triangle
      * and returns an array of the same points ordered counter-clockwise.
      * 
-     * @param p
+     * @param points
+     * @param angles
+     * @param tmp
      * @param result
      * @return 
      */

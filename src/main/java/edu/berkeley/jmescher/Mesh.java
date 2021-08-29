@@ -138,7 +138,7 @@ public class Mesh {
     /*
      * Find the machine epsilon, which is used in initializing the floating
      * point filter, the threshold at which predicate calculations become
-     * unreliable and exact arithmetic is neccessary.
+     * unreliable and exact arithmetic is necessary.
      *
      * This routine is adapted from Jonathan Shewchuk's predicates.c
      * exactinit() routine.
@@ -152,7 +152,7 @@ public class Mesh {
         e = 1.0f;
         check = 1.0f;
         /* Repeatedly divide `epsilon' by two until it is too small to add to    */
- /*   one without causing roundoff.  (Also check if the sum is equal to   */
+ /*   one without causing roundoff.  Also check if the sum is equal to   */
  /*   the previous sum, for machines that round up instead of using exact */
  /*   rounding.  Not that this library will work on such machines anyway. */
         do {
@@ -302,7 +302,7 @@ public class Mesh {
         }
     }
 
-    // expects a list of points in *clockwise* order for specifiying
+    // expects a list of points in *clockwise* order for specifying
     // an initial boundary for the mesh
     public void init(Point[] pts) {
         int s = pts.length;
@@ -1057,14 +1057,14 @@ public class Mesh {
         }
         /* update point->halfedge pointers */
         if (he.sibling == hePrev) {
-            /* this was the last halfedge eminating from he.origin */
+            /* this was the last halfedge emanating from he.origin */
             /*if (DEBUG) {
                 debugView(he.origin, "removeEdge: orphan point");
             }*/
             he.origin.he = null;
             updateHalfEdge(he.next);
         } else if (he.next == he.sibling) {
-            /* this was the last halfedge eminating from he.sibling.origin */
+            /* this was the last halfedge emanating from he.sibling.origin */
             /*if (DEBUG) {
                 debugView(he.next.origin, "removeEdge: orphan point");
             }*/
@@ -1115,7 +1115,7 @@ public class Mesh {
                         for (int j = 1; j < bounds.length; j++) {
                             if (intersect(p1, p2, bounds[j - 1], bounds[j])) {
                                 /* check if p2 lies strictly outside the bounds
-                                 * (i.e. is not colinear with the bounds) */
+                                 * (i.e. is not collinear with the bounds) */
                                 /*if (orient(bounds[j - 1], bounds[j], p2) != 0) {
                                     inside = false;
                                 }
@@ -1580,7 +1580,7 @@ public class Mesh {
 
     /**
      * A slightly smarter face walk routine that resorts to brute force
-     * only when it gets confused by an concave boundary.
+     * only when it gets confused by a concave boundary.
      */
     public FaceWalk findFace(HalfEdge heStart, Point p) {
         int i;

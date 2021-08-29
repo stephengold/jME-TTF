@@ -248,7 +248,7 @@ public class TrueTypeKeyBMP extends TrueTypeKey {
     
     /**
      * 
-     * @return If is using fixed atlas resolution
+     * @return true if using fixed atlas resolution
      */
     public boolean isFixedResolution() {
         return fixedResolution;

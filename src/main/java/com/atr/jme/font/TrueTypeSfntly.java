@@ -182,7 +182,7 @@ public class TrueTypeSfntly extends TrueTypeBMP<GlyphSfntly> {
      * Gets the GlyphID of a glyph associated with a particular character.
      * 
      * @param codePoint The Unicode code point of the requested character.
-     * @return The ID which can be used to lookup a glyph in the truetype
+     * @return The ID which can be used to look up a glyph in the truetype
      * font file.
      * 
      * @see #getGlyph(int)
@@ -385,9 +385,9 @@ public class TrueTypeSfntly extends TrueTypeBMP<GlyphSfntly> {
     }
     
     /**
-     * Converts a Q2.14 format two byte byte array to floating point.
+     * Converts a Q2.14 format two-byte byte array to floating point.
      * 
-     * @param value 2 byte byte array.
+     * @param value 2-byte byte array.
      * @return The value as a float.
      */
     private float f2dot14(byte[] value) {
@@ -620,7 +620,7 @@ public class TrueTypeSfntly extends TrueTypeBMP<GlyphSfntly> {
                     path.close();
                 } else {
                     //The last point is on-curve, but the first point is not.
-                    //We create a bezier curve between the last and second
+                    //We create a Bézier curve between the last and second
                     //points with the first point as the middle control.
                     path.quadTo(firstX, firstY, firstOnCurveX, firstOnCurveY);
                     path.close();
@@ -628,7 +628,7 @@ public class TrueTypeSfntly extends TrueTypeBMP<GlyphSfntly> {
             } else {
                 if (firstOnCurve) {
                     //The first point is on-curve, but the last point
-                    //was not. We create a bezier curve between the
+                    //was not. We create a Bézier curve between the
                     //second to last point and the first point with
                     //the last point as the middle control.
                     path.quadTo(last1X, last1Y, firstX, firstY);
@@ -636,7 +636,7 @@ public class TrueTypeSfntly extends TrueTypeBMP<GlyphSfntly> {
                 } else {
                     //The first and last contour points are both off-curve.
                     //We add an on-curve point between them and create two
-                    //new quadratic bezier curves, one between the second to
+                    //new quadratic Bézier curves, one between the second to
                     //last point and the new mid-point with the last point as
                     //the middle control point and another between the new
                     //mid-point and the second point with the first point as
@@ -782,7 +782,7 @@ public class TrueTypeSfntly extends TrueTypeBMP<GlyphSfntly> {
                     path.close();
                 } else {
                     //The last point is on-curve, but the first point is not.
-                    //We create a bezier curve between the last and second
+                    //We create a Bézier curve between the last and second
                     //points with the first point as the middle control.
                     path.quadTo(firstX, firstY, firstOnCurveX, firstOnCurveY);
                     path.close();
@@ -790,7 +790,7 @@ public class TrueTypeSfntly extends TrueTypeBMP<GlyphSfntly> {
             } else {
                 if (firstOnCurve) {
                     //The first point is on-curve, but the last point
-                    //was not. We create a bezier curve between the
+                    //was not. We create a Bézier curve between the
                     //second to last point and the first point with
                     //the last point as the middle control.
                     path.quadTo(last1X, last1Y, firstX, firstY);
@@ -798,7 +798,7 @@ public class TrueTypeSfntly extends TrueTypeBMP<GlyphSfntly> {
                 } else {
                     //The first and last contour points are both off-curve.
                     //We add an on-curve point between them and create two
-                    //new quadratic bezier curves, one between the second to
+                    //new quadratic Bézier curves, one between the second to
                     //last point and the new mid-point with the last point as
                     //the middle control point and another between the new
                     //mid-point and the second point with the first point as

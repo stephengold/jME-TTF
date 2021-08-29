@@ -85,7 +85,7 @@ public abstract class TrueTypeFont<T extends Glyph, S extends TrueTypeNode> {
     }
     
     /**
-     * Whether or not the cache is currently locked.
+     * Test whether the cache is currently locked.
      * 
      * @return True if the cache is locked, false otherwise.
      * 
@@ -163,7 +163,7 @@ public abstract class TrueTypeFont<T extends Glyph, S extends TrueTypeNode> {
      * this method to scale that back down to a smaller point size, such as
      * 14pt. For example <code>setScale(14f / 26f)</code>.
      * 
-     * This will effect not only the scale of geometries returned by methods
+     * This will affect not only the scale of geometries returned by methods
      * of this <code>TrueTypeFont</code>, but also results returned by methods
      * such as <code>getLineWidth(String text)</code>.
      * 
@@ -604,7 +604,7 @@ public abstract class TrueTypeFont<T extends Glyph, S extends TrueTypeNode> {
      * deepest below the baseline to the top of the character that extends the highest
      * above the baseline. NO LINE BREAKS!!
      * 
-     * @param text The text to calculate the hight of.
+     * @param text The text to calculate the height of.
      * @return The height.
      */
     public float getVisualLineHeight(String text) {
@@ -616,7 +616,7 @@ public abstract class TrueTypeFont<T extends Glyph, S extends TrueTypeNode> {
      * deepest below the baseline to the top of the character that extends the highest
      * above the baseline. NO LINE BREAKS!!
      * 
-     * @param text The text to calculate the hight of.
+     * @param text The text to calculate the height of.
      * @return The height.
      */
     public float getVisualLineHeight(StringBuilder text) {
@@ -628,7 +628,7 @@ public abstract class TrueTypeFont<T extends Glyph, S extends TrueTypeNode> {
      * deepest below the baseline to the top of the character that extends the highest
      * above the baseline.
      * 
-     * @param glyphs The text to calculate the hight of.
+     * @param glyphs The text to calculate the height of.
      * @return The height.
      */
     public float getVisualLineHeight(T[] glyphs) {
@@ -648,7 +648,7 @@ public abstract class TrueTypeFont<T extends Glyph, S extends TrueTypeNode> {
      * array extends.
      * 
      * @param text The text to calculate.
-     * @return The hight above the baseline of the tallest character.
+     * @return The height above the baseline of the tallest character.
      */
     public float getVisualAscent(String text) {
         return getVisualAscent(getGlyphs(text));
@@ -659,7 +659,7 @@ public abstract class TrueTypeFont<T extends Glyph, S extends TrueTypeNode> {
      * array extends.
      * 
      * @param text The text to calculate.
-     * @return The hight above the baseline of the tallest character.
+     * @return The height above the baseline of the tallest character.
      */
     public float getVisualAscent(StringBuilder text) {
         return getVisualAscent(getGlyphs(text));
@@ -670,7 +670,7 @@ public abstract class TrueTypeFont<T extends Glyph, S extends TrueTypeNode> {
      * array extends.
      * 
      * @param glyphs The text to calculate.
-     * @return The hight above the baseline of the tallest character.
+     * @return The height above the baseline of the tallest character.
      */
     public float getVisualAscent(T[] glyphs) {
         if (glyphs.length == 0) {

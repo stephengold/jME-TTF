@@ -52,7 +52,7 @@ public final class Edge
     
     /**
      * Copy constructor for an existing edge <tt>e</tt>. The pointers to the
-     * endpoints are copied, but not the points themsleves (shallow copy).
+     * endpoints are copied, but not the points themselves (shallow copy).
      *
      * @param e
      */

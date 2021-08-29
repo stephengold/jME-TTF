@@ -501,10 +501,10 @@ public class StringContainer {
     }
     
     /**
-     * The number of non space characters contained in the assigned text.
+     * The number of non-space characters contained in the assigned text.
      * This will equal zero until the first call to {@link #getLines()}.
      * 
-     * @return The number of non space characters.
+     * @return The number of non-space characters.
      */
     public int getNumNonSpaceCharacters() {
         return numNonSpaceChars;

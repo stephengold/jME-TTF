@@ -54,7 +54,7 @@ public abstract class GlyphBMP extends Glyph {
     /**
      * 
      * @return The Y offset of the character in the atlas from its intended
-     * Y location relative to the characters origin. When displaying the character
+     * Y location relative to the character's origin. When displaying the character
      * you'll want to subtract this value from the intended locations y-axis value.
      */
     public int getYOffset() {
@@ -64,7 +64,7 @@ public abstract class GlyphBMP extends Glyph {
     /**
      * 
      * @return The X offset of the character in the atlas from its intended
-     * X location relative to the characters origin. When displaying the character
+     * X location relative to the character's origin. When displaying the character
      * you'll want to add this value from the intended locations x-axis value.
      */
     public int getXOffset() {

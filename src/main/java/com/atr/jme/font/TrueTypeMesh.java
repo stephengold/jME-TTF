@@ -141,7 +141,7 @@ public class TrueTypeMesh extends TrueTypeFont<GlyphMesh, TrueTypeMeshText> {
     }
     
     /**
-     * Set whether or not text created with this <code>TrueTypeMesh</code>
+     * Configure whether text created with this <code>TrueTypeMesh</code>
      * will use shader based anti-aliasing. Note this only effects newly
      * created text, text that has already been created with this instance
      * will not be effected.
@@ -203,7 +203,7 @@ public class TrueTypeMesh extends TrueTypeFont<GlyphMesh, TrueTypeMeshText> {
      * Gets the GlyphID of a glyph associated with a particular character.
      * 
      * @param codePoint The Unicode code point of the requested character.
-     * @return The ID which can be used to lookup a glyph in the truetype
+     * @return The ID which can be used to look up a glyph in the truetype
      * font file.
      * 
      * @see #getGlyph(int)

@@ -31,7 +31,7 @@ import com.atr.jme.font.util.Point2d;
 
 /**
  * Represents a boundary point, which has additional fields <tt>next</tt>
- * and <tt>prev</tt> to maintain a doubley-linked list of the boundary.
+ * and <tt>prev</tt> to maintain a doubly-linked list of the boundary.
  * The <tt>side</tt> field can be used for encoding symmetry information
  * about the boundary.
  *
