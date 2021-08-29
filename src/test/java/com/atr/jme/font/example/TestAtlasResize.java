@@ -83,7 +83,7 @@ public class TestAtlasResize extends SimpleApplication {
         Material mat = new Material(assetManager, "Common/MatDefs/Misc/Unshaded.j3md");
         mat.setTexture("ColorMap", texture);
 
-        Geometry geom = new Geometry("altas", new Quad(20, 20));
+        Geometry geom = new Geometry("atlas", new Quad(20, 20));
         geom.setMaterial(mat);
         geom.setLocalTranslation(x, y, 0);
         
