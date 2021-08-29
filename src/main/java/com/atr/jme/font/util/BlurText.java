@@ -280,6 +280,11 @@ public class BlurText {
         return intensity;
     }
     
+    @Deprecated
+    public float getIntenisty() {
+        return intensity;
+    }
+
     /**
      * Sets the color of the blurred text.
      * 
