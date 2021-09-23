@@ -17,21 +17,8 @@ ext {
 
 description = 'A TrueType font rendering subsystem for jMonkeyEngine.'
 
-sourceCompatibility = 1.7
-targetCompatibility = 1.7
-
-tasks.withType(JavaCompile) { // compile-time options:
-    //options.compilerArgs << '-Xlint:unchecked'
-    options.deprecation = true
-    options.encoding = 'UTF-8'
-}
-
-javadoc {
-    // Disable doclint for JDK8+.
-    if (JavaVersion.current().isJava8Compatible()) {
-        options.addStringOption('Xdoclint:none', '-quiet')
-    }
-}
+sourceCompatibility = '1.7'
+targetCompatibility = '1.7'
 
 repositories {
 //    mavenLocal()
@@ -51,6 +38,20 @@ dependencies {
 
     // test runtime
     testRuntimeOnly 'org.jmonkeyengine:jme3-lwjgl:' + jme3Version
+}
+
+tasks.withType(JavaCompile) { // compile-time options:
+    //options.compilerArgs << '-Xdiags:verbose'
+    //options.compilerArgs << '-Xlint:unchecked'
+    options.deprecation = true
+    options.encoding = 'UTF-8'
+}
+
+javadoc {
+    // Disable doclint for JDK8+.
+    if (JavaVersion.current().isJava8Compatible()) {
+        options.addStringOption('Xdoclint:none', '-quiet')
+    }
 }
 
 // publishing tasks
