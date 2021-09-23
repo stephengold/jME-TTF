@@ -127,7 +127,6 @@ publishing {
                     developerConnection = 'scm:git:ssh://github.com:stephengold/jME-TTF.git'
                     url = project.ext.websiteUrl + '/tree/master'
                 }
-                suppressPomMetadataWarningsFor('apiElements') // Gradle issue #16555
                 url = project.ext.websiteUrl
             }
             version project.ext.version
