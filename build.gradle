@@ -10,7 +10,7 @@ description = 'A TrueType font rendering subsystem for jMonkeyEngine.'
 ext {
     group = 'com.github.stephengold'
     artifact = 'jme-ttf'
-    version = '2.2.4'
+    version = '2.2.5-SNAPSHOT'
     baseName = "${artifact}-${version}"
     jme3Version='3.4.0-stable'
 }
