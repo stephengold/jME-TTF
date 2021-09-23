@@ -12,7 +12,7 @@ ext {
     version = '2.2.5-SNAPSHOT'
     baseName = "${artifact}-${version}"
     jme3Version='3.4.0-stable'
-    websiteUrl = 'https://github.com/stephengold/j-ogg-all'
+    websiteUrl = 'https://github.com/stephengold/jME-TTF'
 }
 
 description = 'A TrueType font rendering subsystem for jMonkeyEngine.'
