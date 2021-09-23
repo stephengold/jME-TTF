@@ -13,6 +13,7 @@ ext {
     version = '2.2.5-SNAPSHOT'
     baseName = "${artifact}-${version}"
     jme3Version='3.4.0-stable'
+    websiteUrl = 'https://github.com/stephengold/j-ogg-all'
 }
 
 sourceCompatibility = 1.7
@@ -108,17 +109,17 @@ publishing {
                 licenses {
                     license {
                         name = 'Free Public License 1.0.0'
-                        url = 'https://github.com/stephengold/jME-TTF/blob/master/LICENSE'
+                        url = project.ext.websiteUrl + '/blob/master/LICENSE'
                     }
                 }
                 name = project.ext.group + ':' + artifact
                 scm {
                     connection = 'scm:git:git://github.com/stephengold/jME-TTF.git'
                     developerConnection = 'scm:git:ssh://github.com:stephengold/jME-TTF.git'
-                    url = 'https://github.com/stephengold/jME-TTF/tree/master'
+                    url = project.ext.websiteUrl + '/tree/master'
                 }
                 suppressPomMetadataWarningsFor('apiElements') // Gradle issue #16555
-                url = 'https://github.com/stephengold/jME-TTF'
+                url = project.ext.websiteUrl
             }
             version project.ext.version
         }
