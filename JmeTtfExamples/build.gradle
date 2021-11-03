@@ -22,6 +22,11 @@ tasks.withType(JavaExec) { // Java runtime options:
 dependencies {
     runtimeOnly 'org.jmonkeyengine:jme3-lwjgl:' + jme3Version
 
+    // JmeTtfExamples doesn't use jme3-jogg or jme3-plugins
+    //  -- they are included solely to avoid warnings from AssetConfig
+    runtimeOnly 'org.jmonkeyengine:jme3-jogg:' + jme3Version
+    runtimeOnly 'org.jmonkeyengine:jme3-plugins:' + jme3Version
+
     //implementation 'com.github.stephengold:jme-ttf:' + jmeTtfVersion
     implementation project(':JmeTtfLibrary')
 }
@@ -40,7 +45,7 @@ task cleanSOs(type: Delete) {
     delete fileTree(dir: '.', include: '*.so')
 }
 
-// run the example apps
+// tasks to run the sample apps
 
 task runAtlasResize(type: JavaExec) {
     mainClass = 'com.atr.jme.font.example.TestAtlasResize'
