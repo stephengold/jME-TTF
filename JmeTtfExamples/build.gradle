@@ -1,0 +1,53 @@
+// Note: "common.gradle" in the root project contains additional initialization
+//   for this project. This initialization is applied in the "build.gradle"
+//   of the root project.
+
+plugins {
+    id 'application'
+}
+
+description = 'examples and non-automated tests'
+
+mainClassName = 'com.atr.jme.font.example.TestAtlasResize'
+if (!hasProperty('mainClass')) {
+    ext.mainClass = mainClassName
+}
+jar.manifest.attributes('Main-Class': mainClassName)
+
+tasks.withType(JavaExec) { // Java runtime options:
+    classpath sourceSets.main.runtimeClasspath
+    enableAssertions true
+}
+
+dependencies {
+    runtimeOnly 'org.jmonkeyengine:jme3-lwjgl:' + jme3Version
+
+    //implementation 'com.github.stephengold:jme-ttf:' + jmeTtfVersion
+    implementation project(':JmeTtfLibrary')
+}
+
+// cleanup tasks
+
+clean.dependsOn('cleanDLLs', 'cleanDyLibs', 'cleanSOs')
+
+task cleanDLLs(type: Delete) {
+    delete fileTree(dir: '.', include: '*.dll')
+}
+task cleanDyLibs(type: Delete) {
+    delete fileTree(dir: '.', include: '*.dylib')
+}
+task cleanSOs(type: Delete) {
+    delete fileTree(dir: '.', include: '*.so')
+}
+
+// run the example apps
+
+task runAtlasResize(type: JavaExec) {
+    mainClass = 'com.atr.jme.font.example.TestAtlasResize'
+}
+task runTrueTypeBMP(type: JavaExec) {
+    mainClass = 'com.atr.jme.font.example.TestTrueTypeBMP'
+}
+task runTrueTypeMesh(type: JavaExec) {
+    mainClass = 'com.atr.jme.font.example.TestTrueTypeMesh'
+}

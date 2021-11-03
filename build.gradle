@@ -1,159 +1,20 @@
 // Gradle build script for the jME-TTF project
 
 plugins {
-    id 'java-library'
-    id 'maven-publish'
-    id 'signing'
+    id 'base' // to add the "clean" task to the root project
 }
 
-ext {
-    group = 'com.github.stephengold'
-    artifact = 'jme-ttf'
-    version = '2.2.5-SNAPSHOT'
-    baseName = "${artifact}-${version}"
-    jme3Version = '3.4.0-stable'
-    websiteUrl = 'https://github.com/stephengold/jME-TTF'
-}
-
-description = 'A TrueType font rendering subsystem for jMonkeyEngine.'
-
-sourceCompatibility = '1.7'
-targetCompatibility = '1.7'
-
-repositories {
-//    mavenLocal()
-    mavenCentral()
-}
-
-dependencies {
-    api 'org.jmonkeyengine:jme3-core:' + jme3Version
-    api 'com.jaredrummler:sfntly:1.0.1'
-
-    // provided when running on Desktop
-    compileOnly 'org.jmonkeyengine:jme3-desktop:' + jme3Version
-
-    // provided when running on Android
-    compileOnly 'org.jmonkeyengine:jme3-android:' + jme3Version
-    compileOnly 'com.google.android:android:4.1.1.4'
-
-    // test runtime
-    testRuntimeOnly 'org.jmonkeyengine:jme3-lwjgl:' + jme3Version
-}
-
-tasks.withType(JavaCompile) { // compile-time options:
-    //options.compilerArgs << '-Xdiags:verbose'
-    //options.compilerArgs << '-Xlint:unchecked'
-    options.deprecation = true
-    options.encoding = 'UTF-8'
-}
-
-javadoc {
-    // Disable doclint for JDK8+.
-    if (JavaVersion.current().isJava8Compatible()) {
-        options.addStringOption('Xdoclint:none', '-quiet')
-    }
+subprojects {
+    apply from: rootProject.file('common.gradle')
 }
 
 // publishing tasks
 
 task('install') {
-    dependsOn 'publishMavenPublicationToMavenLocal'
+    dependsOn ':JmeTtfLibrary:install'
     description 'Installs Maven artifacts to the local repository.'
 }
 task('release') {
-    dependsOn 'publishMavenPublicationToOSSRHRepository'
+    dependsOn ':JmeTtfLibrary:release'
     description 'Stages Maven artifacts to Sonatype OSSRH.'
-}
-
-jar {
-    archiveBaseName = project.ext.baseName
-}
-
-task javadocJar(type: Jar) {
-    archiveBaseName = project.ext.baseName
-    archiveClassifier = 'javadoc'
-    dependsOn 'javadoc'
-    description 'Creates a JAR of javadoc.'
-    from javadoc.destinationDir
-}
-
-task sourcesJar(type: Jar) {
-    archiveBaseName = project.ext.baseName
-    archiveClassifier = 'sources'
-    description 'Creates a JAR of sourcecode.'
-    from sourceSets.main.allJava
-}
-
-build.dependsOn('pom', 'pomAsc')
-task('pom', type: Copy) {
-    dependsOn 'generatePomFileForMavenPublication'
-    description 'Copies the Maven POM to build/libs.'
-    from "${buildDir}/publications/maven/pom-default.xml"
-    into "${buildDir}/libs"
-    rename 'pom-default.xml', project.ext.baseName + '.pom'
-}
-task('pomAsc', type: Copy) {
-    dependsOn 'signMavenPublication'
-    description 'Copies the signature of the Maven POM to build/libs.'
-    from "${buildDir}/publications/maven/pom-default.xml.asc"
-    into "${buildDir}/libs"
-    rename 'pom-default.xml.asc', project.ext.baseName + '.pom.asc'
-}
-
-publishing {
-    publications {
-        maven(MavenPublication) {
-            artifact javadocJar
-            artifact sourcesJar
-            artifactId artifact
-            from components.java
-            groupId project.ext.group
-            pom {
-                description = project.description
-                developers {
-                    developer {
-                        email = 'tryder@protonmail.com'
-                        name = 'Adam T. Ryder'
-                    }
-                }
-                licenses {
-                    license {
-                        name = 'Free Public License 1.0.0'
-                        url = project.ext.websiteUrl + '/blob/master/LICENSE'
-                    }
-                }
-                name = project.ext.group + ':' + artifact
-                scm {
-                    connection = 'scm:git:git://github.com/stephengold/jME-TTF.git'
-                    developerConnection = 'scm:git:ssh://github.com:stephengold/jME-TTF.git'
-                    url = project.ext.websiteUrl + '/tree/master'
-                }
-                url = project.ext.websiteUrl
-            }
-            version project.ext.version
-        }
-    }
-    repositories {
-        maven {
-            credentials {
-                username = project.hasProperty('ossrhUsername') ? ossrhUsername : 'Unknown user'
-                password = project.hasProperty('ossrhPassword') ? ossrhPassword : 'Unknown password'
-            }
-            name = 'OSSRH'
-            url = 'https://oss.sonatype.org/service/local/staging/deploy/maven2'
-        }
-    }
-}
-generateMetadataFileForMavenPublication.dependsOn('pom')
-publishMavenPublicationToMavenLocal.doLast {
-    println 'installed locally as ' + project.ext.baseName
-}
-
-// signing tasks
-
-signing {
-    sign publishing.publications.maven
-}
-tasks.withType(Sign) {
-    onlyIf { project.hasProperty('signing.keyId') }
 }

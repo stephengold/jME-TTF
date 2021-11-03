@@ -1,0 +1,23 @@
+// Gradle settings and tasks common to all jme-ttf subprojects
+
+apply plugin: 'java'
+
+sourceCompatibility = '1.7'
+targetCompatibility = '1.7'
+
+tasks.withType(JavaCompile) { // compile-time options:
+    options.compilerArgs << '-Xdiags:verbose'
+    //options.compilerArgs << '-Xlint:unchecked'
+    options.deprecation = true
+    options.encoding = 'UTF-8'
+}
+
+ext { // current versions of various libraries:
+    jme3Version = '3.4.0-stable'
+    jmeTtfVersion = '2.2.5-SNAPSHOT'
+}
+
+repositories {
+    //mavenLocal()
+    mavenCentral()
+}
