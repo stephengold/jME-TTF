@@ -24,12 +24,12 @@ hs_err_pid*
 # build tool output
 /.gradle/
 /bin/
-/build/
 /dist/
 /out/
 /target/
 .gradletasknamecache
-
+/JmeTtfExamples/build/
+/JmeTtfLibrary/build/
 
 # MacOS
 .DS_Store
