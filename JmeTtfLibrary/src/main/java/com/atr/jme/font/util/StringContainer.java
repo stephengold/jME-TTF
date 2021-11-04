@@ -533,6 +533,7 @@ public class StringContainer {
      * 
      * @see Glyph
      */
+    @SuppressWarnings("unchecked")
     public Glyph[][] getLines() {
         //I had to add 2 to the calculated width of each line
         //the widths appear to always be off about 2 pixels for
