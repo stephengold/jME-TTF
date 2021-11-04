@@ -105,9 +105,9 @@ public class Mesh {
 
     /* mesh data */
     final protected List<Point> points
-            = (List) Collections.synchronizedList(new LinkedList());
+            = Collections.synchronizedList(new LinkedList<Point>());
     final protected List<HalfEdge> halfEdges
-            = (List) Collections.synchronizedList(new LinkedList());
+            = Collections.synchronizedList(new LinkedList<HalfEdge>());
     protected int nBoundary;
 
     /* queues */
