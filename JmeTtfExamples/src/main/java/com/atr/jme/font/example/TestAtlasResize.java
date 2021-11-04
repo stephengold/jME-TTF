@@ -37,7 +37,6 @@ public class TestAtlasResize extends SimpleApplication {
     }
 
     @Override
-    @SuppressWarnings({"rawtypes", "unchecked"})
     public void simpleInitApp() {
         viewPort.setBackgroundColor(ColorRGBA.DarkGray);
         flyCam.setMoveSpeed(100f);

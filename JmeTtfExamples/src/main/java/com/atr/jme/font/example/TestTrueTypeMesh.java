@@ -27,7 +27,6 @@ public class TestTrueTypeMesh extends SimpleApplication {
         app.start();
     }
 
-    @SuppressWarnings({"rawtypes", "unchecked"})
     @Override
     public void simpleInitApp() {
         flyCam.setMoveSpeed(100f);
