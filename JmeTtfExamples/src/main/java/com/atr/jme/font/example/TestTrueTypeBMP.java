@@ -20,7 +20,7 @@ import com.jme3.math.ColorRGBA;
 public class TestTrueTypeBMP extends SimpleApplication {
 
     /**
-     * @param args
+     * @param args unused
      */
     public static void main(String[] args) {
         TestTrueTypeBMP app = new TestTrueTypeBMP();

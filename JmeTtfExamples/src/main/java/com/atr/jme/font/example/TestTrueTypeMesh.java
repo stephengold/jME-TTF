@@ -20,7 +20,7 @@ import com.jme3.math.ColorRGBA;
 public class TestTrueTypeMesh extends SimpleApplication {
 
     /**
-     * @param args
+     * @param args unused
      */
     public static void main(String[] args) {
         TestTrueTypeMesh app = new TestTrueTypeMesh();
