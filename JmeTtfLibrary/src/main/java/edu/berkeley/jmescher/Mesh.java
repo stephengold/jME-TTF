@@ -111,9 +111,9 @@ public class Mesh {
     protected int nBoundary;
 
     /* queues */
-    protected LinkedList<HalfEdge> delaunayQueue = new LinkedList();
-    protected LinkedList<Point> removedConstraints = new LinkedList();
-    protected LinkedList<Point> deleteQueue = new LinkedList();
+    protected LinkedList<HalfEdge> delaunayQueue = new LinkedList<>();
+    protected LinkedList<Point> removedConstraints = new LinkedList<>();
+    protected LinkedList<Point> deleteQueue = new LinkedList<>();
     private Point removeConstraintPeg = null;
 
     /* name and colors */
@@ -208,7 +208,7 @@ public class Mesh {
     }
 
     public Point2d[] getFaceCoordinates() {
-        ArrayList<Point2d> facePoints = new ArrayList();
+        ArrayList<Point2d> facePoints = new ArrayList<>();
         // reset 'used' flags
         clearFlags(HalfEdge.FLAG_READ);
         // find the faces
@@ -231,7 +231,7 @@ public class Mesh {
     }
 
     public Point3d[] getFaceCoordinates3d() {
-        ArrayList<Point3d> coords = new ArrayList();
+        ArrayList<Point3d> coords = new ArrayList<>();
         // reset 'used' flags
         clearFlags(HalfEdge.FLAG_READ);
         // find the faces
@@ -255,7 +255,7 @@ public class Mesh {
     }
 
     public Edge[] getEdges() {
-        ArrayList<Edge> edges = new ArrayList();
+        ArrayList<Edge> edges = new ArrayList<>();
         clearFlags(HalfEdge.FLAG_READ);
         // find the faces
         for (HalfEdge he : halfEdges) {
@@ -307,7 +307,7 @@ public class Mesh {
     public void init(Point[] pts) {
         int s = pts.length;
         assert s >= 3 : error("Initialization requires at least 3 points!");
-        ArrayList<HalfEdge> polygon = new ArrayList(s);
+        ArrayList<HalfEdge> polygon = new ArrayList<>(s);
         clear();
         for (Point p : pts) {
             points.add(p);
@@ -591,7 +591,7 @@ public class Mesh {
 
         int i;
         HalfEdge heSearch;
-        ArrayList<HalfEdge> polygon = new ArrayList(TYPICAL_POLYGON_SIZE);
+        ArrayList<HalfEdge> polygon = new ArrayList<>(TYPICAL_POLYGON_SIZE);
 
         polygon.add(he);
         heSearch = he.next;
@@ -679,7 +679,7 @@ public class Mesh {
             heAdd.next = polygon.get((n + 2) % s);
             polygon.get((n + s - 1) % s).next = heAdd;
             if (s > 4) {
-                ArrayList<HalfEdge> polygon0 = new ArrayList();
+                ArrayList<HalfEdge> polygon0 = new ArrayList<>();
                 for (int j = 0; j < (s - 1); j++) {
                     polygon0.add(heAdd);
                     heAdd = heAdd.next;
@@ -952,7 +952,7 @@ public class Mesh {
         int i;
         Point p1, p2, p3;
         HalfEdge heSearch, heFlip;
-        LinkedList<HalfEdge> star = new LinkedList();
+        LinkedList<HalfEdge> star = new LinkedList<>();
 
         if (MESSAGES) {
             message("Removing interior point.");
@@ -1586,7 +1586,7 @@ public class Mesh {
         int i;
         float[] ccw = new float[3];
         HalfEdge he0, he1, he2;
-        LinkedList<HalfEdge> queue = new LinkedList();
+        LinkedList<HalfEdge> queue = new LinkedList<>();
 
         clearFlags(HalfEdge.FLAG_ALGORITHM);
         queue.add(heStart);
@@ -2443,8 +2443,8 @@ public class Mesh {
     private final void testFaces() {
         int i;
         HalfEdge heTest;
-        LinkedList<HalfEdge> used = new LinkedList();
-        LinkedList<HalfEdge> face = new LinkedList();
+        LinkedList<HalfEdge> used = new LinkedList<>();
+        LinkedList<HalfEdge> face = new LinkedList<>();
 
         for (HalfEdge he : halfEdges) {
             if (used.contains(he)) {

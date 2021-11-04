@@ -55,8 +55,8 @@ public class MeshCopy extends Mesh
 
         Point p1;
         HalfEdge he1;
-        pointLookup = new HashMap();
-        halfEdgeLookup = new HashMap();
+        pointLookup = new HashMap<>();
+        halfEdgeLookup = new HashMap<>();
 
         this.name = name;
         /*if (DEBUG) {

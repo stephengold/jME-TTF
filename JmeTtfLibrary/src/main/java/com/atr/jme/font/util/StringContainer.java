@@ -670,7 +670,7 @@ public class StringContainer {
             return lines;
         }
         
-        List<Glyph[]> newLines = new LinkedList();
+        List<Glyph[]> newLines = new LinkedList<>();
         switch(wrap) {
             case Char:
                 for (int i = 0; i < tmpLines.length; i++) {
