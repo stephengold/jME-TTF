@@ -37,16 +37,15 @@ public class TestAtlasResize extends SimpleApplication {
     }
 
     @Override
-    @SuppressWarnings({ "rawtypes", "unchecked" })
+    @SuppressWarnings({"rawtypes", "unchecked"})
     public void simpleInitApp() {
         viewPort.setBackgroundColor(ColorRGBA.DarkGray);
         flyCam.setMoveSpeed(100f);
 
         assetManager.registerLoader(TrueTypeLoader.class, "ttf");
-        
-        TrueTypeKey key = new TrueTypeKeyBMP(font, Style.Plain, fontSize, 0, 72, false, "", 256, true);
 
-        final TrueTypeFont font = (TrueTypeFont)assetManager.loadAsset(key);
+        TrueTypeKey key = new TrueTypeKeyBMP(font, Style.Plain, fontSize, 0, 72, false, "", 256, true);
+        final TrueTypeFont font = (TrueTypeFont) assetManager.loadAsset(key);
 
         // Use a short String first.
         StringContainer sc = new StringContainer(font, "ABC", 2);
@@ -71,13 +70,11 @@ public class TestAtlasResize extends SimpleApplication {
                 inputManager.removeListener(this);
             }
         }, "ADD");
-        
-
     }
 
     @SuppressWarnings("rawtypes")
     private void displayAtlas(TrueTypeFont font, float x, float y) {
-        TrueTypeBMP bmp = (TrueTypeBMP)font;
+        TrueTypeBMP bmp = (TrueTypeBMP) font;
         Texture2D texture = bmp.getAtlas();
 
         Material mat = new Material(assetManager, "Common/MatDefs/Misc/Unshaded.j3md");
@@ -86,7 +83,7 @@ public class TestAtlasResize extends SimpleApplication {
         Geometry geom = new Geometry("atlas", new Quad(20, 20));
         geom.setMaterial(mat);
         geom.setLocalTranslation(x, y, 0);
-        
+
         rootNode.attachChild(geom);
     }
 }

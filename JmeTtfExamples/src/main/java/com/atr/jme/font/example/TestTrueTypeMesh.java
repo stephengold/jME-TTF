@@ -27,17 +27,14 @@ public class TestTrueTypeMesh extends SimpleApplication {
         app.start();
     }
 
-    @SuppressWarnings({ "rawtypes", "unchecked" })
+    @SuppressWarnings({"rawtypes", "unchecked"})
     @Override
     public void simpleInitApp() {
         flyCam.setMoveSpeed(100f);
-
         assetManager.registerLoader(TrueTypeLoader.class, "ttf");
 
         TrueTypeKey key = new TrueTypeKeyMesh(Constants.FONT, Style.Plain, 48, 72, true);
-
-        TrueTypeFont font = (TrueTypeFont)assetManager.loadAsset(key);
-
+        TrueTypeFont font = (TrueTypeFont) assetManager.loadAsset(key);
         StringContainer sc = new StringContainer(font, Constants.HELLO_WORLD);
 
         // test getFormattedText
@@ -49,5 +46,4 @@ public class TestTrueTypeMesh extends SimpleApplication {
         text.move(0, cam.getHeight(), 0);// move up
         guiNode.attachChild(text);
     }
-
 }

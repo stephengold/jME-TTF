@@ -27,18 +27,15 @@ public class TestTrueTypeBMP extends SimpleApplication {
         app.start();
     }
 
-    @SuppressWarnings({ "rawtypes", "unchecked" })
+    @SuppressWarnings({"rawtypes", "unchecked"})
     @Override
     public void simpleInitApp() {
         flyCam.setMoveSpeed(100f);
-
         assetManager.registerLoader(TrueTypeLoader.class, "ttf");
 
         TrueTypeKey key = new TrueTypeKeyBMP(Constants.FONT, Style.Plain, 48);
         //TrueTypeKey key = new TrueTypeKeyBMP(FONT, Style.Plain, 48, 1, CONTENT, 128);
-
-        TrueTypeFont font = (TrueTypeFont)assetManager.loadAsset(key);
-
+        TrueTypeFont font = (TrueTypeFont) assetManager.loadAsset(key);
         StringContainer sc = new StringContainer(font, Constants.HELLO_WORLD);
 
         // test getFormattedText
@@ -49,7 +46,5 @@ public class TestTrueTypeBMP extends SimpleApplication {
         TrueTypeNode text = font.getText(Constants.HELLO_WORLD, 1, ColorRGBA.White);
         text.move(0, cam.getHeight(), 0);// move up
         guiNode.attachChild(text);
- 
     }
-
 }
