@@ -1,7 +1,13 @@
 jME-TTF
 ==================
 
-jME-TTF is a True Type Font(.ttf) rendering system for jMonkeyEngine3.1 and newer. With this library you can render text styles loaded directly from a true type font file at run-time. Characters from the ttf file are written to a dynamically sized texture atlas and then rendered on screen using a series of quads that display each character from the atlas. When requesting a text string to display jME-TTF looks through the string to see if any characters are missing from the atlas and if so adds them, expanding the size of the atlas texture as necessary.
+jME-TTF is a TrueType rendering system for jMonkeyEngine.
+With this library, you can render text styles loaded directly from a TrueType font (.ttf) file at runtime.
+Shapes from the file are written to a dynamically sized texture atlas
+and then rendered using a series of quads that display individual characters.
+When presented with a text string to display,
+jME-TTF scans the string to see if any characters are missing from the atlas,
+and if so it adds them, expanding the atlas texture as necessary.
 
 [<img 
 src="https://dl.dropboxusercontent.com/s/ldrg036040dx3g4/c5855071bc96733bcb4db72b98356deed0003d2f.png?dl=0"
