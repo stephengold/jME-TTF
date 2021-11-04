@@ -39,7 +39,6 @@ import java.util.Map;
  * @see TrueTypeBMP
  * @see TrueTypeMesh
  */
-@SuppressWarnings("rawtypes")
 public abstract class TrueTypeFont<T extends Glyph, S extends TrueTypeNode> {
     public static final int SPACE_CODEPOINT = ' ';
     

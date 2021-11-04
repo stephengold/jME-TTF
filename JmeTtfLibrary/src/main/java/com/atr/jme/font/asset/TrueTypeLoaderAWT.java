@@ -33,7 +33,6 @@ import java.util.logging.Logger;
  */
 public class TrueTypeLoaderAWT implements AssetLoader {
 
-    @SuppressWarnings("rawtypes")
     @Override
     public TrueTypeBMP load(AssetInfo assetInfo) throws IOException {
         TrueTypeKeyBMP key = (TrueTypeKeyBMP)assetInfo.getKey();

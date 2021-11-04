@@ -34,7 +34,6 @@ public abstract class GlyphBMP extends Glyph {
     protected int hMod;
     protected int xMod;
     
-    @SuppressWarnings("rawtypes")
     public GlyphBMP(TrueTypeBMP ttb,
             int codePoint, int x, int y, int atlasWidth, int atlasHeight) {
         super(codePoint);

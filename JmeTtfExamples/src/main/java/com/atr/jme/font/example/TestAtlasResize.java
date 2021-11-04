@@ -71,7 +71,6 @@ public class TestAtlasResize extends SimpleApplication {
         }, "ADD");
     }
 
-    @SuppressWarnings("rawtypes")
     private void displayAtlas(TrueTypeFont font, float x, float y) {
         TrueTypeBMP bmp = (TrueTypeBMP) font;
         Texture2D texture = bmp.getAtlas();
