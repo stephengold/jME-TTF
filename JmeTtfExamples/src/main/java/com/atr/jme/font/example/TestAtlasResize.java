@@ -20,9 +20,9 @@ import com.jme3.scene.shape.Quad;
 import com.jme3.texture.Texture2D;
 
 /**
- * @title TestAtlasResize
+ * TestAtlasResize
  * @author yanmaoyuan
- * @date 2019-08-27
+ * 2019-08-27
  * @version 1.0
  */
 public class TestAtlasResize extends SimpleApplication {

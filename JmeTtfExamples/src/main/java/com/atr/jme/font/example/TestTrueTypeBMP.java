@@ -12,9 +12,9 @@ import com.jme3.app.SimpleApplication;
 import com.jme3.math.ColorRGBA;
 
 /**
- * @title TestTrueTypeBMP
+ * TestTrueTypeBMP
  * @author yanmaoyuan
- * @date 2019-08-27
+ * 2019-08-27
  * @version 1.0
  */
 public class TestTrueTypeBMP extends SimpleApplication {
