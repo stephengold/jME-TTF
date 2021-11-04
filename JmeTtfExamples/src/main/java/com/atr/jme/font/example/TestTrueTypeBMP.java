@@ -43,12 +43,12 @@ public class TestTrueTypeBMP extends SimpleApplication {
 
         // test getFormattedText
         TrueTypeContainer ttc = font.getFormattedText(sc, ColorRGBA.White);
-        rootNode.attachChild(ttc);
+        guiNode.attachChild(ttc);
 
         // test getText
         TrueTypeNode text = font.getText(Constants.HELLO_WORLD, 1, ColorRGBA.White);
-        text.move(0, text.getHeight(), 0);// move up
-        rootNode.attachChild(text);
+        text.move(0, cam.getHeight(), 0);// move up
+        guiNode.attachChild(text);
  
     }
 
