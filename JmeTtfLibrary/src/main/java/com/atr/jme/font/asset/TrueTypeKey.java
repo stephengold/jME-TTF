@@ -14,6 +14,7 @@
  */
 package com.atr.jme.font.asset;
 
+import com.atr.jme.font.TrueTypeFont;
 import com.atr.jme.font.util.Style;
 import com.jme3.asset.AssetKey;
 import com.jme3.asset.cache.AssetCache;
@@ -32,8 +33,7 @@ import java.io.IOException;
  * @author Adam T. Ryder
  * <a href="http://1337atr.weebly.com">http://1337atr.weebly.com</a>
  */
-@SuppressWarnings("rawtypes")
-public abstract class TrueTypeKey extends AssetKey {
+public abstract class TrueTypeKey extends AssetKey<TrueTypeFont> {
     private Style style;
     private int pointSize;
     private int dpi;
