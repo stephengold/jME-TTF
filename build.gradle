@@ -1,7 +1,7 @@
 // Gradle build script for the jME-TTF project
 
 plugins {
-    id 'base' // to add the "clean" task to the root project
+    id 'base' // to add a "clean" task to the root project
 }
 
 subprojects {
