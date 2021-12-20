@@ -41,7 +41,7 @@ import java.util.Map;
 
 /**
  * An implementation of {@link TrueTypeBMP} used primarily on desktop platforms
- * using <code>java.awt.Font</code> to load fonts.
+ * using {@code java.awt.Font} to load fonts.
  * 
  * @author Adam T. Ryder
  * <a href="http://1337atr.weebly.com">http://1337atr.weebly.com</a>
@@ -91,7 +91,7 @@ public class TrueTypeAWT extends TrueTypeBMP<GlyphAWT> {
     
     /**
      * 
-     * @return The <code>java.awt.Font</code> used by this <code>TrueTypeFont</code>.
+     * @return The {@code java.awt.Font} used by this {@code TrueTypeFont}.
      */
     public Font getFont() {
         return font;

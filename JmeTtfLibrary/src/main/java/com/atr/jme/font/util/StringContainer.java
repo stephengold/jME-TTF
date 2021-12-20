@@ -24,23 +24,23 @@ import java.util.LinkedList;
 import java.util.List;
 
 /**
- * <p><code>StringContainer</code> is used to format one or more lines of
+ * <p>{@code StringContainer} is used to format one or more lines of
  * text with horizontal/vertical alignments, kerning and wrapping. The
- * supplied <code>textBox</code> defines an area of the screen in which
- * the text should conform. When using a <code>WrapMode</code> other than
- * <code>WrapMode.NoWrap</code> the text will be wrapped so as to fit
- * within the <code>textBox</code>. When using <code>WrapMode.WordClip</code>
- * or <code>WrapMode.CharClip</code> the text will conform to the height
- * value of the <code>textBox</code>, lines exceeding the specified height
+ * supplied {@code textBox} defines an area of the screen in which
+ * the text should conform. When using a {@code WrapMode} other than
+ * {@code WrapMode.NoWrap} the text will be wrapped so as to fit
+ * within the {@code textBox}. When using {@code WrapMode.WordClip}
+ * or {@code WrapMode.CharClip} the text will conform to the height
+ * value of the {@code textBox}, lines exceeding the specified height
  * will be cut off and an ellipsis appended to the last line.
  * See {@link StringContainer.WrapMode}
- * for more information about <code>WrapMode</code>s.</p>
+ * for more information about {@code WrapMode}s.</p>
  * 
  * <p>Text alignment is also performed using the parameters in the
- * <code>textBox</code>. The {@link #getTextHeight()} and
+ * {@code textBox}. The {@link #getTextHeight()} and
  * {@link #getTextWidth()} methods will return the actual height
  * and width of the formatted text, not the height and width of the
- * <code>textBox</code>. Those methods, along with others such as
+ * {@code textBox}. Those methods, along with others such as
  * {@link #getLineCount()}, will return 0 before the first call
  * to {@link #getLines()}. All formatting is performed in the
  * {@link #getLines()} method.</p>
@@ -67,31 +67,31 @@ public class StringContainer {
     /**
      * <ul>
      * <li>
-     * <code>WrapMode.NoWrap</code> will display the text as is.
+     * {@code WrapMode.NoWrap} will display the text as is.
      * </li>
      * <li>
-     * <code>WrapMode.Char</code> will wrap each line to the next line 
-     * when said line is wider than the <code>textBox</code> width.
+     * {@code WrapMode.Char} will wrap each line to the next line 
+     * when said line is wider than the {@code textBox} width.
      * </li>
      * <li>
-     * <code>WrapMode.Word</code> performs the same action as 
-     * <code>WrapMode.Char</code>  except that the algorithm attempts to 
+     * {@code WrapMode.Word} performs the same action as 
+     * {@code WrapMode.Char}  except that the algorithm attempts to 
      * wrap the line between words.
      * </li>
      * <li>
-     * <code>WrapMode.Clip</code> will not wrap the text at all, but 
+     * {@code WrapMode.Clip} will not wrap the text at all, but 
      * instead cut off the first line where it is wider than the 
-     * <code>textBox</code> width and add the <code>ellipsis</code>.
+     * {@code textBox} width and add the {@code ellipsis}.
      * </li>
      * <li>
-     * <code>WrapMode.CharClip</code> performs the same action as 
-     * <code>WrapMode.Char</code> except that the text will be cut off 
-     * and the <code>ellipsis</code> added if and when the text lines 
-     * grow larger than the <code>textBox</code>'s height value.
+     * {@code WrapMode.CharClip} performs the same action as 
+     * {@code WrapMode.Char} except that the text will be cut off 
+     * and the {@code ellipsis} added if and when the text lines 
+     * grow larger than the {@code textBox}'s height value.
      * </li>
      * <li>
-     * <code>WrapMode.WordClip</code> performs the same action as
-     * <code>WrapMode.CharClip</code> except that the algorithm attempts 
+     * {@code WrapMode.WordClip} performs the same action as
+     * {@code WrapMode.CharClip} except that the algorithm attempts 
      * to break the lines between words.</li>
      * </ul>
      */
@@ -123,10 +123,10 @@ public class StringContainer {
     private int offset = 0;
     
     /**
-     * Constructs a new <code>StringContainer</code> instance with no text
-     * a default kerning of zero, horizontal alignment of <code>Align.Left</code>,
-     * vertical alignment of <code>VAlign.Top</code>, wrap mode of
-     * <code>WrapMode.NoWrap</code> and an ellipsis of "...".
+     * Constructs a new {@code StringContainer} instance with no text
+     * a default kerning of zero, horizontal alignment of {@code Align.Left},
+     * vertical alignment of {@code VAlign.Top}, wrap mode of
+     * {@code WrapMode.NoWrap} and an ellipsis of "...".
      * 
      * @param font 
      */
@@ -135,10 +135,10 @@ public class StringContainer {
     }
     
     /**
-     * Constructs a new <code>StringContainer</code> instance with the default
-     * kerning of zero, an empty <code>textBox</code>, horizontal alignment
-     * of <code>Align.Left</code> vertical alignment of <code>VAlign.Top</code>
-     * wrap mode of <code>WrapMode.NoWrap</code>, and an ellipsis of "...".
+     * Constructs a new {@code StringContainer} instance with the default
+     * kerning of zero, an empty {@code textBox}, horizontal alignment
+     * of {@code Align.Left} vertical alignment of {@code VAlign.Top}
+     * wrap mode of {@code WrapMode.NoWrap}, and an ellipsis of "...".
      * 
      * @param font
      * @param text 
@@ -148,10 +148,10 @@ public class StringContainer {
     }
     
     /**
-     * Constructs a new <code>StringContainer</code> instance with the default
-     * horizontal alignment of <code>Align.Left</code>, vertical alignment
-     * of <code>VAlign.Top</code>, wrap mode of <code>WrapMode.NoWrap</code>
-     * and an ellipsis of "..." and an empty <code>textBox</code>.
+     * Constructs a new {@code StringContainer} instance with the default
+     * horizontal alignment of {@code Align.Left}, vertical alignment
+     * of {@code VAlign.Top}, wrap mode of {@code WrapMode.NoWrap}
+     * and an ellipsis of "..." and an empty {@code textBox}.
      * 
      * @param font
      * @param text
@@ -162,9 +162,9 @@ public class StringContainer {
     }
     
     /**
-     * Constructs a new <code>StringContainer</code> instance with the default
-     * horizontal alignment of <code>Align.Left</code>, vertical alignment
-     * of <code>VAlign.Top</code>, wrap mode of <code>WrapMode.NoWrap</code>
+     * Constructs a new {@code StringContainer} instance with the default
+     * horizontal alignment of {@code Align.Left}, vertical alignment
+     * of {@code VAlign.Top}, wrap mode of {@code WrapMode.NoWrap}
      * and an ellipsis of "...".
      * 
      * @param font
@@ -177,9 +177,9 @@ public class StringContainer {
     }
     
     /**
-     * Constructs a new <code>StringContainer</code> instance with the default
-     * vertical alignment of <code>VAlign.Top</code>, wrap mode of
-     * <code>WrapMode.NoWrap</code>, and an ellipsis of "...".
+     * Constructs a new {@code StringContainer} instance with the default
+     * vertical alignment of {@code VAlign.Top}, wrap mode of
+     * {@code WrapMode.NoWrap}, and an ellipsis of "...".
      * 
      * @param font
      * @param text
@@ -193,7 +193,7 @@ public class StringContainer {
     }
     
     /**
-     * Constructs a new <code>StringContainer</code> instance.
+     * Constructs a new {@code StringContainer} instance.
      * 
      * @param font
      * @param text
@@ -233,7 +233,7 @@ public class StringContainer {
     }
     
     /**
-     * retrieves the text associated with this <code>StringContainer</code>.
+     * retrieves the text associated with this {@code StringContainer}.
      * 
      * @return The unformatted text.
      */
@@ -242,7 +242,7 @@ public class StringContainer {
     }
     
     /**
-     * Sets the text to be formatted by this <code>StringContainer</code>.
+     * Sets the text to be formatted by this {@code StringContainer}.
      * You must call {@link #getLines()} for this to be applied.
      * 
      * @param text The text to format.
@@ -253,11 +253,11 @@ public class StringContainer {
     }
     
     /**
-     * Text associated with this <code>StringContainer</code> will be
+     * Text associated with this {@code StringContainer} will be
      * formatted according to the width and height values of this
-     * <code>com.jme3.font.Rectangle</code>.
+     * {@code com.jme3.font.Rectangle}.
      * 
-     * @return The <code>com.jme3.font.Rectangle</code> that defines
+     * @return The {@code com.jme3.font.Rectangle} that defines
      * the visual constraints to be applied to this text.
      */
     public Rectangle getTextBox() {
@@ -265,13 +265,13 @@ public class StringContainer {
     }
     
     /**
-     * Text associated with this <code>StringContainer</code> will be
+     * Text associated with this {@code StringContainer} will be
      * formatted according to the width and height values of the
-     * <code>com.jme3.font.Rectangle</code> supplied here or
+     * {@code com.jme3.font.Rectangle} supplied here or
      * in the constructor. You must call {@link #getLines()} for this
      * change to be applied.
      * 
-     * @param textBox A <code>com.jme3.font.Rectangle</code> that defines
+     * @param textBox A {@code com.jme3.font.Rectangle} that defines
      * the visual constraints to be applied to this text.
      */
     public void setTextBox(Rectangle textBox) {
@@ -337,7 +337,7 @@ public class StringContainer {
     }
     
     /**
-     * Sets the horizontal alignment of the text within the <code>textBox</code>.
+     * Sets the horizontal alignment of the text within the {@code textBox}.
      * You must call {@link #getLines()} to apply this change.
      * 
      * @param hAlign The horizontal alignment to apply to the text.
@@ -348,7 +348,7 @@ public class StringContainer {
     }
     
     /**
-     * Sets the vertical alignment of the text within the <code>textBox</code>.
+     * Sets the vertical alignment of the text within the {@code textBox}.
      * You must call {@link #getLines()} to apply this change.
      * 
      * @param vAlign The vertical alignment to apply to the text.
@@ -370,23 +370,23 @@ public class StringContainer {
     
     /**
      * Gets the method by which the text should be wrapped according to the
-     * <code>textBox</code> constraints. <code>WrapMode.NoWrap</code> will
-     * display the text as is. <code>WrapMode.Char</code> will wrap each
-     * line to the next line when said line is wider than the <code>textBox</code>
-     * width. <code>WrapMode.Word</code> performs the same action as
-     * <code>WrapMode.Char</code> except that the algorithm attempts to
-     * wrap the line between words. <code>WrapMode.Clip</code> will not
+     * {@code textBox} constraints. {@code WrapMode.NoWrap} will
+     * display the text as is. {@code WrapMode.Char} will wrap each
+     * line to the next line when said line is wider than the {@code textBox}
+     * width. {@code WrapMode.Word} performs the same action as
+     * {@code WrapMode.Char} except that the algorithm attempts to
+     * wrap the line between words. {@code WrapMode.Clip} will not
      * wrap the text at all, but instead cut off the first line where it
-     * is wider than the <code>textBox</code> width and add the <code>ellipsis</code>.
-     * <code>WrapMode.CharClip</code> performs the same action as
-     * <code>WrapMode.Char</code> except that the text will be cut off
-     * and the <code>ellipsis</code> added if and when the text lines
-     * grow larger than the <code>textBox</code>'s height value.
-     * <code>WrapMode.WordClip</code> performs the same action as
-     * <code>WrapMode.CharClip</code> except that the algorithm attempts
+     * is wider than the {@code textBox} width and add the {@code ellipsis}.
+     * {@code WrapMode.CharClip} performs the same action as
+     * {@code WrapMode.Char} except that the text will be cut off
+     * and the {@code ellipsis} added if and when the text lines
+     * grow larger than the {@code textBox}'s height value.
+     * {@code WrapMode.WordClip} performs the same action as
+     * {@code WrapMode.CharClip} except that the algorithm attempts
      * to break the lines between words.
      * 
-     * @return The <code>WrapMode</code> in use.
+     * @return The {@code WrapMode} in use.
      */
     public WrapMode getWrapMode() {
         return wrap;
@@ -394,24 +394,24 @@ public class StringContainer {
     
     /**
      * Sets the method by which the text should be wrapped according to the
-     * <code>textBox</code> constraints. <code>WrapMode.NoWrap</code> will
-     * display the text as is. <code>WrapMode.Char</code> will wrap each
-     * line to the next line when said line is wider than the <code>textBox</code>
-     * width. <code>WrapMode.Word</code> performs the same action as
-     * <code>WrapMode.Char</code> except that the algorithm attempts to
-     * wrap the line between words. <code>WrapMode.Clip</code> will not
+     * {@code textBox} constraints. {@code WrapMode.NoWrap} will
+     * display the text as is. {@code WrapMode.Char} will wrap each
+     * line to the next line when said line is wider than the {@code textBox}
+     * width. {@code WrapMode.Word} performs the same action as
+     * {@code WrapMode.Char} except that the algorithm attempts to
+     * wrap the line between words. {@code WrapMode.Clip} will not
      * wrap the text at all, but instead cut off the first line where it
-     * is wider than the <code>textBox</code> width and add the <code>ellipsis</code>.
-     * <code>WrapMode.CharClip</code> performs the same action as
-     * <code>WrapMode.Char</code> except that the text will be cut off
-     * and the <code>ellipsis</code> added if and when the text lines
-     * grow larger than the <code>textBox</code>'s height value.
-     * <code>WrapMode.WordClip</code> performs the same action as
-     * <code>WrapMode.CharClip</code> except that the algorithm attempts
+     * is wider than the {@code textBox} width and add the {@code ellipsis}.
+     * {@code WrapMode.CharClip} performs the same action as
+     * {@code WrapMode.Char} except that the text will be cut off
+     * and the {@code ellipsis} added if and when the text lines
+     * grow larger than the {@code textBox}'s height value.
+     * {@code WrapMode.WordClip} performs the same action as
+     * {@code WrapMode.CharClip} except that the algorithm attempts
      * to break the lines between words. You must call {@link #getLines()}
      * to apply the new value.
      * 
-     * @param wrapMode The <code>WrapMode</code> to use.
+     * @param wrapMode The {@code WrapMode} to use.
      */
     public void setWrapMode(WrapMode wrapMode) {
         wrap = wrapMode;
@@ -419,12 +419,12 @@ public class StringContainer {
     }
     
     /**
-     * Sets the <code>String</code> of characters to be shown at the end
+     * Sets the {@code String} of characters to be shown at the end
      * of a clipped line of text. If you don't want to display an ellipsis
-     * supply an empty <code>String</code>. You must call {@link #getLines()}
+     * supply an empty {@code String}. You must call {@link #getLines()}
      * to apply the new ellipsis. Default: "..."
      * 
-     * @param ellipsis The <code>String</code> of characters to be displayed
+     * @param ellipsis The {@code String} of characters to be displayed
      * at the end of a clipped line of text.
      */
     public void setElipsis(String ellipsis) {
@@ -434,7 +434,7 @@ public class StringContainer {
     
     /**
      * The {@link TrueTypeFont} used when formatting and displaying the text
-     * associated with this <code>StringContainer</code>.
+     * associated with this {@code StringContainer}.
      * 
      * @return The {@link TrueTypeFont}.
      * 
@@ -446,7 +446,7 @@ public class StringContainer {
     
     /**
      * Sets the {@link TrueTypeFont} to be used when formatting and displaying the
-     * text associated with this <code>StringContainer</code>. You must call
+     * text associated with this {@code StringContainer}. You must call
      * {@link #getLines()} to apply this change.
      * 
      * @param font The {@link TrueTypeFont} to set.
@@ -461,7 +461,7 @@ public class StringContainer {
     /**
      * Kerning is the amount of extra space between characters.
      * 
-     * @return The kerning value associated with this <code>StringContainer</code>.
+     * @return The kerning value associated with this {@code StringContainer}.
      */
     public int getKerning() {
         return kerning;
@@ -525,7 +525,7 @@ public class StringContainer {
     }
     
     /**
-     * Formats the text associated with this <code>StringContainer</code> according
+     * Formats the text associated with this {@code StringContainer} according
      * to the various formatting parameters.
      * 
      * @return An array containing arrays of {@link Glyph}s representing

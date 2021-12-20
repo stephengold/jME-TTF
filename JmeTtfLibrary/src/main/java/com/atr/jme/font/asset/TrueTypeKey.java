@@ -27,7 +27,7 @@ import com.jme3.export.OutputCapsule;
 import java.io.IOException;
 
 /**
- * Used by jMonkeyEngine's <code>AssetManager</code> to load a
+ * Used by jMonkeyEngine's {@code AssetManager} to load a
  * {@link com.atr.jme.font.TrueTypeFont}.
  * 
  * @author Adam T. Ryder

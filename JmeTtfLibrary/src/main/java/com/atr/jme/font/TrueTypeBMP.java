@@ -36,7 +36,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 /**
- * <p>An implementation of {@link TrueTypeFont} that renders fonts with a <code>Texture2D</code>
+ * <p>An implementation of {@link TrueTypeFont} that renders fonts with a {@code Texture2D}
  * texture atlas containing all the currently cached characters. This texture atlas is updated
  * in real-time as new characters are requested.</p>
  * 
@@ -118,9 +118,9 @@ public abstract class TrueTypeBMP<T extends GlyphBMP> extends TrueTypeFont<T, Tr
     }
     
     /**
-     * Removes a {@link AtlasListener} from this <code>TrueTypeFont</code>.
+     * Removes a {@link AtlasListener} from this {@code TrueTypeFont}.
      * 
-     * @param listener The <code>AtlasListener</code> you wish to remove.
+     * @param listener The {@code AtlasListener} you wish to remove.
      * @return True if the listener was removed, false if the listener was not found.
      */
     public boolean removeAtlasListener(final AtlasListener listener) {

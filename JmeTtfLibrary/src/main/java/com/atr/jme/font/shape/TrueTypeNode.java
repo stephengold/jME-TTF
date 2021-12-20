@@ -20,13 +20,13 @@ import com.jme3.material.Material;
 import com.jme3.scene.Node;
 
 /**
- * A <code>Node</code> that builds a <code>Mesh</code> to display text.
+ * A {@code Node} that builds a {@code Mesh} to display text.
  * 
  * For {@link com.atr.jme.font.TrueTypeBMP} fonts this will have one child
- * <code>Geometry</code>. For {@link com.atr.jme.font.TrueTypeMesh} fonts this will
+ * {@code Geometry}. For {@link com.atr.jme.font.TrueTypeMesh} fonts this will
  * have one or more children which will be the supplied text
  * split into multiple geometries should the vertex count exceed
- * <code>Short.MAX_VALUE</code>.
+ * {@code Short.MAX_VALUE}.
  * 
  * @author Adam T. Ryder
  * <a href="http://1337atr.weebly.com">http://1337atr.weebly.com</a>
@@ -45,7 +45,7 @@ public abstract class TrueTypeNode<T extends Glyph> extends Node {
     protected float height;
     
     /**
-     * Constructs a new instance of <code>TrueTypeNode</code> it is recommended
+     * Constructs a new instance of {@code TrueTypeNode} it is recommended
      * that you use
      * {@link com.atr.jme.font.TrueTypeFont#getText(java.lang.String, int, com.jme3.math.ColorRGBA, com.atr.jme.font.util.StringContainer.Align, com.atr.jme.font.util.StringContainer.VAlign)}
      * or associated methods to obtain an instance of this class.
@@ -178,7 +178,7 @@ public abstract class TrueTypeNode<T extends Glyph> extends Node {
     }
     
     /**
-     * Gets the glyphs currently displayed by this <code>TrueTypeNode</code>.
+     * Gets the glyphs currently displayed by this {@code TrueTypeNode}.
      * 
      * @return the pre-existing array
      */
@@ -196,7 +196,7 @@ public abstract class TrueTypeNode<T extends Glyph> extends Node {
     public abstract void setText(String Text);
     
     /**
-     * Gets the text displayed by this <code>TrueTypeNode</code>
+     * Gets the text displayed by this {@code TrueTypeNode}
      * 
      * @return the text
      */
@@ -219,7 +219,7 @@ public abstract class TrueTypeNode<T extends Glyph> extends Node {
     }
     
     /**
-     * Used to update the underlying <code>Mesh</code> after any parameters
+     * Used to update the underlying {@code Mesh} after any parameters
      * such as {@link #setText(java.lang.String)} have been changed.
      */
     public abstract void updateGeometry();

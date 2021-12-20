@@ -25,7 +25,7 @@ import com.atr.jme.font.util.Style;
 public class TrueTypeKeyMesh extends TrueTypeKey {
     
     /**
-     * Instantiates a new <code>TrueTypeKeyMesh</code> with a default
+     * Instantiates a new {@code TrueTypeKeyMesh} with a default
      * style of Plain, default point size of 12, screen density of
      * 72, and strong cache.
      * 
@@ -36,7 +36,7 @@ public class TrueTypeKeyMesh extends TrueTypeKey {
     }
     
     /**
-     * Instantiates a new <code>TrueTypeKeyMesh</code> with a default
+     * Instantiates a new {@code TrueTypeKeyMesh} with a default
      * style of Plain, screen density of 72, and strong cache.
      * 
      * @param name The path to the true type font asset.
@@ -47,7 +47,7 @@ public class TrueTypeKeyMesh extends TrueTypeKey {
     }
     
     /**
-     * Instantiates a new <code>TrueTypeKeyMesh</code> with a default 
+     * Instantiates a new {@code TrueTypeKeyMesh} with a default 
      * screen density of 72, and strong cache.
      * 
      * @param name The path to the true type font asset.
@@ -59,7 +59,7 @@ public class TrueTypeKeyMesh extends TrueTypeKey {
     }
     
     /**
-     * Instantiates a new <code>TrueTypeKeyMesh</code> with a default 
+     * Instantiates a new {@code TrueTypeKeyMesh} with a default 
      * screen density of 72, and strong cache.
      * 
      * @param name The path to the true type font asset.
@@ -72,7 +72,7 @@ public class TrueTypeKeyMesh extends TrueTypeKey {
     }
     
     /**
-     * Instantiates a new <code>TrueTypeKeyMesh</code>.
+     * Instantiates a new {@code TrueTypeKeyMesh}.
      * 
      * @param name The path to the true type font asset.
      * @param style The {@link Style} of the font.
@@ -91,7 +91,7 @@ public class TrueTypeKeyMesh extends TrueTypeKey {
     }
     
     /**
-     * Instantiates a new <code>TrueTypeKeyMesh</code>.
+     * Instantiates a new {@code TrueTypeKeyMesh}.
      * 
      * @param name The path to the true type font asset.
      * @param style The {@link Style} of the font.

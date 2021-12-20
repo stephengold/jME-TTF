@@ -19,14 +19,14 @@ import com.jme3.material.Material;
 import com.jme3.scene.Node;
 
 /**
- * A <code>Node</code> that builds a <code>Mesh</code> to display
+ * A {@code Node} that builds a {@code Mesh} to display
  * text constrained by parameters set via a {@link StringContainer}
  * 
  * For {@link com.atr.jme.font.TrueTypeBMP} fonts this will have one child
- * <code>Geometry</code>. For {@link com.atr.jme.font.TrueTypeMesh} fonts this will
+ * {@code Geometry}. For {@link com.atr.jme.font.TrueTypeMesh} fonts this will
  * have one or more children which will be the supplied text
  * split into multiple geometries should the vertex count exceed
- * <code>Short.MAX_VALUE</code>.
+ * {@code Short.MAX_VALUE}.
  * 
  * @author Adam T. Ryder
  * <a href="http://1337atr.weebly.com">http://1337atr.weebly.com</a>
@@ -38,7 +38,7 @@ public abstract class TrueTypeContainer extends Node {
     protected Material material;
     
     /**
-     * Constructs a new instance of <code>TrueTypecontainer</code> it is
+     * Constructs a new instance of {@code TrueTypecontainer} it is
      * recommended that you use {@link com.atr.jme.font.TrueTypeFont#getFormattedText(com.atr.jme.font.util.StringContainer, com.jme3.math.ColorRGBA)}
      * or {@link com.atr.jme.font.TrueTypeFont#getFormattedText(com.atr.jme.font.util.StringContainer, com.jme3.material.Material)}
      * to create an instance of this class.
@@ -78,18 +78,18 @@ public abstract class TrueTypeContainer extends Node {
     }
     
     /**
-     * The width of the <code>Rectangle</code> used to constrain this text.
+     * The width of the {@code Rectangle} used to constrain this text.
      * 
-     * @return The width of the <code>Rectangle</code> that constrains this text.
+     * @return The width of the {@code Rectangle} that constrains this text.
      */
     public float getWidth() {
         return stringContainer.getTextBox().width;
     }
     
     /**
-     * The height of the <code>Rectangle</code> used to constrain this text.
+     * The height of the {@code Rectangle} used to constrain this text.
      * 
-     * @return The height of the <code>Rectangle</code> that constrains this text.
+     * @return The height of the {@code Rectangle} that constrains this text.
      */
     public float getHeight() {
         return stringContainer.getTextBox().height;
@@ -102,9 +102,9 @@ public abstract class TrueTypeContainer extends Node {
     }
     
     /**
-     * The <code>Material</code> used to render this text.
+     * The {@code Material} used to render this text.
      * 
-     * @return The <code>Material</code> used to render this text.
+     * @return The {@code Material} used to render this text.
      */
     public Material getMaterial() {
         return material;
@@ -112,7 +112,7 @@ public abstract class TrueTypeContainer extends Node {
     
     /**
      * Get the {@link StringContainer} associated with this
-     * <code>TrueTypeContainer</code>.
+     * {@code TrueTypeContainer}.
      * 
      * @return The {@link StringContainer}
      * 
@@ -123,7 +123,7 @@ public abstract class TrueTypeContainer extends Node {
     }
     
     /**
-     * Sets the {@link StringContainer} for this <code>TrueTypeContainer</code>
+     * Sets the {@link StringContainer} for this {@code TrueTypeContainer}
      * and calls {@link #updateGeometry()}.
      * 
      * @param container The new {@link StringContainer}
@@ -148,19 +148,19 @@ public abstract class TrueTypeContainer extends Node {
     }
     
     /**
-     * Gets the text this <code>TrueTypeContainer</code> displays.
+     * Gets the text this {@code TrueTypeContainer} displays.
      * 
-     * @return The text displayed by this <code>TrueTypeContainer</code>
+     * @return The text displayed by this {@code TrueTypeContainer}
      */
     public String getText() {
         return stringContainer.getText();
     }
     
     /**
-     * Used to update the underlying <code>Mesh</code> after any parameters
+     * Used to update the underlying {@code Mesh} after any parameters
      * such as {@link #setText(java.lang.String)} or any of the settings
-     * for the <code>StringContainer</code> used by this
-     * <code>TrueTypeContainer</code> have been changed.
+     * for the {@code StringContainer} used by this
+     * {@code TrueTypeContainer} have been changed.
      */
     public abstract void updateGeometry();
 }

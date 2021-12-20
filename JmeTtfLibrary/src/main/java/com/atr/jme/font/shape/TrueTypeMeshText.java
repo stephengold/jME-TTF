@@ -50,7 +50,7 @@ public class TrueTypeMeshText extends TrueTypeNode<GlyphMesh> {
     /**
      * Configure whether the material used to render the text
      * should use shader based anti-aliasing. The material set
-     * on this <code>TrueTypeMeshText</code> must have a "useAA"
+     * on this {@code TrueTypeMeshText} must have a "useAA"
      * parameter.
      * 
      * @param aa True to use anti-aliasing otherwise false.

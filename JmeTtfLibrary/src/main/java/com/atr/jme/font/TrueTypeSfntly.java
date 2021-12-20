@@ -192,7 +192,7 @@ public class TrueTypeSfntly extends TrueTypeBMP<GlyphSfntly> {
     }
     
     /**
-     * Gets a <code>com.google.typography.font.sfntly.table.truetype.Glyph</code> from
+     * Gets a {@code com.google.typography.font.sfntly.table.truetype.Glyph} from
      * the truetype font file.
      * 
      * @param glyphID The ID of the requested glyph.

@@ -44,7 +44,7 @@ import java.util.List;
 
 /**
  * An implementation of {@link TrueTypeFont} that renders fonts by triangulating a
- * <code>Mesh</code> from the contours of each glyph.
+ * {@code Mesh} from the contours of each glyph.
  * 
  * @author Adam T. Ryder
  * <a href="http://1337atr.weebly.com">http://1337atr.weebly.com</a>
@@ -141,7 +141,7 @@ public class TrueTypeMesh extends TrueTypeFont<GlyphMesh, TrueTypeMeshText> {
     }
     
     /**
-     * Configure whether text created with this <code>TrueTypeMesh</code>
+     * Configure whether text created with this {@code TrueTypeMesh}
      * will use shader based anti-aliasing. Note this only effects newly
      * created text, text that has already been created with this instance
      * will not be effected.
@@ -153,7 +153,7 @@ public class TrueTypeMesh extends TrueTypeFont<GlyphMesh, TrueTypeMeshText> {
     }
     
     /**
-     * Gets if this <code>TrueTypeMesh</code> activates shader based
+     * Gets if this {@code TrueTypeMesh} activates shader based
      * anti-aliasing on text.
      * 
      * @return true if it activates anti-aliasing, otherwise false
@@ -213,7 +213,7 @@ public class TrueTypeMesh extends TrueTypeFont<GlyphMesh, TrueTypeMeshText> {
     }
     
     /**
-     * Gets a <code>com.google.typography.font.sfntly.table.truetype.Glyph</code> from
+     * Gets a {@code com.google.typography.font.sfntly.table.truetype.Glyph} from
      * the truetype font file.
      * 
      * @param glyphID The ID of the requested glyph.

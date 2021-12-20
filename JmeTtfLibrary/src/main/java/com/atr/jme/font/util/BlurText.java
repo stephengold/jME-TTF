@@ -38,12 +38,12 @@ import java.nio.ByteBuffer;
  * A class that allows to blur text created with jME-TTF in
  * real-time. Text is supplied to this class using a
  * {@link com.atr.jme.font.util.StringContainer} and calling the
- * {@link #render()} method will produce a <code>Texture2D</code>
+ * {@link #render()} method will produce a {@code Texture2D}
  * that displays the supplied text with a gaussian blur applied.<br><br>
  * 
  * One will want to be sure to {@link #dispose()} this
- * <code>BlurText</code> when they are done with the rendered
- * <code>Texture2D</code> to ensure it is cleaned from memory
+ * {@code BlurText} when they are done with the rendered
+ * {@code Texture2D} to ensure it is cleaned from memory
  * in a timely manner. Moreover, one should use the
  * {@link #disposeLight()} method after calling {@link #render()}
  * to ensure that the secondary buffer/texture is removed from
@@ -92,7 +92,7 @@ public class BlurText {
     protected ColorRGBA color;
     
     /**
-     * Creates an instance of <code>BlurText</code> with a
+     * Creates an instance of {@code BlurText} with a
      * {@link com.atr.jme.font.util.StringContainer} that will be blurred
      * in one pass with a radius multiplier of one and alpha multiplier
      * of intensity amount.<br><br>
@@ -116,7 +116,7 @@ public class BlurText {
     }
     
     /**
-     * Creates an instance of <code>BlurText</code> with a
+     * Creates an instance of {@code BlurText} with a
      * {@link com.atr.jme.font.util.StringContainer} that will be blurred
      * over the supplied number of passes with a radius multiplier of
      * 1 and alpha multiplier of intensity amount.<br>
@@ -141,7 +141,7 @@ public class BlurText {
     }
     
     /**
-     * Creates an instance of <code>BlurText</code> with a
+     * Creates an instance of {@code BlurText} with a
      * {@link com.atr.jme.font.util.StringContainer} that will be blurred
      * over the supplied number of passes with a radius multiplier of
      * offset amount and alpha multiplier of intensity amount.<br>
@@ -189,13 +189,13 @@ public class BlurText {
     
     /**
      * Gets the offset of the {@link com.atr.jme.font.util.StringContainer} within
-     * the rendered <code>Texture2D</code> bounds. Typically if you were
+     * the rendered {@code Texture2D} bounds. Typically if you were
      * going to display that same {@link com.atr.jme.font.util.StringContainer}
-     * over top of the resultant image rendered on a <code>Quad</code> you
+     * over top of the resultant image rendered on a {@code Quad} you
      * would center your {@link com.atr.jme.font.shape.TrueTypeContainer} to
-     * <code>Quad.getLocalTranslation().x + BlurText.getTextOffset().x</code>
-     * and <code>Quad.getLocalTranslation().y + BlurText.getTextOffset().y
-     * + StringContainer.getTextBox().height</code>.
+     * {@code Quad.getLocalTranslation().x + BlurText.getTextOffset().x}
+     * and {@code Quad.getLocalTranslation().y + BlurText.getTextOffset().y
+     * + StringContainer.getTextBox().height}.
      * 
      * @return a new vector
      */
@@ -206,7 +206,7 @@ public class BlurText {
     
     /**
      * Sets the number of gaussian blur passes. When rendering this
-     * <code>BlurText</code> a gaussian blur will be applied this
+     * {@code BlurText} a gaussian blur will be applied this
      * many times. Each pass will extend the blur radius so increase
      * this amount to obtain a blurrier result.
      * 
@@ -324,7 +324,7 @@ public class BlurText {
     }
     
     /**
-     * Returns true if this <code>BlurText</code> has been disposed of
+     * Returns true if this {@code BlurText} has been disposed of
      * using {@link #dispose()} otherwise false.
      * 
      * @return true if disposed, otherwise false
@@ -372,7 +372,7 @@ public class BlurText {
     /**
      * Renders the blurred text.
      * 
-     * @return A <code>Texture2D</code> which displays the blurred text.
+     * @return A {@code Texture2D} which displays the blurred text.
      */
     public Texture2D render() {
         if (containerW != sc.getTextBox().width

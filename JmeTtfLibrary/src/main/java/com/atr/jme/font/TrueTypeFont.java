@@ -30,7 +30,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * <p>The <code>TrueTypeFont</code> class encapsulates variables and methods used to
+ * <p>The {@code TrueTypeFont} class encapsulates variables and methods used to
  * create and display text created from a True Type Font(.ttf) file.</p>
  * 
  * @author Adam T. Ryder
@@ -140,7 +140,7 @@ public abstract class TrueTypeFont<T extends Glyph, S extends TrueTypeNode> {
      * the list of invalids is encountered the default character will be
      * used instead.
      * 
-     * @param text A <code>String</code> containing all the characters to be
+     * @param text A {@code String} containing all the characters to be
      * invalidated.
      * 
      * @see #setDefaultCharacter(java.lang.String) 
@@ -160,11 +160,11 @@ public abstract class TrueTypeFont<T extends Glyph, S extends TrueTypeNode> {
      * Bitmap texts tend not to look wonderful in smaller point sizes. To
      * remedy this use a larger point size, 26pt for example, and then use
      * this method to scale that back down to a smaller point size, such as
-     * 14pt. For example <code>setScale(14f / 26f)</code>.
+     * 14pt. For example {@code setScale(14f / 26f)}.
      * 
      * This will affect not only the scale of geometries returned by methods
-     * of this <code>TrueTypeFont</code>, but also results returned by methods
-     * such as <code>getLineWidth(String text)</code>.
+     * of this {@code TrueTypeFont}, but also results returned by methods
+     * such as {@code getLineWidth(String text)}.
      * 
      * @param scale The scale to modify geometries and calculations by.
      */
@@ -173,7 +173,7 @@ public abstract class TrueTypeFont<T extends Glyph, S extends TrueTypeNode> {
     }
     
     /**
-     * The scale used by this <code>TrueTypeFont</code> to modify
+     * The scale used by this {@code TrueTypeFont} to modify
      * Geometry sizes and calculations.
      * 
      * @return the scale factor
@@ -330,8 +330,8 @@ public abstract class TrueTypeFont<T extends Glyph, S extends TrueTypeNode> {
      * to be rendered along with associated formatting.
      * @param color The desired color of the text.
      * @return A {@link TrueTypeContainer} with the formatted text ready for
-     * rendering. The <code>TrueTypeContainer</code> will be located at the
-     * <code>StringContainer</code>s <code>textBox</code> x and y values.
+     * rendering. The {@code TrueTypeContainer} will be located at the
+     * {@code StringContainer}'s {@code textBox} x and y values.
      * 
      * @see TrueTypeContainer
      * @see StringContainer
@@ -345,10 +345,10 @@ public abstract class TrueTypeFont<T extends Glyph, S extends TrueTypeNode> {
      * 
      * @param stringContainer An {@link StringContainer} containing the text
      * to be rendered along with associated formatting.
-     * @param material A <code>Material</code> to render the text with.
+     * @param material A {@code Material} to render the text with.
      * @return A {@link TrueTypeContainer} with the formatted text ready for
-     * rendering. The <code>TrueTypeContainer</code> will be located at the
-     * <code>StringContainer</code>s <code>textBox</code> x and y values.
+     * rendering. The {@code TrueTypeContainer} will be located at the
+     * {@code StringContainer}'s {@code textBox} x and y values.
      * 
      * @see TrueTypeContainer
      * @see StringContainer
@@ -359,13 +359,13 @@ public abstract class TrueTypeFont<T extends Glyph, S extends TrueTypeNode> {
     
     /**
      * Gets an array of {@link Glyph}s representing the characters in
-     * the supplied <code>String</code>. Characters not already in the cache
+     * the supplied {@code String}. Characters not already in the cache
      * will be added. NO LINE BREAKS!!
      * 
-     * @param text A <code>String</code> containing the characters you wish to
+     * @param text A {@code String} containing the characters you wish to
      * retrieve.
-     * @return An array of <code>Glyph</code>s representing the characters
-     * in the supplied <code>String</code>
+     * @return An array of {@code Glyph}s representing the characters
+     * in the supplied {@code String}
      * 
      * @see Glyph
      * @see #getGlyphs(java.lang.StringBuilder) 
@@ -378,13 +378,13 @@ public abstract class TrueTypeFont<T extends Glyph, S extends TrueTypeNode> {
     
     /**
      * Gets an array of {@link Glyph}s representing the characters in
-     * the supplied <code>String</code>. Characters not already in the cache
+     * the supplied {@code String}. Characters not already in the cache
      * will be added. NO LINE BREAKS!!
      * 
-     * @param text A <code>StringBuilder</code> containing the characters you wish to
+     * @param text A {@code StringBuilder} containing the characters you wish to
      * retrieve.
-     * @return An array of <code>Glyph</code>s representing the characters
-     * in the supplied <code>StringBuilder</code>
+     * @return An array of {@code Glyph}s representing the characters
+     * in the supplied {@code StringBuilder}
      * 
      * @see Glyph
      * @see #getGlyphs(java.lang.String) 
@@ -405,7 +405,7 @@ public abstract class TrueTypeFont<T extends Glyph, S extends TrueTypeNode> {
      * For internal use only. Creates {@link Glyph}s that are not already cached
      * and adds them to the cache.
      * 
-     * @param characters A <code>List</code> of {@link TrueTypeFont.CharToCreate}
+     * @param characters A {@code List} of {@link TrueTypeFont.CharToCreate}
      * containing the characters to be created and added to the cache. This
      * list may contain doubles.
      * 
@@ -419,9 +419,9 @@ public abstract class TrueTypeFont<T extends Glyph, S extends TrueTypeNode> {
      * Use this method to obtain the line width of text created with one of the
      * bitmap text methods. NO LINE BREAKS!!
      * 
-     * @param text A <code>String</code> containing the text to calculate.
+     * @param text A {@code String} containing the text to calculate.
      * @param kerning Additional spacing between characters in pixels.
-     * @return The width of the supplied <code>String</code> in pixels.
+     * @return The width of the supplied {@code String} in pixels.
      * 
      * @see #getLineWidth(java.lang.StringBuilder, int) 
      */
@@ -435,9 +435,9 @@ public abstract class TrueTypeFont<T extends Glyph, S extends TrueTypeNode> {
      * Use this method to obtain the line width of text created with one of the
      * bitmap text methods. NO LINE BREAKS!!
      * 
-     * @param text A <code>StringBuilder</code> containing the text to calculate.
+     * @param text A {@code StringBuilder} containing the text to calculate.
      * @param kerning Additional spacing between characters in pixels.
-     * @return The width of the supplied <code>StringBuilder</code>s in pixels.
+     * @return The width of the supplied {@code StringBuilder}s in pixels.
      * 
      * @see #getLineWidth(java.lang.String, int) 
      */
@@ -449,9 +449,9 @@ public abstract class TrueTypeFont<T extends Glyph, S extends TrueTypeNode> {
      * Get the width of one line of text in pixels.Use this method to obtain
      * the line width of text created with one of the bitmap text methods.
      * 
-     * @param glyphs An array of <code>TrueTypeBitmapGlyph</code>s.
+     * @param glyphs An array of {@code TrueTypeBitmapGlyph}s.
      * @param kerning Additional spacing between characters in pixels.
-     * @return The width of the supplied <code>TrueTypeBitmapGlyph</code>s in pixels.
+     * @return The width of the supplied {@code TrueTypeBitmapGlyph}s in pixels.
      * 
      * @see #getLineWidth(java.lang.String, int) 
      * @see #getLineWidth(java.lang.StringBuilder, int) 
@@ -568,7 +568,7 @@ public abstract class TrueTypeFont<T extends Glyph, S extends TrueTypeNode> {
     
     /**
      * The number of pixels above the baseline that a character
-     * can extend scaled by the <code>TrueTypeFont</code>s scale value.
+     * can extend scaled by the {@code TrueTypeFont}'s scale value.
      * Note some characters may extend greater than this amount.
      * 
      * @return the scaled distance (in pixels)
@@ -589,7 +589,7 @@ public abstract class TrueTypeFont<T extends Glyph, S extends TrueTypeNode> {
     
     /**
      * The number of pixels below the baseline that a character
-     * can extend scaled by the <code>TrueTypeFont</code>s scale value.
+     * can extend scaled by the {@code TrueTypeFont}'s scale value.
      * Note some characters may extend greater than this amount.
      * 
      * @return the scaled distance (in pixels)

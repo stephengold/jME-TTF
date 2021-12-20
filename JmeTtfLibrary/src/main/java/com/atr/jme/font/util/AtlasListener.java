@@ -19,8 +19,8 @@ import com.jme3.asset.AssetManager;
 
 /**
  * A callback used to listen for changes in the font's texture atlas. Whenever the
- * texture atlas is modified the <code>mod</code> method will be called on all
- * <code>TTF_AtlasListener</code>s attached to the <code>TrueTypeFont</code>.
+ * texture atlas is modified the {@code mod} method will be called on all
+ * {@code TTF_AtlasListener}s attached to the {@code TrueTypeFont}.
  * 
  * @see TrueTypeBMP#addAtlasListener(com.atr.jme.font.util.AtlasListener) 
  * 

@@ -32,7 +32,7 @@ public class TrueTypeKeyBMP extends TrueTypeKey {
     private int maxAtlasResolution = 2048;
     private boolean fixedResolution = false;
     /**
-     * Instantiates a new <code>TrueTypeKeyBMP</code> with a default style
+     * Instantiates a new {@code TrueTypeKeyBMP} with a default style
      * of Plain, no outline, a default screen density of 72 and default
      * strong cache.
      * 
@@ -44,7 +44,7 @@ public class TrueTypeKeyBMP extends TrueTypeKey {
     }
     
     /**
-     * Instantiates a new <code>TrueTypeKeyBMP</code> with no outline,
+     * Instantiates a new {@code TrueTypeKeyBMP} with no outline,
      * a default screen density of 72 and default strong cache.
      * 
      * @param name The path to the true type font asset.
@@ -56,7 +56,7 @@ public class TrueTypeKeyBMP extends TrueTypeKey {
     }
     
     /**
-     * Instantiates a new <code>TrueTypeKeyBMP</code> with no outline,
+     * Instantiates a new {@code TrueTypeKeyBMP} with no outline,
      * a default screen density of 72 and default strong cache.
      * 
      * @param name The path to the true type font asset.
@@ -69,7 +69,7 @@ public class TrueTypeKeyBMP extends TrueTypeKey {
     }
     
     /**
-     * Instantiates a new <code>TrueTypeKeyBMP</code> with no outline,
+     * Instantiates a new {@code TrueTypeKeyBMP} with no outline,
      * a default screen density of 72 and default strong cache.
      * 
      * @param name The path to the true type font asset.
@@ -84,7 +84,7 @@ public class TrueTypeKeyBMP extends TrueTypeKey {
     }
     
     /**
-     * Instantiates a new <code>TrueTypeKeyBMP</code> with a default
+     * Instantiates a new {@code TrueTypeKeyBMP} with a default
      * screen density of 72 and default strong cache.
      * 
      * @param name The path to the true type font asset.
@@ -97,7 +97,7 @@ public class TrueTypeKeyBMP extends TrueTypeKey {
     }
     
     /**
-     * Instantiates a new <code>TrueTypeKeyBMP</code> with a default
+     * Instantiates a new {@code TrueTypeKeyBMP} with a default
      * screen density of 72 and default strong cache.
      * 
      * @param name The path to the true type font asset.
@@ -111,7 +111,7 @@ public class TrueTypeKeyBMP extends TrueTypeKey {
     }
     
     /**
-     * Instantiates a new <code>TrueTypeKeyBMP</code> with a default
+     * Instantiates a new {@code TrueTypeKeyBMP} with a default
      * screen density of 72 and default strong cache.
      * 
      * @param name The path to the true type font asset.
@@ -127,7 +127,7 @@ public class TrueTypeKeyBMP extends TrueTypeKey {
     }
     
     /**
-     * Instantiates a new <code>TrueTypeKeyBMP</code>.
+     * Instantiates a new {@code TrueTypeKeyBMP}.
      * 
      * @param name The path to the true type font asset.
      * @param style The {@link Style} of the font.
@@ -148,7 +148,7 @@ public class TrueTypeKeyBMP extends TrueTypeKey {
     }
     
     /**
-     * Instantiates a new <code>TrueTypeKeyBMP</code>.
+     * Instantiates a new {@code TrueTypeKeyBMP}.
      * 
      * @param name The path to the true type font asset.
      * @param style The {@link Style} of the font.
@@ -170,7 +170,7 @@ public class TrueTypeKeyBMP extends TrueTypeKey {
     }
     
     /**
-     * Instantiates a new <code>TrueTypeKeyBMP</code>.
+     * Instantiates a new {@code TrueTypeKeyBMP}.
      * 
      * @param name The path to the true type font asset.
      * @param style The {@link Style} of the font.
@@ -194,7 +194,7 @@ public class TrueTypeKeyBMP extends TrueTypeKey {
     }
     
     /**
-     * Instantiates a new <code>TrueTypeKeyBMP</code>.
+     * Instantiates a new {@code TrueTypeKeyBMP}.
      * 
      * @param name The path to the true type font asset.
      * @param style The {@link Style} of the font.
