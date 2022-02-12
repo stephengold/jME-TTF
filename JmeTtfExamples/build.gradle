@@ -6,8 +6,6 @@ plugins {
     id 'application'
 }
 
-description = 'examples and non-automated tests'
-
 mainClassName = 'com.atr.jme.font.example.TestAtlasResize'
 if (!hasProperty('mainClass')) {
     ext.mainClass = mainClassName
