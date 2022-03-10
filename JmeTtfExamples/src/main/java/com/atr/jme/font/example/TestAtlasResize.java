@@ -33,6 +33,16 @@ public class TestAtlasResize extends SimpleApplication {
 
     public static void main(String[] args) {
         TestAtlasResize app = new TestAtlasResize();
+
+        boolean showSettingsDialog = false;
+        for (String arg : args) {
+            switch (arg) {
+                case "--showSettingsDialog":
+                    showSettingsDialog = true;
+                    break;
+            }
+        }
+        app.setShowSettings(showSettingsDialog);
         app.start();
     }
 
