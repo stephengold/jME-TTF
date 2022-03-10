@@ -12,11 +12,6 @@ if (!hasProperty('mainClass')) {
 }
 jar.manifest.attributes('Main-Class': mainClassName)
 
-tasks.withType(JavaExec) { // Java runtime options:
-    classpath sourceSets.main.runtimeClasspath
-    enableAssertions true
-}
-
 dependencies {
     runtimeOnly 'org.jmonkeyengine:jme3-lwjgl3:' + jme3Version
 
@@ -36,6 +31,19 @@ dependencies {
     implementation project(':JmeTtfLibrary')
 }
 
+import org.gradle.nativeplatform.platform.internal.DefaultNativePlatform;
+Boolean isMacOS = DefaultNativePlatform.currentOperatingSystem.isMacOsX();
+
+tasks.withType(JavaExec) { // Java runtime options:
+    if (isMacOS) {
+        jvmArgs '-XstartOnFirstThread'
+    } else {
+        args '--showSettingsDialog'
+    }
+    classpath sourceSets.main.runtimeClasspath
+    enableAssertions true
+}
+
 // cleanup tasks
 
 clean.dependsOn('cleanDLLs', 'cleanDyLibs', 'cleanSOs')
@@ -50,7 +58,7 @@ task cleanSOs(type: Delete) { // extracted Linux and Android native libraries
     delete fileTree(dir: '.', include: '*.so')
 }
 
-// tasks to run the sample apps:
+// tasks to run the example apps:
 
 task runAtlasResize(type: JavaExec) {
     mainClass = 'com.atr.jme.font.example.TestAtlasResize'
