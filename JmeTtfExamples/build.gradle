@@ -37,28 +37,28 @@ tasks.withType(JavaExec) { // Java runtime options:
     enableAssertions true
 }
 
-// cleanup tasks
+// cleanup tasks:
 
 clean.dependsOn('cleanDLLs', 'cleanDyLibs', 'cleanSOs')
 
-task cleanDLLs(type: Delete) { // extracted Windows native libraries
+tasks.register('cleanDLLs', Delete) { // extracted Windows native libraries
     delete fileTree(dir: '.', include: '*.dll')
 }
-task cleanDyLibs(type: Delete) { // extracted macOSX native libraries
+tasks.register('cleanDyLibs', Delete) { // extracted macOS native libraries
     delete fileTree(dir: '.', include: '*.dylib')
 }
-task cleanSOs(type: Delete) { // extracted Linux and Android native libraries
+tasks.register('cleanSOs', Delete) { // extracted Linux and Android native libraries
     delete fileTree(dir: '.', include: '*.so')
 }
 
 // tasks to run the example apps:
 
-task runAtlasResize(type: JavaExec) {
+tasks.register('runAtlasResize', JavaExec) {
     mainClass = 'com.atr.jme.font.example.TestAtlasResize'
 }
-task runTrueTypeBMP(type: JavaExec) {
+tasks.register('runTrueTypeBMP', JavaExec) {
     mainClass = 'com.atr.jme.font.example.TestTrueTypeBMP'
 }
-task runTrueTypeMesh(type: JavaExec) {
+tasks.register('runTrueTypeMesh', JavaExec) {
     mainClass = 'com.atr.jme.font.example.TestTrueTypeMesh'
 }
