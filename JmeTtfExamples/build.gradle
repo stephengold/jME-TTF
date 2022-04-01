@@ -24,8 +24,8 @@ dependencies {
     implementation project(':JmeTtfLibrary')
 }
 
-import org.gradle.nativeplatform.platform.internal.DefaultNativePlatform;
-Boolean isMacOS = DefaultNativePlatform.currentOperatingSystem.isMacOsX();
+import org.gradle.nativeplatform.platform.internal.DefaultNativePlatform
+Boolean isMacOS = DefaultNativePlatform.currentOperatingSystem.isMacOsX()
 
 tasks.withType(JavaExec) { // Java runtime options:
     if (isMacOS) {
