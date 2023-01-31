@@ -12,7 +12,7 @@ ext {
     group = 'com.github.stephengold'
     artifact = 'jme-ttf'
     version = jmeTtfVersion
-    baseName = "${artifact}-${version}"
+    baseName = "${artifact}-${version}" // for artifacts
     websiteUrl = 'https://github.com/stephengold/jME-TTF'
 }
 
@@ -35,7 +35,7 @@ javadoc {
     }
 }
 
-// publishing tasks
+// publishing tasks:
 
 tasks.register('install') {
     dependsOn 'publishMavenPublicationToMavenLocal'
