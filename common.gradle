@@ -4,7 +4,7 @@ apply plugin: 'java'
 
 ext { // current versions of libraries:
     jme3Version = '3.6.0-stable'
-    jmeTtfVersion = '2.2.5-SNAPSHOT'
+    jmeTtfVersion = '3.0.0'
 }
 
 sourceCompatibility = JavaVersion.VERSION_1_7
@@ -25,7 +25,7 @@ tasks.withType(JavaCompile) { // Java compile-time options:
 }
 
 configurations.all {
-   resolutionStrategy.cacheChangingModulesFor 0, 'seconds' // to disable caching of SNAPSHOTs
+    resolutionStrategy.cacheChangingModulesFor 0, 'seconds' // to disable caching of SNAPSHOTs
 }
 repositories {
     //mavenLocal() // to find local SNAPSHOTs of libraries

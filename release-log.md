@@ -1,5 +1,13 @@
 # Release log for the jME-TTF library
 
+## v3.0.0
+
++ Redefine the `TrueTypeKey` class to avoid raw use
+  of JME's parameterized `AssetKey` class. (API change)
++ Rename the `getIntenisty()` method in the `BlurText` class. (API change)
++ Split off 2 sub-projects: JmeTtfExamples and JmeTtfLibrary.
++ Upgrade JME to v3.6.0-stable.
+
 ## v2.2.4
 
 Upgrade JME to v3.4.0-stable.
