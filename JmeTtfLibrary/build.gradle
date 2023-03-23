@@ -105,7 +105,7 @@ publishing {
             from components.java
             groupId project.ext.group
             pom {
-                description = project.description
+                description = 'A TrueType font rendering subsystem for jMonkeyEngine.'
                 developers {
                     developer {
                         email = 'tryder@protonmail.com'
