@@ -2,7 +2,8 @@
 
 apply plugin: 'java'
 
-ext { // current versions of libraries:
+ext {
+    // current versions of libraries:
     jme3Version = '3.6.0-stable'
     jmeTtfVersion = '3.0.1-SNAPSHOT'
 }
