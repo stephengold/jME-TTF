@@ -2,12 +2,6 @@
 
 apply plugin: 'java'
 
-ext {
-    // current versions of libraries:
-    jme3Version = '3.6.0-stable'
-    jmeTtfVersion = '3.0.1-SNAPSHOT'
-}
-
 sourceCompatibility = JavaVersion.VERSION_1_7
 targetCompatibility = JavaVersion.VERSION_1_8
 

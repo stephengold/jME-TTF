@@ -4,6 +4,12 @@ plugins {
     id 'base' // to add a "clean" task to the root project
 }
 
+ext {
+    // current versions of libraries:
+    jme3Version = '3.6.0-stable'
+    jmeTtfVersion = '3.0.1-SNAPSHOT'
+}
+
 subprojects {
     apply from: rootProject.file('common.gradle')
 }
