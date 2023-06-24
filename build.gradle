@@ -6,7 +6,7 @@ plugins {
 
 ext {
     // current versions of libraries:
-    jme3Version = '3.6.0-stable'
+    jme3Version = '3.6.1-stable'
     jmeTtfVersion = '3.0.1-SNAPSHOT'
 }
 
