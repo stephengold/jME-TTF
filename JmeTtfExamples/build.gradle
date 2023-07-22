@@ -6,11 +6,13 @@ plugins {
     id 'application'
 }
 
-mainClassName = 'com.atr.jme.font.example.TestAtlasResize'
-if (!hasProperty('mainClass')) {
-    ext.mainClass = mainClassName
+application {
+    mainClass = 'com.atr.jme.font.example.TestAtlasResize'
 }
-jar.manifest.attributes('Main-Class': mainClassName)
+if (!hasProperty('mainClass')) {
+    ext.mainClass = application.mainClass
+}
+jar.manifest.attributes('Main-Class': application.mainClass)
 
 dependencies {
     runtimeOnly 'org.jmonkeyengine:jme3-desktop:' + jme3Version
