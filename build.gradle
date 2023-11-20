@@ -14,7 +14,7 @@ subprojects {
     apply from: rootProject.file('common.gradle')
 }
 
-// publishing tasks:
+// Register publishing tasks:
 
 tasks.register('install') {
     dependsOn ':JmeTtfLibrary:install'
