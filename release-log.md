@@ -1,12 +1,18 @@
 # Release log for the jME-TTF library
 
+## v3.0.1
+
++ Bugfix:  material definitions lack support for GLSL versions > 100
++ Delete carriage-return characters from text files.
++ Upgrade JMonkeyEngine to v3.6.1-stable.
+
 ## v3.0.0
 
 + Redefine the `TrueTypeKey` class to avoid raw use
   of JME's parameterized `AssetKey` class. (API change)
 + Rename the `getIntenisty()` method in the `BlurText` class. (API change)
-+ Split off 2 sub-projects: JmeTtfExamples and JmeTtfLibrary.
-+ Upgrade JME to v3.6.0-stable.
++ Split off 2 sub-projects:  JmeTtfExamples and JmeTtfLibrary.
++ Upgrade JMonkeyEngine to v3.6.0-stable.
 
 ## v2.2.4
 
