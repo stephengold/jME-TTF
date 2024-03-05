@@ -5,8 +5,8 @@ MaterialDef Simple {
         Boolean VertexColor (UseVertexColor)
     }
     Technique {
-        VertexShader GLSL100: Common/MatDefs/TTF/TTF_Vert.vert
-        FragmentShader GLSL100: Common/MatDefs/TTF/TTF_Frag.frag
+        VertexShader GLSL310 GLSL300 GLSL150 GLSL100: Common/MatDefs/TTF/TTF_Vert.vert
+        FragmentShader GLSL310 GLSL300 GLSL150 GLSL100: Common/MatDefs/TTF/TTF_Frag.frag
         
         WorldParameters {
             WorldViewProjectionMatrix

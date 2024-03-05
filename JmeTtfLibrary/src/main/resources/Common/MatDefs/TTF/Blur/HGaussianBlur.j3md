@@ -7,8 +7,8 @@ MaterialDef HGaussianBlur {
     }
 
     Technique {
-        VertexShader GLSL100:   Common/MatDefs/Post/Post.vert
-        FragmentShader GLSL100: Common/MatDefs/TTF/Blur/HGaussianBlur.frag
+        VertexShader GLSL310 GLSL300 GLSL150 GLSL100:   Common/MatDefs/Post/Post.vert
+        FragmentShader GLSL310 GLSL300 GLSL150 GLSL100: Common/MatDefs/TTF/Blur/HGaussianBlur.frag
 
         WorldParameters {
             WorldViewProjectionMatrix
