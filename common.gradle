@@ -1,6 +1,6 @@
-// Gradle settings and tasks common to all jme-ttf subprojects
+// Gradle settings and tasks common to all jME-TTF subprojects
 
-apply plugin: 'java'
+apply plugin: 'java' // to compile and test Java projects
 
 java {
     sourceCompatibility = JavaVersion.VERSION_1_7
