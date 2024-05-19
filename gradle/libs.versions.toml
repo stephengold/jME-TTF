@@ -1,0 +1,20 @@
+## TOML version catalog for the jME-TTF project
+
+[versions]
+
+jme = "3.7.0-beta1"
+
+[libraries]
+
+android = "com.google.android:android:4.1.1.4"
+jme3-android = { module = "org.jmonkeyengine:jme3-android", version.ref = "jme" }
+jme3-core = { module = "org.jmonkeyengine:jme3-core", version.ref = "jme" }
+jme3-desktop = { module = "org.jmonkeyengine:jme3-desktop", version.ref = "jme" }
+jme3-jogg = { module = "org.jmonkeyengine:jme3-jogg", version.ref = "jme" }
+jme3-lwjgl3 = { module = "org.jmonkeyengine:jme3-lwjgl3", version.ref = "jme" }
+jme3-plugins = { module = "org.jmonkeyengine:jme3-plugins", version.ref = "jme" }
+sfntly = "com.jaredrummler:sfntly:1.0.1"
+
+[bundles]
+
+[plugins]

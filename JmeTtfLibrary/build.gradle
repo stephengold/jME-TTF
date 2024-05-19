@@ -19,15 +19,15 @@ ext {
 }
 
 dependencies {
-    api 'org.jmonkeyengine:jme3-core:' + jme3Version
-    api 'com.jaredrummler:sfntly:1.0.1'
+    api(libs.jme3.core)
+    api(libs.sfntly)
 
     // provided when running on Desktop
-    compileOnly 'org.jmonkeyengine:jme3-desktop:' + jme3Version
+    compileOnly(libs.jme3.desktop)
 
     // provided when running on Android
-    compileOnly 'org.jmonkeyengine:jme3-android:' + jme3Version
-    compileOnly 'com.google.android:android:4.1.1.4'
+    compileOnly(libs.jme3.android)
+    compileOnly(libs.android)
 }
 
 javadoc {

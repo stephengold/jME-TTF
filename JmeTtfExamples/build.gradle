@@ -17,13 +17,13 @@ if (!hasProperty('mainClass')) {
 jar.manifest.attributes('Main-Class': application.mainClass)
 
 dependencies {
-    runtimeOnly 'org.jmonkeyengine:jme3-desktop:' + jme3Version
-    runtimeOnly 'org.jmonkeyengine:jme3-lwjgl3:' + jme3Version
+    runtimeOnly(libs.jme3.desktop)
+    runtimeOnly(libs.jme3.lwjgl3)
 
     // JmeTtfExamples doesn't use jme3-jogg nor jme3-plugins
     //  -- they are included solely to avoid warnings from AssetConfig.
-    runtimeOnly 'org.jmonkeyengine:jme3-jogg:' + jme3Version
-    runtimeOnly 'org.jmonkeyengine:jme3-plugins:' + jme3Version
+    runtimeOnly(libs.jme3.jogg)
+    runtimeOnly(libs.jme3.plugins)
 
     //implementation 'com.github.stephengold:jme-ttf:' + jmeTtfVersion // for published library
     implementation project(':JmeTtfLibrary') // for latest sourcecode
