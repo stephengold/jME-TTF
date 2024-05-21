@@ -1,6 +1,4 @@
-/*
- * settings.gradle: global settings shared by all jme-ttf subprojects
- */
+// global build settings for the jME-TTF project
 
 dependencyResolutionManagement {
     repositories {
@@ -16,7 +14,7 @@ rootProject.name = 'jme-ttf'
 /*
  * Enumerate subdirectories in the project's root directory that contain a
  * "build.gradle" file. Any subdirectory that contains a "build.gradle" file is
- * automatically a subproject of this project.
+ * automatically included as a subproject.
  */
 def subDirs = rootDir.listFiles(
     new FileFilter() {

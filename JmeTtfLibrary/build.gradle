@@ -1,4 +1,4 @@
-// Gradle script to build the jME-TTF/JmeTtfLibrary sub-project
+// Gradle script to build the JmeTtfLibrary subproject of jME-TTF
 
 // Note: "common.gradle" in the root project contains additional initialization
 //   for this project. This initialization is applied in the "build.gradle"
@@ -68,7 +68,7 @@ tasks.register('sourcesJar', Jar) {
     archiveBaseName = project.ext.baseName
     archiveClassifier = 'sources'
     description 'Creates a JAR of sourcecode.'
-    from sourceSets.main.allJava
+    from sourceSets.main.allJava // default is ".allSource", which includes resources
 }
 
 assemble.dependsOn('module', 'moduleAsc', 'pom', 'pomAsc')
