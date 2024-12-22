@@ -41,11 +41,11 @@ javadoc {
 
 tasks.register('install') {
     dependsOn 'publishMavenPublicationToMavenLocal'
-    description 'Installs Maven artifacts to the local repository.'
+    description = 'Installs Maven artifacts to the local repository.'
 }
 tasks.register('release') {
     dependsOn 'publishMavenPublicationToOSSRHRepository'
-    description 'Stages Maven artifacts to Sonatype OSSRH.'
+    description = 'Stages Maven artifacts to Sonatype OSSRH.'
 }
 
 jar {
