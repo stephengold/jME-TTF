@@ -42,6 +42,13 @@ tasks.withType(JavaExec).configureEach { // Java runtime options:
     enableAssertions = true
 }
 
+javadoc {
+    // Disable doclint for JDK15+ to avoid "no comment" warnings.
+    if (JavaVersion.current().isCompatibleWith(JavaVersion.VERSION_15)) {
+       options.addStringOption("Xdoclint:none", "-quiet")
+    }
+}
+
 // Register cleanup tasks:
 
 clean.dependsOn('cleanDLLs', 'cleanDyLibs', 'cleanSOs')
