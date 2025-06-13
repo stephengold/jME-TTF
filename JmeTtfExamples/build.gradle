@@ -1,4 +1,4 @@
-// Gradle script to build the JmeTtfExamples subproject of jME-TTF
+// Gradle script to build and run the JmeTtfExamples subproject of jME-TTF
 
 // Note: "common.gradle" in the root project contains additional initialization
 //   for this project. This initialization is applied in the "build.gradle"
@@ -21,12 +21,12 @@ dependencies {
     runtimeOnly(libs.jme3.lwjgl3)
 
     // JmeTtfExamples doesn't use jme3-jogg nor jme3-plugins
-    //  -- they are included solely to avoid warnings from AssetConfig.
+    //  -- they are included solely to avoid runtime warnings from AssetConfig:
     runtimeOnly(libs.jme3.jogg)
     runtimeOnly(libs.jme3.plugins)
 
     //implementation 'com.github.stephengold:jme-ttf:' + jmeTtfVersion // for published library
-    implementation project(':JmeTtfLibrary') // for latest sourcecode
+    implementation project(':JmeTtfLibrary') // for local library build
 }
 
 import org.gradle.nativeplatform.platform.internal.DefaultNativePlatform
