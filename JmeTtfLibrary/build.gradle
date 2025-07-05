@@ -41,7 +41,7 @@ javadoc {
 
 tasks.register('install') {
     dependsOn 'publishMavenPublicationToMavenLocal'
-    description = 'Installs Maven artifacts to the local repository.'
+    description = 'Installs the Maven artifacts to the local repository.'
 }
 tasks.register('release') {
     dependsOn 'publishMavenPublicationToCentralRepository'
@@ -51,7 +51,7 @@ tasks.register('release') {
 jar {
     archiveBaseName = project.ext.baseName
     doLast {
-        println "using Java ${JavaVersion.current()} (${System.getProperty("java.vendor")})"
+        println "built using Java ${JavaVersion.current()} (${System.getProperty("java.vendor")})"
     }
     manifest {
         attributes 'Created-By': "${JavaVersion.current()} (${System.getProperty("java.vendor")})"
@@ -67,7 +67,7 @@ tasks.register('javadocJar', Jar) {
 tasks.register('sourcesJar', Jar) {
     archiveBaseName = project.ext.baseName
     archiveClassifier = 'sources'
-    description = 'Creates a JAR of sourcecode.'
+    description = 'Creates a JAR of Java sourcecode.'
     from sourceSets.main.allJava // default is ".allSource", which includes resources
 }
 

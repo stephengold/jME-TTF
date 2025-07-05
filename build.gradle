@@ -16,7 +16,7 @@ subprojects {
 
 tasks.register('install') {
     dependsOn ':JmeTtfLibrary:install'
-    description = 'Installs Maven artifacts to the local repository.'
+    description = 'Installs the Maven artifacts to the local repository.'
 }
 tasks.register('release') {
     dependsOn ':JmeTtfLibrary:release'
