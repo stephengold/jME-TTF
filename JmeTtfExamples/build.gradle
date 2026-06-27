@@ -25,7 +25,7 @@ dependencies {
     runtimeOnly(libs.jme3.jogg)
     runtimeOnly(libs.jme3.plugins)
 
-    //implementation 'com.github.stephengold:jme-ttf:' + jmeTtfVersion // for published library
+    //implementation 'com.github.stephengold:jme-ttf:' + providers.gradleProperty('jmeTtfVersion').get() // for published library
     implementation project(':JmeTtfLibrary') // for local library build
 }
 
