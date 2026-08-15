@@ -51,7 +51,6 @@ import java.util.List;
  * @author Adam T. Ryder
  * <a href="http://1337atr.weebly.com">http://1337atr.weebly.com</a>
  * 
- * @see TrueTypeAWT
  * @see TrueTypeFont
  */
 public abstract class TrueTypeBMP<T extends GlyphBMP> extends TrueTypeFont<T, TrueTypeText> {
@@ -276,7 +275,6 @@ public abstract class TrueTypeBMP<T extends GlyphBMP> extends TrueTypeFont<T, Tr
      * This method is used to recalculate what the texture atlas' size should be
      * when it is eventually resized.
      * 
-     * @see TrueTypeAWT#createGlyphs(java.util.List) 
      * @see TrueTypeSfntly#createGlyphs(java.util.List)
      */
     protected void resizeAtlas() {
@@ -300,7 +298,6 @@ public abstract class TrueTypeBMP<T extends GlyphBMP> extends TrueTypeFont<T, Tr
      * For internal use only. This method is used to either create or re-create/re-size
      * the texture atlas.
      * 
-     * @see TrueTypeAWT#createGlyphs(java.util.List) 
      * @see TrueTypeSfntly#createGlyphs(java.util.List)
      */
     protected abstract void createAtlas();
@@ -309,7 +306,6 @@ public abstract class TrueTypeBMP<T extends GlyphBMP> extends TrueTypeFont<T, Tr
      * For internal use only. This method is used to either create or re-create/re-size
      * the texture atlas.
      * 
-     * @see TrueTypeAWT#createGlyphs(java.util.List) 
      * @see TrueTypeSfntly#createGlyphs(java.util.List)
      */
     protected abstract void createAtlasOutlined();
@@ -337,7 +333,6 @@ public abstract class TrueTypeBMP<T extends GlyphBMP> extends TrueTypeFont<T, Tr
      * A helper class used in determining a new characters position in the texture
      * atlas and if said character can fit on a particular line in that atlas.
      * 
-     * @see TrueTypeAWT#createGlyphs(java.util.List) 
      * @see TrueTypeSfntly#createGlyphs(java.util.List) 
      * @see TrueTypeBMP#resizeAtlas() 
      * 

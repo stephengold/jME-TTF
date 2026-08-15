@@ -22,7 +22,6 @@ import java.io.IOException;
 /**
  * Loads a {@link TrueTypeFont} from a .ttf file stored on disk. If this was
  * accessed with a {@link TrueTypeKeyBMP} a {@link com.atr.jme.font.TrueTypeSfntly} will be
- * returned if running on Android otherwise {@link com.atr.jme.font.TrueTypeAWT} will be
  * returned. If this was accessed with {@link TrueTypeKeyMesh} then
  * {@link com.atr.jme.font.TrueTypeMesh} will be returned.
  * 
@@ -38,11 +37,6 @@ public class TrueTypeLoader implements AssetLoader {
     public TrueTypeFont load(AssetInfo assetInfo) throws IOException {
         if (assetInfo.getKey() instanceof TrueTypeKeyMesh) {
             return new TrueTypeLoaderMesh().load(assetInfo);
-        }
-        
-        String vendor = System.getProperty("java.vendor.url");
-        if (vendor == null || !vendor.toLowerCase().contains("android")) {
-            return new TrueTypeLoaderAWT().load(assetInfo);
         }
         
         return new TrueTypeLoaderSfntly().load(assetInfo);
