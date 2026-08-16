@@ -1,5 +1,13 @@
 # Release log for the jME-TTF library
 
+## v4.0.0-test1
+
++ To build this project, JVM v17 or higher is now recommended.
++ Remove 3 AWT-dependent classes:
+  `GlyphAWT`, `TrueTypeAWT`, an `TrueTypeLoaderAWT`. (API change)
++ Update JMonkeyEngine to v3.10.0-beta1.
++ Publish releases via the Central Publisher Portal instead of OSSRH.
+
 ## v3.0.1
 
 + Bugfix:  material definitions lack support for GLSL versions > 100
