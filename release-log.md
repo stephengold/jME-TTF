@@ -2,10 +2,10 @@
 
 ## v4.0.0-test1
 
-+ To build this project, JVM v17 or higher is now recommended.
++ To build this project, Java v17 or higher is now required (due to Gradle).
 + Remove 3 AWT-dependent classes:
   `GlyphAWT`, `TrueTypeAWT`, an `TrueTypeLoaderAWT`. (API change)
-+ Update JMonkeyEngine to v3.10.0-beta1.
++ Update JMonkeyEngine to v3.10.0-beta2.
 + Publish releases via the Central Publisher Portal instead of OSSRH.
 
 ## v3.0.1
